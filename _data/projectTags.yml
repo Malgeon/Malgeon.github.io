@@ -1,8 +1,0 @@
-- name : web
-  url : Project/web
-
-- name : android
-  url : Project/android
-
-- name : ios
-  url : Project/ios
