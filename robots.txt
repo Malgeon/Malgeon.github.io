@@ -1,1 +1,1 @@
-Sitemap: /Malgeon/sitemap.xml
+Sitemap: /sitemap.xml
