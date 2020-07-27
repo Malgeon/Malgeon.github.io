@@ -1,0 +1,126 @@
+I"�
+<p>{% if page.url == “/index.html” or page.url == “/Study/index.html” or page.url == “/Project/index.html” %}
+    {% if page.title == “Main” %}
+<!-- Featured
+================================================== -->
+    &lt;section class="featured-posts"&gt;
+        &lt;div class="section-title"&gt;
+            &lt;h2&gt;<span>Featured</span>&lt;/h2&gt;
+        &lt;/div&gt;
+        &lt;div class="row listrecent"&gt;</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+</pre></td><td class="rouge-code"><pre>    {% for post in site.posts %}
+        {% if post.featured == true %}
+            {% include featuredbox.html %}
+        {% endif %}
+    {% endfor %}
+
+    &lt;/div&gt;
+&lt;/section&gt;
+{% elsif page.title == "Study" %} &lt;!-- CategoryFeatured ================================================== --&gt;
+&lt;section class="featured-posts"&gt;
+    &lt;div class="section-title"&gt;
+        &lt;h2&gt;&lt;span&gt;&lt;/span&gt;&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class="row listrecent"&gt;
+        
+    {% for post in site.posts %}
+        {% if post.featured == true and post.study%}
+            {% include categoryfeaturedbox.html %}
+        {% endif %}
+    {% endfor %}
+
+    &lt;/div&gt;
+&lt;/section&gt;
+{% else %} &lt;!-- CategoryFeatured ================================================== --&gt;
+&lt;section class="featured-posts"&gt;
+    &lt;div class="section-title"&gt;
+        &lt;h2&gt;&lt;span&gt;&lt;/span&gt;&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class="row listrecent"&gt;
+    {% for post in site.posts %}
+        {% if post.featured == true and post.project %}
+            {% include categoryfeaturedbox.html %}
+        {% endif %}
+    {% endfor %}
+
+    &lt;/div&gt;
+&lt;/section&gt;
+
+{% endif %}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>{% endif %}</p>
+
+<!-- Posts Index
+================================================== -->
+<section class="recent-posts">
+
+    <div class="section-title">
+        <h2><span>Posts</span></h2>
+    </div>
+
+
+    <div class="row listrecent post-list">
+
+        {% for post in paginator.posts %}
+
+            {% include postbox.html %}
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<p>{% if page.title != “Main” %}
+<!-- Pagination
+================================================== --></p>
+<div class="bottompagination">
+    <div class="pointerup"><i class="fa fa-caret-up"></i></div>
+    <span class="navigation" role="navigation">
+        {% include pagination.html %}
+    </span>
+    </div>
+<p>{% endif %}</p>
+
+:ET
