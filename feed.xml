@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Malgeon</title>
+    <title>Malg-eon</title>
     <description>공간</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 27 Jul 2020 11:38:50 +0000</pubDate>
-    <lastBuildDate>Mon, 27 Jul 2020 11:38:50 +0000</lastBuildDate>
+    <pubDate>Mon, 27 Jul 2020 13:25:37 +0000</pubDate>
+    <lastBuildDate>Mon, 27 Jul 2020 13:25:37 +0000</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -113,8 +113,8 @@ opacity: 0;
 
 </description>
         <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
-        <link>/study_FE_FadeOut/</link>
-        <guid isPermaLink="true">/study_FE_FadeOut/</guid>
+        <link>/feat_study_FE_FadeOut/</link>
+        <guid isPermaLink="true">/feat_study_FE_FadeOut/</guid>
         
         <category>Web</category>
         
@@ -178,8 +178,8 @@ opacity: 0;
   세션 : 서버에 저장&lt;/p&gt;
 </description>
         <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
-        <link>/study_FE_Cookie%EC%99%80Session/</link>
-        <guid isPermaLink="true">/study_FE_Cookie%EC%99%80Session/</guid>
+        <link>/study_FE_Cookie&Session/</link>
+        <guid isPermaLink="true">/study_FE_Cookie&Session/</guid>
         
         <category>C</category>
         

@@ -6,21 +6,22 @@
 
 <link rel="icon" href="/assets/images/logo.jpg">
 
-<title>쿠키와 세션 | Malgeon</title>
+<title>Spring : Container | Malg-eon</title>
 
 <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>쿠키와 세션 | Malgeon</title>
+<title>Spring : Container | Malg-eon</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="쿠키와 세션" />
-<meta name="author" content="study" />
+<meta property="og:title" content="Spring : Container" />
+<meta name="author" content="project" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="쿠키와 세션에 대하여" />
-<meta property="og:description" content="쿠키와 세션에 대하여" />
-<meta property="og:site_name" content="Malgeon" />
+<meta name="description" content="Spring의 동작원리를 이해해보자" />
+<meta property="og:description" content="Spring의 동작원리를 이해해보자" />
+<meta property="og:site_name" content="Malg-eon" />
+<meta property="og:image" content="/assets/images/project/java_spring.jpg" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-07-07T00:00:00+00:00" />
+<meta property="article:published_time" content="2020-06-09T00:00:00+00:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"study"},"headline":"쿠키와 세션","dateModified":"2020-07-07T00:00:00+00:00","description":"쿠키와 세션에 대하여","datePublished":"2020-07-07T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"/study_FE_Cookie%EC%99%80Session/"},"@type":"BlogPosting","url":"/study_FE_Cookie%EC%99%80Session/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"project"},"headline":"Spring : Container","dateModified":"2020-06-09T00:00:00+00:00","description":"Spring의 동작원리를 이해해보자","datePublished":"2020-06-09T00:00:00+00:00","image":"/assets/images/project/java_spring.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"/feat_study_BE_Spring-Container/"},"@type":"BlogPosting","url":"/feat_study_BE_Spring-Container/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"project"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -56,8 +57,8 @@
         <!-- Begin Logo -->
         <a class="navbar-brand my-order-1 my-order-md-3" href="/">
             <div class="mainlogo">
-                <!--<h1 class="sitetitle">Malgeon</h1>-->
-                <h2 class="sitetitle">Malgeon </h2>
+                <!--<h1 class="sitetitle">Malg-eon</h1>-->
+                <h2 class="sitetitle">Malg-eon </h2>
             </div>
         </a>
         <!-- End Logo -->
@@ -78,7 +79,7 @@
                     </li>
                     
                     
-                    <li class="nav-item active">
+                    <li class="nav-item">
                     
                         <a class="nav-link" href="/study">Study</a>
                     </li>
@@ -113,56 +114,37 @@
         <nav class="collectionHeader-nav u-clearfix js-collectionHeaderNav u-lineHeight40 u-overflowHiddenY">
             <div class="buttonSet u-middle u-noWrap u-overflowX u-paddingBottom100">
                 
-                         
+                    
                         <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
                          
                         
-                            
-                            
-                        
-                            <a class="link link--darker link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/Study/c">C</a>
-                        
-                        </li>
-                        
-                         
-                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
-                         
-                        
-                         
-                        
-                            
-                            
-                        
-                            <a class="link link--darker link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/Study/java">Java</a>
-                        
-                        </li>
-                        
-                         
-                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
-                         
-                        
-                         
                         
                         
-                        
-                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/Study/javascript">Javascript</a>
-                        
-                        </li>
-                        
-                         
-                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
-                         
-                        
-                         
-                        
-                        
-                        
-                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/Study/programming">Programming</a>
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/Project/web">web</a>
                         
                         </li>
                         
                     
-
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/Project/android">android</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/Project/ios">ios</a>
+                        
+                        </li>
+                        
+                    
                 
             </div>
             <!--
@@ -222,7 +204,7 @@
         <div class="col-md-2 pl-0 mpr">
             <div class="share sticky-top sticky-top-offset">
     <p class="share-title">
-        Malgeon
+        Malg-eon
     </p>
     <p class="share-subtitle">Just Do It.</p>
 
@@ -231,7 +213,7 @@
     </div>
     <ul>
         <li class="small smoothscroll">
-            Study
+            Project
         </li>
     </ul>
 
@@ -246,23 +228,23 @@
             <div class="mainheading">
 
                 <!-- Post Title -->
-                <div><h1 class="posttitle">쿠키와 세션</h1></div>
-                <h4 class="postdescription">쿠키와 세션에 대하여</h4>
+                <div><h1 class="posttitle">Spring : Container</h1></div>
+                <h4 class="postdescription">Spring의 동작원리를 이해해보자</h4>
 
                 <div class="post-top-meta">
                     <span class="meta-footer-thumb">
                         
-                        <img class="author-thumb" src="https://www.gravatar.com/avatar/?s=250&d=mm&r=x" alt="">
+                        <img class="author-thumb" src="/assets/images/main_picture/project.png" alt="">
                         
                     </span>
                     <span class="author-meta">
                         <div>
-                        <a target="_blank" class="link-dark" href="">Study</a>
+                        <a target="_blank" class="link-dark" href="">Project</a>
                         </div>
 
                         <div>
-                        <span class="author-description">07 Jul 2020</span>
-                        <span class="post-main"><a href="" title="Read Story"><svg class="svgIcon-use" width="15" height="15" viewbox="0 0 15 15"><path d="M7.438 2.324c.034-.099.09-.099.123 0l1.2 3.53a.29.29 0 0 0 .26.19h3.884c.11 0 .127.049.038.111L9.8 8.327a.271.271 0 0 0-.099.291l1.2 3.53c.034.1-.011.131-.098.069l-3.142-2.18a.303.303 0 0 0-.32 0l-3.145 2.182c-.087.06-.132.03-.099-.068l1.2-3.53a.271.271 0 0 0-.098-.292L2.056 6.146c-.087-.06-.071-.112.038-.112h3.884a.29.29 0 0 0 .26-.19l1.2-3.52z" fill-rule="evenodd"></path></svg></a></span>
+                        <span class="author-description">09 Jun 2020</span>
+                        <span class="post-main u-textColorNormal"><a href="" title="Read Story"><svg class="svgIcon-use" width="15" height="15" viewbox="0 0 15 15"><path d="M7.438 2.324c.034-.099.09-.099.123 0l1.2 3.53a.29.29 0 0 0 .26.19h3.884c.11 0 .127.049.038.111L9.8 8.327a.271.271 0 0 0-.099.291l1.2 3.53c.034.1-.011.131-.098.069l-3.142-2.18a.303.303 0 0 0-.32 0l-3.145 2.182c-.087.06-.132.03-.099-.068l1.2-3.53a.271.271 0 0 0-.098-.292L2.056 6.146c-.087-.06-.071-.112.038-.112h3.884a.29.29 0 0 0 .26-.19l1.2-3.52z" fill-rule="evenodd"></path></svg></a></span>
                         </div>
                     </span>
                 </div>
@@ -274,6 +256,12 @@
 
             <!-- Post Featured Image -->
             
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/project/java_spring.jpg" alt="Spring : Container">
+            
+
+            
             <!-- End Featured Image -->
 
             <!-- Post Content -->
@@ -281,11 +269,138 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <h1 id="쿠키와-세션">쿠키와 세션</h1>
-<p>Http는 한번 연결하고 나면 끊어진다. 그러나 웹동작에서 상태유지는 필수적인데 이를 위해 쿠키와 세션이 존재한다.</p>
+                <h1 id="spring---container">Spring - Container</h1>
 
-<p>쿠키 : 사용자 컴퓨터에 저장(정보 유출 우려)
-  세션 : 서버에 저장</p>
+<h2 id="개요">개요</h2>
+
+<h2 id="core-container">Core Container</h2>
+
+<h3 id="been">Been</h3>
+<p>프로젝트시 대표적인 반복작업인 new 메소드를 통한 메모리 할당을 Spring에서는 해당 작업을 Bean을 통해 도와준다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">그리고 Bean을 spring-context에서 다루고 있다.</code></p>
+
+<p>아마도 메모리 할당을 위한 클래스를 만들 때 다음과 같은 약속은 당연한것 같다.</p>
+<ul>
+  <li>자유도가 넓어야 한다. 즉, 기본 생성자를 가지고 있어야 한다.</li>
+  <li>보안 측면에서 필드는 private로 선언.</li>
+  <li>필드가 private이기 떄문에 getter, setter 메소드는 필수.</li>
+</ul>
+
+<p>그렇기 때문에 위와 같은 약속이 Bean의 조건인건 자연스럽다. 위와 같은 조건을 만족한 Class를 Bean Class로 사용할수 있다.</p>
+
+<p>추가로 Bean에서 아마도 확장성의 이유로 각각의 getter, setter를 프로퍼티라고 약속하고 관리한다. (ex setName =&gt; name이란 name을 가진 프로퍼티)</p>
+
+<p>Bean Class로 사용할수 있는 Class를 사용하기 위해선 ‘사용하겠다!’라고 선언(Bean 선언)을 해야한다. 
+ 그리고 Spring은 Bean 선언을 확인하고 getBean()을 통해 메모리 할당을 한다. 
+ 할당은 SingleTon. 즉, 여러번 getBean()을 하더라도 결국 인스턴스는 하나인 방식이다.</p>
+
+<p>선언하는 방법은 여러 방법이 있다.</p>
+
+<ul>
+  <li>
+    <p>Xml에 선언
+ Bean 선언을 Xml에 선언하여 따로 관리한다. 보통 src/main/resources에 applicationContext.xml로 관리한다. 이때, Spring:ApplicationContext가 Spring:ClassPathXmlApplicationContext 에서 ‘xml파일 이름’을 받아 src파일 내에 받은 xml 파일 이름에 xml 파일을 찾아 작성된 선언을 확인한다.
+ 프로퍼티를 활용하여 Bean Class를 객체로 가진 Bean Class를 다룰수도 있다.</p>
+  </li>
+  <li>
+    <p>Class에 선언 (annotation 이용)
+ Class에 선언하여 따로 관리한다. ‘@annotation’과 같이 Spring에서는 단순 Bean 선언과 더불어 더 많은 annotation을 지원하여 각 annotation에 맞는 다양한 동작을 도와준다.</p>
+
+    <ul>
+      <li>
+        <p>@configuration : Xml을 Class로 가져온 것이라고 할수 있는데, 선언문을 가진 class임을 나타낸다. 보통 configuration이기 때문에 config라는 패키지에 각 목적에 맞는 Config.class로 관리한다. Main config는 ApplicationConfig이때, Spring:ApplicationContext가 Spring:AnnotationConfigApplicationContext 에서 (이름.class) 또는 (“이름”) 을 받아 해당 클래스에 annotation이 있는지 확인하고 선언을 다룬다. 클래스를 가지고 오기 때문에 method이름이 달라서 생기는 error를 걱정할 필요가 없다.</p>
+      </li>
+      <li>
+        <p>@Bean : Bean Class를 메모리 할당을 해주는 method임을 나타낸다. @configuration클레스에서 실제 메모리 할당하는 작업을 작성한다.</p>
+      </li>
+      <li>
+        <p>@Import : 두개 이상의 Configuration을 나눠서 다루고자 할때 사용한다. import할 클래스 이름을 받아 해당 클래스의 Configuration을 가져다 쓴다.</p>
+      </li>
+      <li>@ComponenetScan : annotation 선헌 할때 root를 받아[(프로젝트 전체), 패키지를 받으려면 (basePackages - {“패키지”})] root에 속해있는 Class 중 ComponenetScan이 Scan할수 있는 annotation을 찾고 찾은 Class에서 각 annotation에 맞는 동작을 한다. (@Component, @Repository, @Controller, @Service)
+        <ul>
+          <li>@Component : Bean Class로 사용안 Class안에 있으며 Bean Class임을 나타낸다.
+            <ul>
+              <li>@Autowired : Bean Class에서 다른 Bean 객체를 받게 될 경우 자동으로 해주도록 나타낸다.</li>
+            </ul>
+          </li>
+          <li>@Repository : 저장소의 역할을 나타낸다.</li>
+        </ul>
+      </li>
+      <li>@EnableTransactionManagement : transaction과 관련된 설정을 자동으로 해준다. 단 TransactionManagementConfigurer를 implements 받아 구현해야 하며, annotationDrivenTransactionManager()를 오버라이딩 해야 한다.
+ <code class="language-plaintext highlighter-rouge">그리고 spring-jdbc에서 다루고 있다. 왜 그런지는 모르겟는데, 사실 transaction은 spring-tx에서 관리할것 처럼 이지만 jdbc에서 관리하고 있다. 여하튼 jdbc를 사용하려면 tx와 같이 사용하고 있다.</code>
+        <ul>
+          <li>@Primary</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="mvc">MVC</h3>
+<p>웹에서 서블릿 반복 작업을 Spring에서는 WebMvc을 통해 도와준다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">그리고 WebMvc는 spring-webmvc에서 다루고 있다.</code></p>
+
+<ul>
+  <li>@EnableWebMvc</li>
+</ul>
+
+<p>생각해 보자. 
+ 웹에서 어떤 주소를 입력을 하면 Http에서 해당 주소에 Request를 보낸다. 그렇다면 그 주소에 해당하는 곳에서 2가지 방법으로 받을수 있는데, xml방식과 자바 class(annotation) 방법이다.</p>
+
+<ul>
+  <li>
+    <p>xml
+   xml에서 해당주소를
+    주소 - sevlet name : sevlet name - sevlet class 로 매핑을 시킨다.
+    그러면 해당 sevlet 클래스가 나오는 것이다.</p>
+  </li>
+  <li>
+    <p>class
+   서블릿 경우 @WebServlet
+   컨트롤러의 경우도 있으나 이 경우는 Xml을 사용하지 않고 쓸 장점이 별로 없어서 xml을 사용한다.</p>
+  </li>
+</ul>
+
+<p>여하튼 두가지 방법으로 받아오면 servlet class로 org.springframework.web.servlet.DispatcherServlet를 연결시키고 Main Controller를 parameter로 가지고 오는데(보통 WebMvcContextConfiguration) 해당 클래스에서  @EnableWebMvc을 선언하면 초기화 해준다.</p>
+
+<ul>
+  <li>@ComponenetScan : 앞서 설명함.
+    <ul>
+      <li>@Controller : 서블릿으로 사용할 Class를 나타낸다.
+        <ul>
+          <li>@RequestMapping : Http 요창과 이를 다루기 위한 Controller의 메소드를 연결한다.
+            <ul>
+              <li>@GetMapping : @RequestMapping(path=””, method=RequestMethod.Get)</li>
+              <li>@PostMapping : @RequestMapping(path=””, method=RequestMethod.Post)</li>
+              <li>@PutMapping</li>
+              <li>@DeleteMapping</li>
+              <li>@PatchMapping</li>
+            </ul>
+          </li>
+          <li>@RequestParam : Mapping된 Method의 Argument에 붙일수 있게한다. required는 필수 여부 판단.
+            <ul>
+              <li>defaultValue – This is the default value as a fallback mechanism if request is not having the value or it is empty.</li>
+              <li>name – Name of the parameter to bind</li>
+              <li>required – Whether the parameter is mandatory or not. If it is true, failing to send that parameter will fail.</li>
+              <li>value – This is an alias for the name attribute</li>
+            </ul>
+          </li>
+          <li>@PathVariable : 상위 Mapping의 path에 변수명을 받아와 사용할 수 있게 한다.</li>
+          <li>@RequestHeader : 요청정보의 헤더 받아온다.</li>
+          <li>@ModelAttribute : Dto 객체 앞에 붙여서 해당 Dto를 parameter로 사용할 수 있게 해준다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>@Service : 서비스 Class임을 나타낸다.</li>
+  <li>
+    <p>@Transactional : Default는 ReadOnly이다. 해당 ReadOnly를 false를 해주게 되면 동시성으로 안될 떄 rollback해주게 된다.</p>
+  </li>
+  <li>@RestController : Controller를 Rest API로 만들게 해준다. 하나의 url에 각각의 작업을 해준다.</li>
+</ul>
+
 
             </div>
 
@@ -295,7 +410,7 @@
             <!-- Post Date -->
             <p>
             <small>
-                <span class="post-date"><time class="post-date" datetime="2020-07-07"></time></span>           
+                <span class="post-date"><time class="post-date" datetime="2020-06-09"></time></span>           
             </small>
             </p>
             
@@ -305,11 +420,7 @@
                     
                     
                     <li>
-                        <a class="smoothscroll" href="/tags#C">C</a>
-                    </li>
-                    
-                    <li>
-                        <a class="smoothscroll" href="/tags#Java">Java</a>
+                        <a class="smoothscroll" href="/tags#Web">Web</a>
                     </li>
                     
                 </ul>
@@ -337,7 +448,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-6 text-center text-lg-left">
-                Copyright © 2020 Malgeon 
+                Copyright © 2020 Malg-eon 
             </div>
             <div class="col-md-6 col-sm-6 text-center text-lg-right">    
                 지나가는 생각과 경험을 잡아두는 공간
