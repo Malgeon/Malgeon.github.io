@@ -16,7 +16,7 @@ var documents = [{
     "body": "      Sitemap: {{ “sitemap. xml”   absolute_url }}   "
     }, {
     "id": 3,
-    "url": "/Project/index.html",
+    "url": "/project/index.html",
     "title": "project",
     "body": ""
     }, {
