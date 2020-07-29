@@ -5,8 +5,8 @@
     <description>공간</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 29 Jul 2020 02:57:21 +0000</pubDate>
-    <lastBuildDate>Wed, 29 Jul 2020 02:57:21 +0000</lastBuildDate>
+    <pubDate>Wed, 29 Jul 2020 07:28:22 +0000</pubDate>
+    <lastBuildDate>Wed, 29 Jul 2020 07:28:22 +0000</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -618,12 +618,10 @@ opacity: 0;
         <link>/study_CODE_stack_1/</link>
         <guid isPermaLink="true">/study_CODE_stack_1/</guid>
         
-        <category>programming</category>
-        
-        <category>javascript</category>
+        <category>standard</category>
         
         
-        <category>study</category>
+        <category>test</category>
         
       </item>
     
@@ -753,12 +751,10 @@ opacity: 0;
         <link>/study_CODE_sort_3/</link>
         <guid isPermaLink="true">/study_CODE_sort_3/</guid>
         
-        <category>programming</category>
-        
-        <category>javascript</category>
+        <category>standard</category>
         
         
-        <category>study</category>
+        <category>test</category>
         
       </item>
     
@@ -822,12 +818,10 @@ opacity: 0;
         <link>/study_CODE_sort_2/</link>
         <guid isPermaLink="true">/study_CODE_sort_2/</guid>
         
-        <category>programming</category>
-        
-        <category>javascript</category>
+        <category>standard</category>
         
         
-        <category>study</category>
+        <category>test</category>
         
       </item>
     
