@@ -7,23 +7,23 @@
 <link rel="icon" href="/assets/images/logo.jpg">
 
 
-<title>Kotlin 함수편 - [1] | Malg:eon</title>
+<title>Kotlin 함수편 - [6] | Malg:eon</title>
 
 
 <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Kotlin 함수편 - [1] | Malg:eon</title>
+<title>Kotlin 함수편 - [6] | Malg:eon</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Kotlin 함수편 - [1]" />
+<meta property="og:title" content="Kotlin 함수편 - [6]" />
 <meta name="author" content="study" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Kotlin 함수편 기본" />
-<meta property="og:description" content="Kotlin 함수편 기본" />
+<meta name="description" content="Kotlin 조건문" />
+<meta property="og:description" content="Kotlin 조건문" />
 <meta property="og:site_name" content="Malg:eon" />
 <meta property="og:image" content="/assets/images/study/kotlin.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-07-30T00:00:00+00:00" />
+<meta property="article:published_time" content="2020-08-01T00:00:00+00:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 함수편 - [1]","dateModified":"2020-07-30T00:00:00+00:00","description":"Kotlin 함수편 기본","datePublished":"2020-07-30T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_kotlin_1/"},"@type":"BlogPosting","url":"/study_kotlin_1/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 함수편 - [6]","dateModified":"2020-08-01T00:00:00+00:00","description":"Kotlin 조건문","datePublished":"2020-08-01T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_kotlin_6/"},"@type":"BlogPosting","url":"/study_kotlin_6/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -277,8 +277,8 @@
             <div class="mainheading">
 
                 <!-- Post Title -->
-                <div><h1 class="posttitle">Kotlin 함수편 - [1]</h1></div>
-                <h4 class="postdescription">Kotlin 함수편 기본</h4>
+                <div><h1 class="posttitle">Kotlin 함수편 - [6]</h1></div>
+                <h4 class="postdescription">Kotlin 조건문</h4>
 
                 <div class="post-top-meta">
                     <span class="meta-footer-thumb">
@@ -292,7 +292,7 @@
                         </div>
 
                         <div>
-                        <span class="author-description">30 Jul 2020</span>
+                        <span class="author-description">01 Aug 2020</span>
                         <span class="post-main u-textColorNormal"><a href="" title="Read Story"><svg class="svgIcon-use" width="15" height="15" viewbox="0 0 15 15"><path d="M7.438 2.324c.034-.099.09-.099.123 0l1.2 3.53a.29.29 0 0 0 .26.19h3.884c.11 0 .127.049.038.111L9.8 8.327a.271.271 0 0 0-.099.291l1.2 3.53c.034.1-.011.131-.098.069l-3.142-2.18a.303.303 0 0 0-.32 0l-3.145 2.182c-.087.06-.132.03-.099-.068l1.2-3.53a.271.271 0 0 0-.098-.292L2.056 6.146c-.087-.06-.071-.112.038-.112h3.884a.29.29 0 0 0 .26-.19l1.2-3.52z" fill-rule="evenodd"></path></svg></a></span>
                         </div>
                     </span>
@@ -307,7 +307,7 @@
             
             
             
-            <img class="featured-image img-fluid" src="/assets/images/study/kotlin.png" alt="Kotlin 함수편 - [1]">
+            <img class="featured-image img-fluid" src="/assets/images/study/kotlin.png" alt="Kotlin 함수편 - [6]">
             
             
             
@@ -318,42 +318,25 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <h2 id="변수">변수</h2>
-<p>val(value) - 불변형 (immutable)
-  var(variable) - 가변형 (mutable)</p>
+                <h3 id="ifelse-문의-간략화">if~else 문의 간략화</h3>
 
-<p>val username(: String - 컴파일에서 추론 가능할 경우 생략 가능) = “Eon”</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">max</span><span class="p">:</span> <span class="nx">Int</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> 
+    <span class="nx">max</span> <span class="o">=</span> <span class="nx">a</span>
+<span class="k">else</span> 
+    <span class="nx">max</span> <span class="o">=</span> <span class="nx">b</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>따라서 단순 선언 같은 경우 추론이 불가능하므로 생략 불가</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">max</span> <span class="o">=</span> <span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="nx">a</span> <span class="k">else</span> <span class="nx">b</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<h2 id="자료형">자료형</h2>
-
-<h3 id="기본형primitive-data-type">기본형(primitive data type)</h3>
-<ul>
-  <li>보통 코틀린에서는 사용하지 않으나 자바에서 사용하므로 알아두자</li>
-  <li>int, long, float, double</li>
-</ul>
-
-<h3 id="참조형reference-type">참조형(reference type)</h3>
-<ul>
-  <li>동적 공간에 데이터를 둔 다음 이것을 참조하는 자료형</li>
-  <li>Int, Long, Float, Double</li>
-</ul>
-
-<h3 id="자료형-추론">자료형 추론</h3>
-<p>123 =&gt; Int
-123L =&gt; Long (접미사 L)
-123F =&gt; Float (접미사 F)
-0x0F =&gt; 16진수 Int (접두사 0x)
-0b00001011 =&gt; 2진수 Int (접두사 0b)</p>
-
-<p>작은 값을 사용하고자 하면 자료형을 명시적으로 지정해주자.</p>
-
-<p>숫자 자료형을 경우 사이에 언더바는 아무런 영향을 주지 않는다. 그냥 자릿수 확인으로 사용 가능</p>
-
-<p>큰수일 경우 3.14E + 16 이런식으로 사용</p>
-
-<p>코틀린에서는 부동 소수점을 표현할 때, 지수부와 가수부로 나뉘어 저장된다. 이러한 부동 소수점에 대해 연산을 하게 될 경우 공간 제약으로 인해 정확한 값을 return하지 않는다. 유념해서 설계하자.</p>
+<p>블록과 함께 사용할 경우</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -364,23 +347,40 @@
 7
 8
 9
+10
+11
+12
+13
+14
 </pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">num</span><span class="p">:</span> <span class="nx">Double</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="nx">val</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="nx">val</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">7</span>
 
-  <span class="k">for</span><span class="p">(</span><span class="nx">x</span> <span class="k">in</span> <span class="mi">0</span><span class="p">...</span><span class="mi">999</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">num</span> <span class="o">+=</span> <span class="mf">0.1</span>
-  <span class="p">}</span>
+    <span class="nx">val</span> <span class="nx">max</span> <span class="o">=</span> <span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">a 선택</span><span class="dl">"</span><span class="p">)</span>
+        <span class="nx">a</span> <span class="c1">// 블럭의 마지막 식이 반환되어 max에 할당.</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">b 선택</span><span class="dl">"</span><span class="p">)</span>
+        <span class="nx">b</span> <span class="c1">// 블럭의 마지막 식이 반환되어 max에 할당.</span>
+    <span class="p">}</span>
 
-  <span class="nx">println</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="c1">//100.09999...</span>
-<span class="p">}</span>
+    <span class="nx">println</span><span class="p">(</span><span class="nx">max</span><span class="p">)</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h3 id="문자열-자료형">문자열 자료형</h3>
+<h2 id="readline콘솔로부터-입력-받는-함수">readLine()콘솔로부터 입력 받는 함수</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nx">val</span> <span class="nx">score</span> <span class="o">=</span> <span class="nx">readLine</span><span class="p">()</span><span class="o">!!</span><span class="p">.</span><span class="nx">toDouble</span><span class="p">()</span> <span class="c1">// readLine은 Null이 될수도 있으므로 Null값 처리를 해줘야 한다. 여기선 잠깐 테스트를 위한 것이라 !!로 처리.</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>문자열은 String으로 선언되며 String Pool 이라는 공간에 구성된다. 이때 참조형 변수이기 때문에, 변수를 선언할 경우 Heap에 값은 String Pool 저장되게 되며 이 값은 변경되지 않는다. 즉, 만일 값이 같은 변수를 선언할 경우 똑같은 참조이게 된다.</p>
+<h2 id="범위-연산자">범위 연산자</h2>
+<p>변수명 in 시작값..마지막값</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="k">if</span><span class="p">(</span><span class="nx">score</span> <span class="k">in</span> <span class="mi">80</span><span class="p">..</span><span class="mi">89</span><span class="p">)</span> <span class="c1">// score가 80~89 사이에 있는 값인지 확인(마지막 값은 포함!)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>코틀린에서 [== : 값만 비교] <a href="나중에 다시 설명">=== : 값과 참조 주소 비교</a></p>
-
+<h2 id="when문switch--case과-비슷">when문(switch … case과 비슷)</h2>
+<p>범위 연산자, is 키워드 사용 가능.</p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -389,17 +389,35 @@
 6
 7
 8
-</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span>
-  <span class="kd">var</span> <span class="nx">str2</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">World</span><span class="dl">"</span>
-  <span class="kd">var</span> <span class="nx">str3</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span>
-  
-  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1 === str2: ${str1 === str2}</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// false</span>
-  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1 === str3: ${str1 === str3}</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// true</span>
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="nx">when</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="mi">1</span> <span class="o">-&gt;</span> <span class="nx">print</span><span class="p">(</span><span class="dl">"</span><span class="s2">x == 1</span><span class="dl">"</span><span class="p">)</span> <span class="c1">//break 필요없이 빠져나온다.</span>
+    <span class="mi">2</span> <span class="o">-&gt;</span> <span class="nx">print</span><span class="p">(</span><span class="dl">"</span><span class="s2">x == 2</span><span class="dl">"</span><span class="p">)</span>
+    <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="o">-&gt;</span> <span class="nx">print</span><span class="p">(</span><span class="dl">"</span><span class="s2">x == 3, 4</span><span class="dl">"</span><span class="p">)</span> <span class="c1">//일치되는 여러 조건 사용 가능</span>
+    <span class="nb">parseInt</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nx">print</span><span class="p">(</span><span class="dl">"</span><span class="s2">일치함!</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// 함수의 반환값 사용 가능</span>
+    <span class="k">in</span> <span class="mi">10</span><span class="p">..</span><span class="mi">20</span> <span class="o">-&gt;</span> <span class="nx">print</span><span class="p">(</span><span class="dl">"</span><span class="s2">x는 10이상 20이하입니다.</span><span class="dl">"</span><span class="p">)</span> <span class="c1">//범위 연산자 사용 가능</span>
+    <span class="o">!</span><span class="k">in</span> <span class="mi">10</span><span class="p">..</span><span class="mi">20</span> <span class="o">-&gt;</span> <span class="nx">print</span><span class="p">(</span><span class="dl">"</span><span class="s2">x는 10이상 20이하의 범위에 포함되지 않습니다.</span><span class="dl">"</span><span class="p">)</span>
+    <span class="k">else</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="c1">// 블록 구문 사용 가능.</span>
+        <span class="nx">print</span><span class="p">(</span><span class="dl">"</span><span class="s2">else</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">val</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">안녕하세요.</span><span class="dl">"</span>
+<span class="nx">val</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">when</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">is</span> <span class="nb">String</span> <span class="o">-&gt;</span> <span class="dl">"</span><span class="s2">문자열입니다.</span><span class="dl">"</span>
+    <span class="k">else</span> <span class="o">-&gt;</span> <span class="kc">false</span>
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>### 표현식에서 문자열</p>
+<p>인자가 없는 when</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -407,143 +425,11 @@
 4
 5
 6
-7
-</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span>
-  <span class="kd">var</span> <span class="nx">str1</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">a = $a</span><span class="dl">"</span>
-  <span class="kd">var</span> <span class="nx">str2</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">a = ${a +2}</span><span class="dl">"</span>
-  
-  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1: </span><span class="se">\"</span><span class="s2">$str1</span><span class="se">\"</span><span class="s2">, str2: </span><span class="se">\"</span><span class="s2">$str2</span><span class="se">\"</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// "를 print하고 싶다면 [\"] 이렇게 쓰면 된다.</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>### nullable
-  코틀린에서는 기본적으로 null을 허용하지 않는다. (프로그램이 NPE에서 자유롭게 구동하려는 의도로 이해하고 있다.) 그러나 상황에 따라 null이 필요하게 될 경우 자료형에 물음표를 붙임으로써 사용이 가능하다. 그리고 코틀린에서는 nullable 변수를 사용하더라도, 사용할 때 NPE에서 자유롭도록 코딩을 유도한다.</p>
-
-<p>주의할 점은 자료형 과 자료형? 은 다른 Type이다.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span>
-  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// error null을 허용하지 않는다.</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span>
-  <span class="nx">str1</span> <span class="o">=</span> <span class="kc">null</span>
-  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// error null을 허용하지 않는다.</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
-  <span class="nx">str1</span> <span class="o">=</span> <span class="kc">null</span>
-  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// return : null</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
-  <span class="nx">str1</span> <span class="o">=</span> <span class="kc">null</span>
-  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1: $str1, length: ${str1.length</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// error null값의 길이를 참조할 수 있게 된다.</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<p>이때 추가적으로 코딩을 하지 않고 해결할 수 있는 방법은 2가지 이다.</p>
-<ol>
-  <li>세이프콜(?.)을 사용한다. 
- 혹시라도 Null일 경우 ?.의 뒷부분을 실행하지 않도록 해준다.</li>
-</ol>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
-  <span class="nx">str1</span> <span class="o">=</span> <span class="kc">null</span>
-  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1: $str1, length: ${str1?.length</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// error null값의 길이를 참조할 수 있게 된다.</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<ol>
-  <li>NonNull 단정 기호(!!.)를 사용한다.
- Null이 아닐것임을 단정해서 컴파일러가 오류를 무시하고 넘어간다. 되도록이면 사용하지 말자.</li>
-</ol>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
-  <span class="nx">str1</span> <span class="o">=</span> <span class="kc">null</span>
-  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1: $str1, length: ${str1!!.length</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// NPE 발생..</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>물론 if문을 통해 걸러주는 방법을 사용해도 된다.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
-  <span class="nx">str1</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span>
-  <span class="kd">var</span> <span class="nx">len</span> <span class="o">=</span> <span class="k">if</span> <span class="p">(</span><span class="nx">str1</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
-  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1: $str1, length: $len</span><span class="dl">"</span><span class="p">)</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>그런데 위 문장을 elvis 표현으로 바꿀수 있다.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
-  <span class="nx">str1</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span>
-  <span class="kd">var</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">str1</span><span class="p">?.</span><span class="nx">length</span> <span class="p">?:</span> <span class="o">-</span><span class="mi">1</span>
-  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1: $str1, length: $len</span><span class="dl">"</span><span class="p">)</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>또한 함수형으로 이렇게도 표현이 가능하다.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
-  <span class="nx">str1</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span>
-  <span class="kd">var</span> <span class="nx">len</span> <span class="o">=</span> <span class="k">if</span> <span class="p">(</span><span class="nx">str1</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="nx">str1</span><span class="p">.</span><span class="nx">length</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
-  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1: $str1, length: $len</span><span class="dl">"</span><span class="p">)</span>
+</pre></td><td class="rouge-code"><pre><span class="nx">when</span> <span class="p">{</span>
+    <span class="nx">score</span> <span class="o">&lt;=</span> <span class="mf">90.0</span> <span class="o">-&gt;</span> <span class="nx">grade</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">A</span><span class="dl">'</span>
+    <span class="nx">score</span> <span class="k">in</span> <span class="mf">80.0</span><span class="p">..</span><span class="mf">89.9</span> <span class="o">-&gt;</span> <span class="nx">grade</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">B</span><span class="dl">'</span>
+    <span class="nx">score</span> <span class="k">in</span> <span class="mf">70.0</span><span class="p">..</span><span class="mf">79.9</span> <span class="o">-&gt;</span> <span class="nx">grade</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">C</span><span class="dl">'</span>
+    <span class="nx">score</span> <span class="o">&lt;</span> <span class="mf">70.0</span> <span class="o">-&gt;</span> <span class="nx">grade</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">F</span><span class="dl">'</span>
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -555,7 +441,7 @@
             <!-- Post Date -->
             <p>
             <small>
-                <span class="post-date"><time class="post-date" datetime="2020-07-30"></time></span>           
+                <span class="post-date"><time class="post-date" datetime="2020-08-01"></time></span>           
             </small>
             </p>
             
