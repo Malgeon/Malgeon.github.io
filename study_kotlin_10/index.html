@@ -510,6 +510,105 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<h3 id="takeif--takeunless">takeIf() &amp; takeUnless()</h3>
+<ul>
+  <li>takeIf(): 람다식이 true이면 객체 T를 반환하고 그렇지 않으면 null 반환</li>
+  <li>take Unless(): 람다식이 false이면 객체 T를 반환하고 그렇지 않으면 null 반환</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">public inline fun &lt;T&gt; T.takeIf(predicate: (T) -&gt; Boolean): T? = if (predicate(this)) this else null</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="c1">// 기존 코드</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">someObject</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="nx">someObject</span><span class="p">.</span><span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">doThis</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="c1">// safe call 사용</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">someObject</span><span class="p">?.</span><span class="nx">status</span> <span class="o">==</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">doThis</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="c1">// takeIf 사용</span>
+<span class="nx">someObject</span><span class="p">?.</span><span class="nx">takeIf</span> <span class="p">{</span> <span class="nx">it</span><span class="p">.</span><span class="nx">status</span> <span class="p">}?.</span><span class="nx">apply</span> <span class="p">{</span> <span class="nx">doThis</span><span class="p">()</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>elvis 연산자와 함께 사용 예제</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="nx">val</span> <span class="nx">input</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">kotlin</span><span class="dl">"</span>
+<span class="nx">val</span> <span class="nx">keyword</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">in</span><span class="dl">"</span>
+
+<span class="c1">// 입력 문자열에 키워드가 있으면 인덱스를 반환하는 함수를 takeIf를 사용하여 구현</span>
+<span class="nx">input</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">keyword</span><span class="p">).</span><span class="nx">takeIf</span> <span class="p">{</span> <span class="nx">it</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="p">}</span> <span class="p">?:</span> <span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">keyword not found</span><span class="dl">"</span><span class="p">)</span>
+<span class="c1">// takeUnless 사용</span>
+<span class="nx">input</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">keyword</span><span class="p">).</span><span class="nx">takeUnless</span> <span class="p">{</span> <span class="nx">it</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">}</span> <span class="p">?:</span> <span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">keyword not found</span><span class="dl">"</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="시간-측정-하기">시간 측정 하기</h3>
+<ul>
+  <li>measureTimeMillis() &amp; measureNanoTime()</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="kr">public</span> <span class="nx">inline</span> <span class="nx">fun</span> <span class="nx">measureTimeMillis</span><span class="p">(</span><span class="nx">block</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="nx">Unit</span><span class="p">):</span> <span class="nx">Long</span> <span class="p">{</span>
+    <span class="nx">val</span> <span class="nx">start</span> <span class="o">=</span> <span class="nx">System</span><span class="p">.</span><span class="nx">currentTimeMillis</span><span class="p">()</span>
+    <span class="nx">block</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nx">System</span><span class="p">.</span><span class="nx">currentTimeMillis</span><span class="p">()</span> <span class="o">-</span> <span class="nx">start</span>
+<span class="p">}</span>
+
+<span class="kr">public</span> <span class="nx">inline</span> <span class="nx">fun</span> <span class="nx">measureNanoTime</span><span class="p">(</span><span class="nx">block</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="nx">Unit</span><span class="p">):</span> <span class="nx">Long</span> <span class="p">{</span>
+    <span class="nx">val</span> <span class="nx">start</span> <span class="o">=</span> <span class="nx">System</span><span class="p">.</span><span class="nx">nanoTime</span><span class="p">()</span>
+    <span class="nx">block</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nx">System</span><span class="p">.</span><span class="nx">nanoTime</span><span class="p">()</span> <span class="o">-</span> <span class="nx">start</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>사용 예</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="nx">val</span> <span class="nx">executionTime</span> <span class="o">=</span> <span class="nx">measureTimeMillis</span> <span class="p">{</span>
+    <span class="c1">// 측정할 작업 코드</span>
+<span class="p">}</span>
+<span class="nx">printnl</span><span class="p">(</span><span class="dl">"</span><span class="s2">Execution Time = $executionTime ms</span><span class="dl">"</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="난수-생성">난수 생성</h3>
+<p>자바의 java.util.Random을 이용할 수도 있지만, JVM에만 특화된 난수를 생성한다. 때문에 코틀린에서는 멀티플랫폼에서도 사용 가능한 kotlin.random.Random을 제공한다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="nx">kotlin</span><span class="p">.</span><span class="nx">random</span><span class="p">.</span><span class="nx">Random</span>
+<span class="p">...</span>
+<span class="nx">val</span> <span class="nx">number</span> <span class="o">=</span> <span class="nx">Random</span><span class="p">.</span><span class="nx">nextInt</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span> <span class="c1">// 숫자는 난수 발생 범위</span>
+<span class="nx">println</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
             </div>
 
             <!-- Rating -->
