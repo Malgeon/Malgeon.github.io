@@ -7,23 +7,23 @@
 <link rel="icon" href="/assets/images/logo.jpg">
 
 
-<title>Kotlin | Malg:eon</title>
+<title>Kotlin 객체편 - [12] | Malg:eon</title>
 
 
 <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Kotlin | Malg:eon</title>
+<title>Kotlin 객체편 - [12] | Malg:eon</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Kotlin" />
+<meta property="og:title" content="Kotlin 객체편 - [12]" />
 <meta name="author" content="study" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Kotlin 단축키" />
-<meta property="og:description" content="Kotlin 단축키" />
+<meta name="description" content="Kotlin 제네릭 함수 혹은 메서드" />
+<meta property="og:description" content="Kotlin 제네릭 함수 혹은 메서드" />
 <meta property="og:site_name" content="Malg:eon" />
 <meta property="og:image" content="/assets/images/study/kotlin.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-08-11T00:00:00+00:00" />
+<meta property="article:published_time" content="2020-08-12T00:00:00+00:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"study"},"headline":"Kotlin","dateModified":"2020-08-11T00:00:00+00:00","description":"Kotlin 단축키","datePublished":"2020-08-11T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_kotlin_shortCut/"},"@type":"BlogPosting","url":"/study_kotlin_shortCut/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 객체편 - [12]","dateModified":"2020-08-12T00:00:00+00:00","description":"Kotlin 제네릭 함수 혹은 메서드","datePublished":"2020-08-12T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_kotlin_22-copy/"},"@type":"BlogPosting","url":"/study_kotlin_22-copy/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -277,8 +277,8 @@
             <div class="mainheading">
 
                 <!-- Post Title -->
-                <div><h1 class="posttitle">Kotlin</h1></div>
-                <h4 class="postdescription">Kotlin 단축키</h4>
+                <div><h1 class="posttitle">Kotlin 객체편 - [12]</h1></div>
+                <h4 class="postdescription">Kotlin 제네릭 함수 혹은 메서드</h4>
 
                 <div class="post-top-meta">
                     <span class="meta-footer-thumb">
@@ -292,7 +292,7 @@
                         </div>
 
                         <div>
-                        <span class="author-description">11 Aug 2020</span>
+                        <span class="author-description">12 Aug 2020</span>
                         <span class="post-main u-textColorNormal"><a href="" title="Read Story"><svg class="svgIcon-use" width="15" height="15" viewbox="0 0 15 15"><path d="M7.438 2.324c.034-.099.09-.099.123 0l1.2 3.53a.29.29 0 0 0 .26.19h3.884c.11 0 .127.049.038.111L9.8 8.327a.271.271 0 0 0-.099.291l1.2 3.53c.034.1-.011.131-.098.069l-3.142-2.18a.303.303 0 0 0-.32 0l-3.145 2.182c-.087.06-.132.03-.099-.068l1.2-3.53a.271.271 0 0 0-.098-.292L2.056 6.146c-.087-.06-.071-.112.038-.112h3.884a.29.29 0 0 0 .26-.19l1.2-3.52z" fill-rule="evenodd"></path></svg></a></span>
                         </div>
                     </span>
@@ -307,7 +307,7 @@
             
             
             
-            <img class="featured-image img-fluid" src="/assets/images/study/kotlin.png" alt="Kotlin">
+            <img class="featured-image img-fluid" src="/assets/images/study/kotlin.png" alt="Kotlin 객체편 - [12]">
             
             
             
@@ -318,26 +318,58 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <h3 id="ctrl--b">Ctrl + B</h3>
-<p>해당 키워드의 선언부로 이동한다.</p>
+                <h2 id="제네릭-함수-혹은-메서드">제네릭 함수 혹은 메서드</h2>
+<ul>
+  <li>해당 함수나 메서드 앞쪽에 <T>와 같이 지정</T></li>
+  <li>자료형의 결정은 함수가 호출될 때 컴파일러가 자료형 추론</li>
+  <li>이 자료형은 반환 자료형과 매개변수 자료형에 사용할 수 있다.</li>
+</ul>
 
-<h3 id="ctrl--shift--f10">Ctrl + Shift + F10</h3>
-<p>처음 컴파일을 진행하게 될 때 사용한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>fun &lt;형식 매개변수[, ...]&gt; 함수명(매개변수: &lt;매개변수 자료형&gt;[, ...]): &lt;반환 자료형&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<h3 id="alt--insert">Alt + Insert</h3>
-<p>Package 및 프로젝트 파일을 추가 할 떄 사용한다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="nx">genericFunc</span><span class="p">(</span><span class="nx">arg</span><span class="p">:</span> <span class="nx">T</span><span class="p">):</span> <span class="nx">T</span><span class="p">?</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span> <span class="c1">// 매개변수와 반환 자료형에 형식 매개변수 T가 사용된다.</span>
 
-<h3 id="ctrl--d">Ctrl + D</h3>
-<p>한 문장을 복사하여 바로 밑에 붙여넣어 준다.</p>
+<span class="nx">fun</span> <span class="o">&lt;</span><span class="nx">K</span><span class="p">,</span> <span class="nx">V</span><span class="o">&gt;</span> <span class="nx">put</span><span class="p">(</span><span class="nx">key</span><span class="p">:</span> <span class="nx">K</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span> <span class="nx">V</span><span class="p">):</span> <span class="nx">Unit</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span> <span class="c1">// 형식 매개변수가 여러 개인 경우</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<h3 id="alt--shift--">Alt + Shift + ↕</h3>
-<p>문장의 순서를 바꿔준다.</p>
+<p>예시</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="nx">find</span><span class="p">(</span><span class="nx">a</span><span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="nx">Target</span><span class="p">:</span> <span class="nx">T</span><span class="p">):</span> <span class="nx">Int</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="k">in</span> <span class="nx">a</span><span class="p">.</span><span class="nx">indices</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="nx">Target</span><span class="p">)</span> <span class="k">return</span> <span class="nx">i</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+<span class="p">}</span>
 
-<h3 id="alt--enter">Alt + Enter</h3>
-<p>코드 어시스트!</p>
+<span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">val</span> <span class="nx">arr1</span><span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">arrayOf</span><span class="p">(</span><span class="dl">"</span><span class="s2">Apple</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Banana</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Cherry</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Durian</span><span class="dl">"</span><span class="p">)</span>
+    <span class="nx">val</span> <span class="nx">arr2</span><span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">Int</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">arrayOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 
-<h3 id="ctrl--shift--p">Ctrl + Shift + p</h3>
-<p>추론된 타입을 보여준다.</p>
+    <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">arr.indices ${arr1.indices}</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// indices는 배열의 유효 범위 반환  return =&gt; arr.indices 0..3</span>
+    <span class="nx">println</span><span class="p">(</span><span class="nx">find</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">arr1</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Cherry</span><span class="dl">"</span><span class="p">))</span> <span class="c1">// 요소 C의 인덱스 찾아내기  return =&gt; 2</span>
+    <span class="nx">println</span><span class="p">(</span><span class="nx">find</span><span class="p">(</span><span class="nx">arr2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1">// 요소의 인덱스 찾아내기 return =&gt; 1</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 
             </div>
 
@@ -347,7 +379,7 @@
             <!-- Post Date -->
             <p>
             <small>
-                <span class="post-date"><time class="post-date" datetime="2020-08-11"></time></span>           
+                <span class="post-date"><time class="post-date" datetime="2020-08-12"></time></span>           
             </small>
             </p>
             
