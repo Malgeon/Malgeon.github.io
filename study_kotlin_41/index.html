@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.jpg">
+
+
+<title>Kotlin 객체편 - [31] | Malg:eon</title>
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Kotlin 객체편 - [31] | Malg:eon</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Kotlin 객체편 - [31]" />
+<meta name="author" content="study" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Kotlin 코루틴 - 블로킹과 문맥 변환" />
+<meta property="og:description" content="Kotlin 코루틴 - 블로킹과 문맥 변환" />
+<meta property="og:site_name" content="Malg:eon" />
+<meta property="og:image" content="/assets/images/study/kotlin.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-20T00:00:00+00:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 객체편 - [31]","dateModified":"2020-08-20T00:00:00+00:00","description":"Kotlin 코루틴 - 블로킹과 문맥 변환","datePublished":"2020-08-20T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_kotlin_41/"},"@type":"BlogPosting","url":"/study_kotlin_41/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link href="/assets/css/screen.css" rel="stylesheet">
+<link href="/assets/css/main.css" rel="stylesheet">
+<script src="/assets/js/jquery.min.js"></script>
+
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white mediumnavigation nav-down x">
+
+    <div class="container pr-0">
+
+        <!-- Begin Logo -->
+        <a class="navbar-brand my-order-1 my-order-md-3" href="/">
+            <div class="mainlogo">
+                <!--<h1 class="sitetitle">Malg:eon</h1>-->
+                <h2 class="sitetitle">Malg:eon </h2>
+            </div>
+        </a>
+        <!-- End Logo -->
+
+        <button class="navbar-toggler my-order-2 my-order-md-1" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse my-order-3 my-order-md-2" id="navbarMediumish">
+
+            <!-- Begin Menu -->
+
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/">Main</a>
+                    </li>
+                    
+                    
+                    <li class="nav-item active">
+                    
+                        <a class="nav-link" href="/study">Study</a>
+                    </li>
+
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/project">Project</a>
+                    </li>
+
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/test">Test</a>
+                    </li>
+
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+
+                </ul>
+
+            <!-- End Menu -->
+        </div>
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<!-- For Nav Z-index Height
+================================================== -->
+
+    
+    <div class="post-content">
+    
+    <div class="collectionHeader-blockNav mediumnavigation btmr">
+    <div class="u-borderBox u-maxWidth1072 u-paddingLeft31 u-paddingRight20 u-marginAuto">
+        <nav class="collectionHeader-nav u-clearfix js-collectionHeaderNav u-lineHeight40 u-overflowHiddenY">
+            <div class="buttonSet u-middle u-noWrap u-overflowX u-paddingBottom100">
+                
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/java">java</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/javascript">javascript</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                            
+                            
+                        
+                            <a class="link link--darker link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/kotlin">kotlin</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/programming">programming</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/web">web</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/android">android</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/db">db</a>
+                        
+                        </li>
+                        
+                    
+
+                
+            </div>
+            <!--
+            <div class="buttonSet u-textAlignRight u-marginLeft18 u-flex0 u-noWrap">
+                <a class="button button--chromeless is-touchIconBlackPulse u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--chromeless u-verticalAlignMiddle"   href="https://twitter.com/forgemag" title="Visit “Forge” on Twitter" aria-label="Visit “Forge” on Twitter" rel="me" target="_blank">
+                    <span class="button-defaultState">
+                        <span class="svgIcon svgIcon--twitterFilled svgIcon--25px">
+                            <svg class="svgIcon-use" width="25" height="25" >
+                                <path d="M22.31 4.305a8.48 8.48 0 01-2.684 1.073A4.245 4.245 0 0016.486 4a4.293 4.293 0 00-4.293 4.29c0 .34.037.669.077.997a12.199 12.199 0 01-8.814-4.521 4.805 4.805 0 00-.613 2.141c.033 1.514.79 2.83 1.916 3.594a4.13 4.13 0 01-1.913-.542.185.185 0 000 .074c-.005 2.055 1.476 3.79 3.446 4.21-.37.073-.746.122-1.15.147-.266-.025-.535-.05-.767-.074.517 1.686 2.101 2.917 3.988 2.99a9.028 9.028 0 01-5.366 1.834L2 19.08A12.258 12.258 0 008.59 21c7.886 0 12.203-6.547 12.185-12.184a4.103 4.103 0 000-.616 8.057 8.057 0 002.147-2.227 7.612 7.612 0 01-2.451.69 4.092 4.092 0 001.838-2.376"/>
+                            </svg>
+                        </span>
+                    </span>
+                </a>
+                
+                <a class="button button--chromeless is-touchIconBlackPulse u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--chromeless u-verticalAlignMiddle"   href="https://instagram.com/forgemag" title="Visit “Forge” on Instagram" aria-label="Visit “Forge” on Instagram" rel="me" target="_blank">
+                    <span class="button-defaultState">
+                        <span class="svgIcon svgIcon--instagram svgIcon--25px">
+                            <svg class="svgIcon-use" width="25" height="25" >
+                                <path d="M12.497 5.531c2.27 0 2.536.01 3.433.05.83.038 1.279.176 1.579.294.398.156.681.338.978.635.297.296.482.58.634.978.115.3.257.749.294 1.578.04.897.05 1.164.05 3.434 0 2.27-.01 2.537-.05 3.434-.037.83-.176 1.278-.294 1.578a2.637 2.637 0 01-.634.979 2.61 2.61 0 01-.978.634c-.3.114-.749.256-1.579.293-.897.04-1.163.05-3.433.05-2.27 0-2.537-.01-3.434-.05-.83-.037-1.278-.175-1.579-.293a2.638 2.638 0 01-.978-.634 2.596 2.596 0 01-.634-.979c-.115-.3-.256-.748-.293-1.578-.04-.897-.051-1.164-.051-3.434 0-2.27.01-2.537.05-3.434.038-.83.176-1.278.294-1.578.155-.398.337-.682.634-.978a2.6 2.6 0 01.978-.635c.3-.114.75-.256 1.579-.293.897-.044 1.164-.05 3.434-.05zm0-1.531c-2.307 0-2.598.01-3.505.05-.904.041-1.521.186-2.06.395-.56.216-1.033.51-1.505.982a4.214 4.214 0 00-.982 1.504c-.209.54-.354 1.157-.394 2.064C4.01 9.9 4 10.19 4 12.497c0 2.307.01 2.597.05 3.504.041.904.186 1.521.395 2.064.216.56.51 1.033.982 1.505s.948.762 1.504.981c.54.21 1.157.355 2.064.395.908.04 1.195.05 3.505.05 2.31 0 2.597-.01 3.505-.05.904-.04 1.52-.186 2.064-.395a4.14 4.14 0 001.504-.981c.472-.472.762-.948.982-1.505.209-.54.354-1.157.394-2.064.04-.907.051-1.194.051-3.504s-.01-2.598-.05-3.505c-.041-.904-.186-1.521-.395-2.064a4.142 4.142 0 00-.982-1.505 4.215 4.215 0 00-1.504-.981c-.54-.21-1.157-.354-2.064-.395C15.094 4.01 14.804 4 12.497 4z"/>
+                                <path d="M12.496 8.132a4.365 4.365 0 000 8.73 4.367 4.367 0 004.365-4.365 4.367 4.367 0 00-4.365-4.365zm0 7.198a2.833 2.833 0 110-5.666 2.833 2.833 0 010 5.666z"/>
+                                <path d="M17.034 8.979a1.019 1.019 0 100-2.038 1.019 1.019 0 000 2.038z"/>
+                            </svg> 
+                        </span>
+                    </span>
+                </a>
+                <button class="button button--primary button--smallest u-noUserSelect button--withChrome u-accentColor--buttonNormal js-relationshipButton is-smallPill"  data-action="toggle-follow-collection" data-action-source="pub_header----3f6ecf56618----------------------follow_pub" data-collection-id="3f6ecf56618">
+                    <span class="button-label  js-buttonLabel">Follow</span>
+                </button>
+            </div>
+            -->
+        </nav>
+    </div>
+</div>
+    
+
+<div class="container md-paddingLeft20 md-paddingRight20">
+
+   
+    
+<!-- Site Title
+================================================== -->
+ 
+<div class="mainheading">
+    <h1 class="sitetitle"></h1>
+    <p class="lead">
+    </p>
+</div>
+
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="post-container post-md-container">
+    <div class="row">
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0 mpr">
+            <div class="share sticky-top sticky-top-offset">
+    <p class="share-title">
+        Malg:eon
+    </p>
+    <p class="share-subtitle">Just Do It.</p>
+
+
+    <div class="sep">
+    </div>
+    <ul>
+        <li class="small smoothscroll">
+            STUDY
+        </li>
+    </ul>
+
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Post Title -->
+                <div><h1 class="posttitle">Kotlin 객체편 - [31]</h1></div>
+                <h4 class="postdescription">Kotlin 코루틴 - 블로킹과 문맥 변환</h4>
+
+                <div class="post-top-meta">
+                    <span class="meta-footer-thumb">
+                        
+                        <img class="author-thumb" src="/assets/images/main_picture/study.jpg" alt="">
+                        
+                    </span>
+                    <span class="author-meta">
+                        <div>
+                        <a target="_blank" class="link-dark" href="">study</a>
+                        </div>
+
+                        <div>
+                        <span class="author-description">20 Aug 2020</span>
+                        <span class="post-main u-textColorNormal"><a href="" title="Read Story"><svg class="svgIcon-use" width="15" height="15" viewbox="0 0 15 15"><path d="M7.438 2.324c.034-.099.09-.099.123 0l1.2 3.53a.29.29 0 0 0 .26.19h3.884c.11 0 .127.049.038.111L9.8 8.327a.271.271 0 0 0-.099.291l1.2 3.53c.034.1-.011.131-.098.069l-3.142-2.18a.303.303 0 0 0-.32 0l-3.145 2.182c-.087.06-.132.03-.099-.068l1.2-3.53a.271.271 0 0 0-.098-.292L2.056 6.146c-.087-.06-.071-.112.038-.112h3.884a.29.29 0 0 0 .26-.19l1.2-3.52z" fill-rule="evenodd"></path></svg></a></span>
+                        </div>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+            
+            
+            <img class="featured-image img-fluid" src="/assets/images/study/kotlin.png" alt="Kotlin 객체편 - [31]">
+            
+            
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <h3 id="완료를-기다리기-위한-블로킹">완료를 기다리기 위한 블로킹</h3>
+
+<p>runBlocking의 사용</p>
+<ul>
+  <li>새로운 코루틴을 실행하고 완료되기 전까지는 현재(caller) 스레드를 블로킹</li>
+  <li>코루틴 빌더와 마찬가지로 CoroutineScope의 인스턴스를 가짐
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">runBlocking</span><span class="o">(</span>
+  <span class="nl">context:</span> <span class="nc">CoroutineContext</span> <span class="o">=</span> <span class="nc">EmptyCoroutineContext</span><span class="o">,</span>
+  <span class="nl">block:</span> <span class="n">suspend</span> <span class="nc">CoroutineScope</span><span class="o">.()</span> <span class="o">-&gt;</span> <span class="no">T</span>
+<span class="o">):</span> <span class="no">T</span> <span class="o">(</span><span class="n">source</span><span class="o">)</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>main()을 블로킹 모드로 동작시키기</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">kotlinx.coroutines.*</span>
+
+<span class="n">fun</span> <span class="nf">main</span><span class="o">()</span> <span class="o">=</span> <span class="n">runBlocking</span><span class="o">&lt;</span><span class="nc">Unit</span><span class="o">&gt;</span> <span class="o">{</span> <span class="c1">// 메인 메서드가 코루틴 환경에서 실행</span>
+    <span class="n">launch</span> <span class="o">{</span> <span class="c1">// 백그라운드로 코루틴 실행</span>
+        <span class="n">delay</span><span class="o">(</span> <span class="mi">1000L</span> <span class="o">)</span>
+        <span class="n">println</span><span class="o">(</span><span class="s">"World!"</span><span class="o">)</span>
+    <span class="o">}</span>
+    <span class="n">println</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">)</span> <span class="c1">// 즉시 이어서 실행됨</span>
+    <span class="c1">// delay( 2000L ) // delay()를 사용하지 않아도 코루틴을 기다림</span>
+
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>runBlocking()을 클래스 내의 멤버 메서드에서 사용할 때</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">MyTest</span> <span class="o">{</span>
+    <span class="o">...</span>
+    <span class="n">fun</span> <span class="nf">mySuspendMethod</span><span class="o">()</span> <span class="o">=</span> <span class="n">runBlocking</span><span class="o">&lt;</span><span class="nc">Unit</span><span class="o">&gt;</span> <span class="o">{</span>
+        <span class="c1">// 코드</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>특정 디스패처 옵션을 주어줄 때</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="n">runBlocking</span><span class="o">(</span><span class="nc">Dispatchers</span><span class="o">.</span><span class="na">IO</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">launch</span> <span class="o">{</span>
+        <span class="n">repeat</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">println</span><span class="o">(</span><span class="s">"counting ${it + 1}"</span><span class="o">)</span>
+            <span class="n">delay</span><span class="o">(</span><span class="mi">1000</span><span class="o">)</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="특정-문맥과-함께-실행">특정 문맥과 함께 실행</h3>
+<p>withContext()</p>
+<ul>
+  <li>인자로 코루틴 문맥을 지정하며 해당 문맥에 따라 코드 블록을 실행</li>
+  <li>해당 코드 블록은 다른 스레드에서 수행되며 결과를 반환 한다.</li>
+  <li>부모 스레드는 블록하지 않는다.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="c1">// 함수 원형</span>
+<span class="n">suspend</span> <span class="n">fun</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">withContext</span><span class="o">(</span>
+    <span class="nl">context:</span> <span class="nc">CoroutineContext</span><span class="o">,</span>
+    <span class="nl">block:</span> <span class="n">suspend</span> <span class="nc">CoroutineScope</span><span class="o">.()</span> <span class="o">-&gt;</span> <span class="no">T</span>
+<span class="o">):</span> <span class="no">T</span> <span class="o">(</span><span class="n">source</span><span class="o">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>예</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">resultTwo</span> <span class="o">=</span> <span class="n">withContext</span><span class="o">(</span><span class="nc">Dispatchers</span><span class="o">.</span><span class="na">IO</span><span class="o">)</span> <span class="o">{</span> <span class="n">function2</span><span class="o">()</span> <span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>완료보장</p>
+<ul>
+  <li>withContext(NonCancellable) {…}
+    <ul>
+      <li>try { … } finally { … } 에서 finally 블록의 실행을 보장하기 위해 취소불가 블록 구성</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="스코프-빌더">스코프 빌더</h3>
+<p>coroutineScope 빌더</p>
+<ul>
+  <li>자신만의 코루틴 스코프(scope)를 선언하고 생성할 수 있다.(구조화된 코루틴)</li>
+  <li>모든 자식이 완료되기 전까지는 생성된 코루틴 스코프는 종료되지 않는다.</li>
+  <li>runBlocking과 유사하지만 runBlocking은 단순 함수로 현재 스레드를 블록킹, coroutineScope는 단순히 지연(suspend)함수 형태로 넌블로킹으로 사용됨</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="n">suspend</span> <span class="n">fun</span> <span class="o">&lt;</span><span class="no">R</span><span class="o">&gt;</span> <span class="nf">coroutineScope</span><span class="o">(</span>
+    <span class="nl">block:</span> <span class="n">suspend</span> <span class="nc">CoroutineScope</span><span class="o">.()</span> <span class="o">-&gt;</span> <span class="no">R</span>
+<span class="o">):</span> <span class="no">R</span> <span class="o">(</span><span class="n">source</span><span class="o">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>만일 자식 코루틴이 실패하면 이 스코프도 실패하고 남은 모든 자식은 취소(cancel)된다. (반면에 supervisorScope는 실패하지 않음)
+    <ul>
+      <li>외부에 의해 작업이 취소되는 경우 CancellationException 발생</li>
+    </ul>
+  </li>
+</ul>
+
+<p>supervisorScope 빌더</p>
+<ul>
+  <li>마찬가지로 코루틴 스코프를 생성하며 이때 SupervisorJob과 함께 생성하여 기존 문맥의 Job을 오버라이드 한다.
+    <ul>
+      <li>launch를 사용해 생성한 작업의 실패는 CoroutineExceptionHandler를 통해 핸들링</li>
+      <li>async를 사용해 생성한 작업의 실패는 Deferred.await의 결과에 따라 핸들링</li>
+      <li>parent를 통해 부모작업이 지정되면 자식작업이 되며 이때 부모에 따라 취소여부 결정
+        <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="nf">SupervisortJob</span><span class="o">(</span><span class="nl">parent:</span> <span class="nc">Job</span><span class="o">?</span> <span class="o">=</span> <span class="kc">null</span><span class="o">):</span> <span class="nc">CompletableJob</span> <span class="o">(</span> <span class="n">source</span> <span class="o">)</span>
+</pre></td></tr></tbody></table></code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>자식이 실패하더라도 이 스코프는 영향을 받지 않으므로 실패하지 않는다.
+    <ul>
+      <li>실패를 핸들링하는 정책을 구현할 수 있다.</li>
+    </ul>
+  </li>
+  <li>예외나 의도적인 취소에 의해 이 스코프의 자식들을 취소하지만 부모의 작업은 취소하지 않는다.</li>
+</ul>
+
+<p>예시</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">kotlinx.coroutines.*</span>
+
+<span class="n">fun</span> <span class="nf">main</span><span class="o">()</span> <span class="o">=</span> <span class="n">runBlocking</span> <span class="o">{</span> <span class="c1">// this: CoroutineScope</span>
+    <span class="n">launch</span> <span class="o">{</span>
+        <span class="n">delay</span><span class="o">(</span> <span class="mi">200L</span> <span class="o">)</span>
+        <span class="n">println</span><span class="o">(</span><span class="s">"Task from runBlocking)
+    }
+
+    coroutineScole { // 코루틴 스코프의 생성 -- 부모가 하위 코루틴 완료를 기다림
+    // CoroutineScope(Dispatchers.Default).launch { // -- 이때는 부모-자식 관계와 무관(완료를 기다리지 않음)
+        launch {
+            delay( 500L )
+            println("</span><span class="nc">Task</span> <span class="n">from</span> <span class="n">nested</span> <span class="n">launch</span><span class="s">")
+        }
+
+        delay( 100L )
+        println("</span><span class="nc">Task</span> <span class="n">from</span> <span class="n">coroutine</span> <span class="n">scope</span><span class="s">")
+    }
+
+    println("</span><span class="nc">Coroutine</span> <span class="n">scope</span> <span class="n">is</span> <span class="n">over</span><span class="err">"</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="부모와-자식-코루틴-관의-관계">부모와 자식 코루틴 관의 관계</h3>
+
+<p>병렬 분해(Parallel decomposition)</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="n">suspend</span> <span class="n">fun</span> <span class="nf">loadAndCombine</span><span class="o">(</span><span class="nl">name1:</span> <span class="nc">String</span><span class="o">,</span> <span class="nl">name2:</span> <span class="nc">String</span><span class="o">):</span> <span class="nc">Image</span> <span class="o">{</span>
+    <span class="n">val</span> <span class="n">deferred1</span> <span class="o">=</span> <span class="n">async</span> <span class="o">{</span> <span class="n">loadImage</span><span class="o">(</span><span class="n">name1</span><span class="o">)</span> <span class="o">}</span>
+    <span class="n">val</span> <span class="n">deferred2</span> <span class="o">=</span> <span class="n">async</span> <span class="o">{</span> <span class="n">loadImage</span><span class="o">(</span><span class="n">name2</span><span class="o">)</span> <span class="o">}</span>
+    <span class="k">return</span> <span class="nf">combineImages</span><span class="o">(</span><span class="n">deferred1</span><span class="o">.</span><span class="na">await</span><span class="o">(),</span> <span class="n">deferred2</span><span class="o">.</span><span class="na">await</span><span class="o">())</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<ul>
+  <li>loadImage(name2)는 여전히 진행된다.</li>
+  <li>코루틴 문맥에서 실행하여 자식 코루틴으로 구성한다면 예외를 부모에 전달하고 모든 자식 코루틴을 취소할 수 있다.
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="n">suspend</span> <span class="n">fun</span> <span class="nf">loadAndCombine</span><span class="o">(</span><span class="nl">name1:</span> <span class="nc">String</span><span class="o">,</span> <span class="nl">name2:</span> <span class="nc">String</span><span class="o">):</span> <span class="nc">Image</span> <span class="o">=</span> 
+<span class="n">coroutineScope</span> <span class="o">{</span> <span class="c1">// 스코프를 설정함으로 특정 자식 코루틴의 취소가 생기면 모든 자식을 취소하게됨</span>
+  <span class="n">val</span> <span class="n">deferred1</span> <span class="o">=</span> <span class="n">async</span> <span class="o">{</span> <span class="n">loadImage</span><span class="o">(</span><span class="n">name1</span><span class="o">)</span> <span class="o">}</span>
+  <span class="n">val</span> <span class="n">deferred2</span> <span class="o">=</span> <span class="n">async</span> <span class="o">{</span> <span class="n">loadImage</span><span class="o">(</span><span class="n">name2</span><span class="o">)</span> <span class="o">}</span>
+  <span class="n">combineImages</span><span class="o">(</span><span class="n">deferred1</span><span class="o">.</span><span class="na">await</span><span class="o">(),</span> <span class="n">deferred2</span><span class="o">.</span><span class="na">await</span><span class="o">())</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="스코프의-취소와-예외처리">스코프의 취소와 예외처리</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="n">scope2</span> <span class="o">=</span> <span class="nc">CoroutineScope</span>
+<span class="n">val</span> <span class="n">routine1</span> <span class="o">=</span> <span class="n">scope2</span><span class="o">.</span><span class="na">launch</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+<span class="n">val</span> <span class="n">routine2</span> <span class="o">=</span> <span class="n">scope2</span><span class="o">.</span><span class="na">async</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+
+<span class="n">scope2</span><span class="o">.</span><span class="na">cancel</span><span class="o">()</span>
+<span class="cm">/* 또는
+val scope2 = CoroutineScope
+val routine1 = scope2.launch { ... }
+val routine2 = scope2.async { ... }
+
+scope2.cancelChildern()
+*/</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>try {
+    ...
+} catch ( e: CancellationExceoption) {
+    ... 취소에 대한 예외처리 ...
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="코루틴의-실행-시간-지정">코루틴의 실행 시간 지정</h3>
+<p>실행 시간 제한</p>
+<ul>
+  <li>withTimeout(시간값) { … } = 특정 시간값 동안만 수행하고 블록을 끝냄
+    <ul>
+      <li>시간값이 되면 TimeoutCancellationException 예외를 발생</li>
+    </ul>
+  </li>
+  <li>withTimeoutOrNull(시간값) { … } - 동작은 위와 동일
+    <ul>
+      <li>단, 예외를 발생하지 않고 null을 반환</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="n">result</span> <span class="o">=</span> <span class="n">withTimeoutOrNull</span><span class="o">(</span> <span class="mi">1300L</span> <span class="o">)</span> <span class="o">{</span>
+    <span class="n">repeat</span><span class="o">(</span><span class="mi">1000</span><span class="o">)</span> <span class="o">{</span> <span class="n">i</span> <span class="o">=&gt;</span>
+        <span class="n">println</span><span class="o">(</span><span class="s">"I'm sleeping $i ..."</span><span class="o">)</span>
+        <span class="n">delay</span><span class="o">(</span><span class="mi">500L</span><span class="o">)</span>
+    <span class="o">}</span>
+    <span class="s">"Done"</span> <span class="c1">// 코루틴 블록이 취소되면 이 값이 result에 반환됨</span>
+<span class="o">}</span>
+<span class="n">println</span><span class="o">(</span><span class="s">"Result is $result"</span><span class="o">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="요약">요약</h3>
+
+<ul>
+  <li>MainScope
+MainScope는 UI 컴포넌트를 위한 스코프입니다. MainScope는 SupervisorJob을 생성하고 이 스코프에서 만들어진 모든 코루틴을 Main스레드에서 실행합니다. SupervisorJob을 생성하기 때문에 하나의 코루틴이 예외를 던지면서 실패해도 다른 코루틴들은 취소되지 않습니다.</li>
+</ul>
+
+<p>자식 코루틴의 실패는 CoroutineExceptionHandler를 사용하여 처리 할 수 있습니다.</p>
+
+<ul>
+  <li>
+    <p>CoroutineScope(context)
+CoroutineScope(context) 함수는 제공된 코루틴 문맥에서 새로운 코루틴 스코프를 생성합니다.</p>
+  </li>
+  <li>
+    <p>블로킹 모드의 실행 
+runBlocking은 새로운 코루틴을 시작하고 코루틴이 완료될 때까지 현재 스레드를 차단합니다. 일시 중단 및 논블록킹 스타일로 작성된 일반 블록 코드와 라이브러리를 연결하도록 설계되었습니다.</p>
+  </li>
+</ul>
+
+<p>코루틴의 문맥들</p>
+
+<ul>
+  <li>
+    <p>기본 문맥
+Dispatchers.Default는 기본 문맥인 CommonPool에서 실행되기 때문에 새로운 스레드를 생성하지 않고 기존에 있는 것을 이용합니다. 그러므로 연산 중심의 코드에 적합합니다.</p>
+  </li>
+  <li>
+    <p>I/O를 위한 문맥
+Dispatchers.IO는 입출력에 적합한 공유 풀로써, 볼로킹 동작이 많은 파일 or 소켓 I/O 처리에 사용하면 좋습니다.</p>
+  </li>
+  <li>
+    <p>Unconfined 문맥
+비한정 문맥에서 실행된 코루틴은 첫번째 중단점을 만날때까지만 호출자 스레드에서 실행됩니다. 중단점 이후에 재개 되었을때는 서스펜드 함수가 실행된 스레드에서 수행됩니다. 그렇기 때문에 비한정 문맥은 예측 불능한 상태로 수행되기 때문에 해당 기능을 사용하는 것은 권장되지 않습니다.</p>
+  </li>
+  <li>
+    <p>새 스레드를 생성하는 문맥
+newSingleThreadContext는 새로운 스레드가 생성되기 때문에 비용이 많이 들고 더 이상 필요하지 않으면 해제하거나 종료시켜야 합니다. 부모 코루틴이 취소되는 경우 자식 코루틴도 재귀적으로 취소됩니다.</p>
+  </li>
+</ul>
+
+<p>따라서 필요한 경우 join()함수를 사용하여 명시적으로 처리를 기다리도록 만들 수 있습니다.</p>
+
+<p>문맥 바꾸기 - withContext(context)</p>
+<ul>
+  <li>withContext(context) : 현재 코 루틴의 컨텍스트를 전환합니다. 주어진 블록이 실행될 때 코 루틴은 이전 컨텍스트로 다시 전환됩니다.</li>
+</ul>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2020-08-20"></time></span>           
+            </small>
+            </p>
+            
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#kotlin">kotlin</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2020 Malg:eon 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                지나가는 생각과 경험을 잡아두는 공간
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
