@@ -65,7 +65,7 @@
 <lastmod>2020-06-16T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>/study_CODE_binarySearchTree(BST)/</loc>
+<loc>/study_Programming_binarySearchTree(BST)/</loc>
 <lastmod>2020-06-16T00:00:00+00:00</lastmod>
 </url>
 <url>
@@ -97,7 +97,7 @@
 <lastmod>2020-06-19T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>/study_CODE_Graph-BFS,DFS/</loc>
+<loc>/study_Programming_Graph-BFS,DFS/</loc>
 <lastmod>2020-06-20T00:00:00+00:00</lastmod>
 </url>
 <url>
@@ -117,7 +117,7 @@
 <lastmod>2020-06-23T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>/study_CODE_javaScriptTemplet/</loc>
+<loc>/study_Programming_javaScriptTemplet/</loc>
 <lastmod>2020-06-24T00:00:00+00:00</lastmod>
 </url>
 <url>
@@ -125,11 +125,11 @@
 <lastmod>2020-06-25T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>/study_CODE_permutation&amp;combination/</loc>
+<loc>/study_Programming_permutation&amp;combination/</loc>
 <lastmod>2020-06-26T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>/study_CODE_powerSet/</loc>
+<loc>/study_Programming_powerSet/</loc>
 <lastmod>2020-06-26T00:00:00+00:00</lastmod>
 </url>
 <url>
@@ -177,7 +177,7 @@
 <lastmod>2020-07-05T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>/study_CODE_Stack,Queue.Tree/</loc>
+<loc>/study_Programming_Stack,Queue.Tree/</loc>
 <lastmod>2020-07-06T00:00:00+00:00</lastmod>
 </url>
 <url>
@@ -381,6 +381,14 @@
 <lastmod>2020-08-20T00:00:00+00:00</lastmod>
 </url>
 <url>
+<loc>/study_Programming_Stack,Queue.Tree-copy/</loc>
+<lastmod>2020-08-24T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>/study_Programming_memo/</loc>
+<lastmod>2020-08-24T00:00:00+00:00</lastmod>
+</url>
+<url>
 <loc>/about</loc>
 </url>
 <url>
@@ -427,6 +435,9 @@
 </url>
 <url>
 <loc>/study/page11/</loc>
+</url>
+<url>
+<loc>/study/page12/</loc>
 </url>
 <url>
 <loc>/project/android/</loc>
@@ -481,6 +492,9 @@
 </url>
 <url>
 <loc>/study/programming/</loc>
+</url>
+<url>
+<loc>/study/programming/page2/</loc>
 </url>
 <url>
 <loc>/study/web/</loc>
