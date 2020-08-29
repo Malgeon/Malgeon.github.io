@@ -341,6 +341,7 @@
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>다차원 배열</p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -372,6 +373,7 @@
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>다양한 자료형</p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="n">mixArr</span> <span class="o">=</span> <span class="n">arrayOf</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="s">"Chike"</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span> <span class="c1">// 정수, 문자열, Boolean 혼합</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
@@ -391,6 +393,7 @@
 <p>배열 요소에 접근</p>
 
 <p>선언부</p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -410,6 +413,7 @@
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>연산자를 통한 접근</p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre><span class="n">arr</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">value</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">index</span><span class="o">]</span>
@@ -418,23 +422,26 @@
 
 <p>예시</p>
 <ul>
-  <li>읽기 접근
-```java
-val arr = intArrayOf(1, 2, 3, 4, 5)
-println(arr.get(2)) // 게터를 통한 접근
-println(arr[2]) // 연산자 오버로딩으로 대괄호를 통한 접근</li>
+  <li>읽기 접근</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre>```java
-val arr2d = arrayOf(arrayOf(1, 2, 3), arrayOf(4, 5, 6), arrayOf(7, 8, 9))
-println(arr2d[2][1]) // 8을 출력
+</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">)</span>
+<span class="n">println</span><span class="o">(</span><span class="n">arr</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">))</span> <span class="c1">// 게터를 통한 접근</span>
+<span class="n">println</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="mi">2</span><span class="o">])</span> <span class="c1">// 연산자 오버로딩으로 대괄호를 통한 접근</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="n">arr2d</span> <span class="o">=</span> <span class="n">arrayOf</span><span class="o">(</span><span class="n">arrayOf</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">),</span> <span class="n">arrayOf</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">),</span> <span class="n">arrayOf</span><span class="o">(</span><span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">9</span><span class="o">))</span>
+<span class="n">println</span><span class="o">(</span><span class="n">arr2d</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">1</span><span class="o">])</span> <span class="c1">// 8을 출력</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <ul>
-  <li>쓰기 접근
-    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+  <li>쓰기 접근</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -442,11 +449,10 @@ println(arr2d[2][1]) // 8을 출력
 <span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">8</span> <span class="c1">// 인덱스 0번 요소를 값 8로 교체</span>
 <span class="n">arr2d</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1">// 다차원 배열의 요소를 교체</span>
 <span class="n">println</span><span class="o">(</span><span class="s">"size: ${arr.size} arr[0]: ${arr[0]}, arr[2]: ${arr[2]}"</span><span class="o">)</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-</ul>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>practice</p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -540,6 +546,7 @@ println(arr2d[2][1]) // 8을 출력
 
 <p>배열 출력을 도와주는 함수
 toString</p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">)</span>
@@ -547,6 +554,7 @@ toString</p>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>deepToString() [다차원 배열에서 사용!]</p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3

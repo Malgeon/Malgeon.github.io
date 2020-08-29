@@ -319,9 +319,12 @@
                 
                 <!-- End Toc -->
                 <h3 id="run">run()</h3>
-<p>run() 함수는 두 가지 형태이다.
-<code class="language-plaintext highlighter-rouge">public inline fun &lt;R&gt; run(block: () -&gt; R):R = return block()</code>
-``public inline fun &lt;T, R&gt; T.run(block: T.() -&gt; R):R = return block()`</p>
+<p>run() 함수는 두 가지 형태이다.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">public inline fun &lt;R&gt; run(block: () -&gt; R):R = return block()</code></li>
+  <li><code class="language-plaintext highlighter-rouge">public inline fun &lt;T, R&gt; T.run(block: T.() -&gt; R):R = return block()</code></li>
+</ul>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -378,7 +381,7 @@
     <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">returnObj: $returnObj</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// person</span>
 
     <span class="nx">val</span> <span class="nx">returnObj2</span> <span class="o">=</span> <span class="nx">person</span><span class="p">.</span><span class="nx">run</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">,</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Dooly</span><span class="dl">"</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Dooly</span><span class="dl">"</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">skills</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">C#</span><span class="dl">"</span>
         <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span>
     <span class="p">}</span>
@@ -447,7 +450,8 @@
 <h3 id="use">use()</h3>
 <p>use()를 사용하면 객체를 사용한 후 close() 등을 자동적으로 호출해 닫아준다.</p>
 
-<p><code class="language-plaintext highlighter-rouge">public inline fun &lt;T : Closeable?, R&gt; T.use(block: (T) -&gt; R) : R</code> 또는
+<p><code class="language-plaintext highlighter-rouge">public inline fun &lt;T : Closeable?, R&gt; T.use(block: (T) -&gt; R) : R</code> 
+<br /> Or <br />
 <code class="language-plaintext highlighter-rouge">public inline fun &lt;T : AutoCloseable?, R&gt; T.use(block: (T) -&gt; R) : R</code></p>
 
 <ul>

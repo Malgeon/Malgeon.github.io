@@ -343,19 +343,19 @@
 <h3 id="문자열-추출하고-병합하기">문자열 추출하고 병합하기</h3>
 <p>문자열에서 특정 범위의 문자열을 추출</p>
 <ul>
-  <li>substring(), subsequence()
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+  <li>substring(), subsequence()</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre>String.substring( 인덱스 범위 지정 ): String
 CharSequence.subSequence( 인덱스 범위 지정 ): CharSequence
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre><span class="n">s</span> <span class="o">=</span> <span class="s">"abcdef"</span>
 <span class="n">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">2</span><span class="o">))</span> <span class="c1">// abc</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-</ul>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>추출 후 문자열 새로 할당하기</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -368,8 +368,10 @@ CharSequence.subSequence( 인덱스 범위 지정 ): CharSequence
 
 <p>a.compareTo(b)를 사용한 비교</p>
 <ul>
-  <li>a와 b가 같다면 0을 반환하고, a가 b보다 작으면 양수, 그렇지 않으면 음수
-    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+  <li>a와 b가 같다면 0을 반환하고, a가 b보다 작으면 양수, 그렇지 않으면 음수</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -379,9 +381,7 @@ CharSequence.subSequence( 인덱스 범위 지정 ): CharSequence
 <span class="c1">// 같으면 0, s1&lt;s2 이면 양수, 반대면 음수를 반환</span>
 <span class="n">println</span><span class="o">(</span><span class="n">s1</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">s2</span><span class="o">))</span> <span class="c1">// 양수</span>
 <span class="n">println</span><span class="o">(</span><span class="n">s1</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="kc">true</span><span class="o">))</span> <span class="c1">// 대소문자 무시 결과는 0</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-</ul>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="stringbuilder">StringBuilder</h3>
 <p>문자열이 사용할 공간을 좀 더 크게 잡아 사용한다.</p>
@@ -399,8 +399,10 @@ CharSequence.subSequence( 인덱스 범위 지정 ): CharSequence
 
 <p>StringBuilder 관련 메서드</p>
 <ul>
-  <li>append(포함), insert(추가), delete(삭제) 등
-    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+  <li>append(포함), insert(추가), delete(삭제) 등</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -408,9 +410,7 @@ CharSequence.subSequence( 인덱스 범위 지정 ): CharSequence
 <span class="n">s</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"World"</span><span class="o">)</span> <span class="c1">// HelloWorld</span>
 <span class="n">s</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="s">"Added"</span><span class="o">)</span> <span class="c1">// index 10부터 추가되어 HelloWorldAdded</span>
 <span class="n">s</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">10</span><span class="o">)</span> <span class="c1">// index 5부터 10 전까지 삭제되어 HelloAdded</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-</ul>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="기타-문자열-처리">기타 문자열 처리</h3>
 
@@ -421,16 +421,16 @@ CharSequence.subSequence( 인덱스 범위 지정 ): CharSequence
 
 <p>특정 문자 단위로 잘라내기</p>
 <ul>
-  <li>split(“분리문자”) - 분리된 내용은 List로 반환
-    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+  <li>split(“분리문자”) - 분리된 내용은 List로 반환</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre></td><td class="rouge-code"><pre><span class="kt">var</span> <span class="n">deli</span> <span class="o">=</span> <span class="s">"Welcome to Kotlin"</span>
 <span class="n">val</span> <span class="n">sp</span> <span class="o">=</span> <span class="n">deli</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">)</span>
 <span class="n">println</span><span class="o">(</span><span class="n">sp</span><span class="o">)</span> <span class="c1">// ["Welcome", "to", "Kotlin"]</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-</ul>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>앞뒤 공백 제거</p>
 <ul>
@@ -438,18 +438,54 @@ CharSequence.subSequence( 인덱스 범위 지정 ): CharSequence
 </ul>
 
 <h3 id="리터럴-문자열">리터럴 문자열</h3>
-<p>이스케이프(Escape) 문자
-| 종류 | 의미 |
-| — | — |
-| \t | 탭(tab) |
-| \b | 백스페이스(backspace) |
-| \n | 개행(newline) |
-| \r | 리턴(carriage return) |
-| \uHHHH | 유니코드(Unicode) 문자 |
-| ' | 작은따옴표(single quote) |
-| " | 큰따옴표(double quote) |
-| \ | 슬래시(slash) |
-| $ | 달러 기호(dollar) |</p>
+<p>이스케이프(Escape) 문자</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>종류</th>
+      <th>의미</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\t</td>
+      <td>탭(tab)</td>
+    </tr>
+    <tr>
+      <td>\b</td>
+      <td>백스페이스(backspace)</td>
+    </tr>
+    <tr>
+      <td>\n</td>
+      <td>개행(newline)</td>
+    </tr>
+    <tr>
+      <td>\r</td>
+      <td>리턴(carriage return)</td>
+    </tr>
+    <tr>
+      <td>\uHHHH</td>
+      <td>유니코드(Unicode) 문자</td>
+    </tr>
+    <tr>
+      <td>'</td>
+      <td>작은따옴표(single quote)</td>
+    </tr>
+    <tr>
+      <td>"</td>
+      <td>큰따옴표(double quote)</td>
+    </tr>
+    <tr>
+      <td>\</td>
+      <td>슬래시(slash)</td>
+    </tr>
+    <tr>
+      <td>$</td>
+      <td>달러 기호(dollar)</td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -485,6 +521,7 @@ CharSequence.subSequence( 인덱스 범위 지정 ): CharSequence
 
 <h3 id="형식-문자-사용">형식 문자 사용</h3>
 <p>format()을 사용한 형식 문자</p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="n">inline</span> <span class="n">fun</span> <span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">vararg</span> <span class="nl">args:</span> <span class="nc">Any</span><span class="o">?):</span> <span class="nc">String</span> <span class="o">(</span><span class="n">source</span><span class="o">)</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
