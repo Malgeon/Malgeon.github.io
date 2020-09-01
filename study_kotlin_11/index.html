@@ -16,14 +16,14 @@
 <meta property="og:title" content="Kotlin 객체편 - [1]" />
 <meta name="author" content="study" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Kotlin 객체 지향 프로그래밍 기본 - 1" />
-<meta property="og:description" content="Kotlin 객체 지향 프로그래밍 기본 - 1" />
+<meta name="description" content="생성자, init, 상속, 다형성" />
+<meta property="og:description" content="생성자, init, 상속, 다형성" />
 <meta property="og:site_name" content="Malg:eon" />
 <meta property="og:image" content="/assets/images/study/kotlin.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-08-05T00:00:00+00:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 객체편 - [1]","dateModified":"2020-08-05T00:00:00+00:00","description":"Kotlin 객체 지향 프로그래밍 기본 - 1","datePublished":"2020-08-05T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_kotlin_11/"},"@type":"BlogPosting","url":"/study_kotlin_11/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 객체편 - [1]","dateModified":"2020-08-05T00:00:00+00:00","description":"생성자, init, 상속, 다형성","datePublished":"2020-08-05T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_kotlin_11/"},"@type":"BlogPosting","url":"/study_kotlin_11/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -278,7 +278,7 @@
 
                 <!-- Post Title -->
                 <div><h1 class="posttitle">Kotlin 객체편 - [1]</h1></div>
-                <h4 class="postdescription">Kotlin 객체 지향 프로그래밍 기본 - 1</h4>
+                <h4 class="postdescription">생성자, init, 상속, 다형성</h4>
 
                 <div class="post-top-meta">
                     <span class="meta-footer-thumb">
@@ -396,7 +396,7 @@
 <p>객체가 생성될 때 자동으로 실행되는 block을 설정할수 있다. 해당 블록의 작업시간이 길어질수록 객체 생성 시간이 늘어나므로 간단한 코드를 사용한다.</p>
 
 <ul>
-  <li>부 생성지(Secondary Constructor)
+  <li>부 생성자(Secondary Constructor)
 클래스 본문에 기술되며 하나 잇아의 부 생성자를 정의할 수 있다.</li>
 </ul>
 
@@ -534,37 +534,68 @@ class 파생 클래스명 : 기반 클래스명() { // 기반 클래스로 부�
 <p>Static Polymorphism</p>
 <ul>
   <li>컴파일 타임에 결정되는 다형성</li>
-  <li>단순하게 보면 메서드 overloding을 사용할 때
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+  <li>단순하게 보면 메서드 overloding을 사용할 때</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre>fun example(a: Int)
 fun example(a: Int, b: Int)
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-</ul>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Dynamic Polymorphism</p>
 <ul>
   <li>런타임 다형성</li>
-  <li>동적으로 구성되는 overrideing된 메서드를 사용할 때
-```
-open class Parent (name: Int) {
-  open fun example()
-}
-class Child1(name: Int) : Parent(name) {
-  override fun example()
-}
-class Child2(name: Int) : Parent(name) {
-  override fun example()
-}</li>
+  <li>동적으로 구성되는 overrideing된 메서드를 사용할 때</li>
 </ul>
 
-<p>var child1 = Child1(1)
-var child2 = Child1(1)</p>
-
-<p>child1.example()
-child2.example()</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre>open class Parent (name: Int) {
+    open fun example()
+}
+class Child1(name: Int) : Parent(name) {
+    override fun example()
+}
+class Child2(name: Int) : Parent(name) {
+    override fun example()
+}
+
+var child1 = Child1(1)
+var child2 = Child1(1)
+
+child1.example()
+child2.example()
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>overriding</p>
+<ul>
+  <li>기능을 완전히 다르게 바꿔 재설계</li>
+  <li>누르다 -&gt; 행위 -&gt; push()</li>
+  <li>push()는 ‘확인’ 혹은 ‘취소’ 용도로 서로 다른 기능을 수행 할 수 있음</li>
+</ul>
+
+<p>overloading</p>
+<ul>
+  <li>기능은 같지만 인자를 다르게 하여 여러 경우를 처리</li>
+  <li>출력한다 -&gt; 행위 -&gt; print()</li>
+  <li>print(123), print(“Hello”) 인자는 다르지만 출력의 기능은 동일함</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -613,85 +644,55 @@ child2.example()</p>
 47
 48
 49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-</pre></td><td class="rouge-code"><pre>
+</pre></td><td class="rouge-code"><pre><span class="nx">open</span> <span class="kd">class</span> <span class="nx">Bird</span><span class="p">(</span><span class="kd">var</span> <span class="nx">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="kd">var</span> <span class="nx">wing</span><span class="p">:</span> <span class="nx">Int</span><span class="p">,</span> <span class="kd">var</span> <span class="nx">beak</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">open</span> <span class="nx">fun</span> <span class="nx">fly</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">Fly</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-overriding
-- 기능을 완전히 다르게 바꿔 재설계
-- 누르다 -&gt; 행위 -&gt; push()
-- push()는 '확인' 혹은 '취소' 용도로 서로 다른 기능을 수행 할 수 있음
+<span class="kd">class</span> <span class="nx">Lark</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">wing</span><span class="p">:</span> <span class="nx">Int</span><span class="p">,</span> <span class="nx">beak</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">:</span> <span class="nx">Bird</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">wing</span><span class="p">,</span> <span class="nx">beak</span><span class="p">){</span>
+    <span class="nx">fun</span> <span class="nx">singHitone</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">sing Hitone</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">}</span>
 
-overloading
-- 기능은 같지만 인자를 다르게 하여 여러 경우를 처리
-- 출력한다 -&gt; 행위 -&gt; print()
-- print(123), print("Hello") 인자는 다르지만 출력의 기능은 동일함
+    <span class="nx">override</span> <span class="nx">fun</span> <span class="nx">fly</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">Quick Fly</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
+<span class="kd">class</span> <span class="nx">Parrot</span> <span class="p">:</span> <span class="nx">Bird</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">language</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">wing</span><span class="p">:</span> <span class="nx">Int</span><span class="p">,</span> <span class="nx">beak</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">language</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">:</span> <span class="k">super</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">wing</span><span class="p">,</span> <span class="nx">beak</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">language</span> <span class="o">=</span> <span class="nx">language</span>
+    <span class="p">}</span>
+    <span class="nx">fun</span> <span class="nx">speak</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">Speak: $language</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">}</span>
 
+    <span class="nx">override</span> <span class="nx">fun</span> <span class="nx">fly</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">Slow Fly</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-```javascript
-open class Bird(var name: String, var wing: Int, var beak: String) {
-    open fun fly () {
-        println("Fly")
-    }
-}
+<span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">lark</span> <span class="o">=</span> <span class="nx">Lark</span><span class="p">(</span><span class="dl">"</span><span class="s2">myLark</span><span class="dl">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">short</span><span class="dl">"</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nx">parrot</span> <span class="o">=</span> <span class="nx">Parrot</span><span class="p">(</span><span class="dl">"</span><span class="s2">myParrot</span><span class="dl">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">long</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">English</span><span class="dl">"</span><span class="p">)</span>
 
-class Lark(name: String, wing: Int, beak: String) : Bird(name, wing, beak){
-    fun singHitone() {
-        println("sing Hitone")
-    }
+    <span class="nx">lark</span><span class="p">.</span><span class="nx">fly</span><span class="p">()</span> <span class="c1">// Quick Fly</span>
+    <span class="nx">lark</span><span class="p">.</span><span class="nx">singHitone</span><span class="p">()</span>
 
-    override fun fly () {
-        println("Quick Fly")
-    }
-}
+    <span class="nx">parrot</span><span class="p">.</span><span class="nx">fly</span><span class="p">()</span> <span class="c1">// Slow Fly</span>
+    <span class="nx">parrot</span><span class="p">.</span><span class="nx">speak</span><span class="p">()</span>
 
-class Parrot : Bird {
-    var language: String
-    constructor(name: String, wing: Int, beak: String, language: String) : super(name, wing, beak) {
-        this.language = language
-    }
-    fun speak() {
-        println("Speak: $language")
-    }
+    <span class="kd">var</span> <span class="nx">lark</span><span class="p">:</span> <span class="nx">Bird</span> <span class="o">=</span> <span class="nx">Lark</span><span class="p">(</span><span class="dl">"</span><span class="s2">myLark</span><span class="dl">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">short</span><span class="dl">"</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nx">parrot</span><span class="p">:</span> <span class="nx">Bird</span> <span class="o">=</span> <span class="nx">Parrot</span><span class="p">(</span><span class="dl">"</span><span class="s2">myParrot</span><span class="dl">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">long</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">English</span><span class="dl">"</span><span class="p">)</span>
 
-    override fun fly () {
-        println("Slow Fly")
-    }
-}
+    <span class="nx">lark</span><span class="p">.</span><span class="nx">fly</span><span class="p">()</span> <span class="c1">// 동일하게 Quick Fly</span>
+    <span class="c1">// lark.singHitone() error</span>
 
-fun main() {
-    var lark = Lark("myLark", 2, "short")
-    var parrot = Parrot("myParrot", 2, "long", "English")
-
-    lark.fly() // Quick Fly
-    lark.singHitone()
-
-    parrot.fly() // Slow Fly
-    parrot.speak()
-
-    var lark: Bird = Lark("myLark", 2, "short")
-    var parrot: Bird = Parrot("myParrot", 2, "long", "English")
-
-    lark.fly() // 동일하게 Quick Fly
-    // lark.singHitone() error
-
-    parrot.fly() // 동일하게 Slow Fly
-    // parrot.speak() error
-}
+    <span class="nx">parrot</span><span class="p">.</span><span class="nx">fly</span><span class="p">()</span> <span class="c1">// 동일하게 Slow Fly</span>
+    <span class="c1">// parrot.speak() error</span>
+<span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1

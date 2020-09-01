@@ -16,14 +16,14 @@
 <meta property="og:title" content="Kotlin 함수편 - [5]" />
 <meta name="author" content="study" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Kotlin 함수형 프로그래밍 - 2" />
-<meta property="og:description" content="Kotlin 함수형 프로그래밍 - 2" />
+<meta name="description" content="익명함수, 인라인함수, 확장함수, 중위표현법, 꼬리재귀함수" />
+<meta property="og:description" content="익명함수, 인라인함수, 확장함수, 중위표현법, 꼬리재귀함수" />
 <meta property="og:site_name" content="Malg:eon" />
 <meta property="og:image" content="/assets/images/study/kotlin.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-07-31T00:00:00+00:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 함수편 - [5]","dateModified":"2020-07-31T00:00:00+00:00","description":"Kotlin 함수형 프로그래밍 - 2","datePublished":"2020-07-31T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_kotlin_5/"},"@type":"BlogPosting","url":"/study_kotlin_5/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 함수편 - [5]","dateModified":"2020-07-31T00:00:00+00:00","description":"익명함수, 인라인함수, 확장함수, 중위표현법, 꼬리재귀함수","datePublished":"2020-07-31T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_kotlin_5/"},"@type":"BlogPosting","url":"/study_kotlin_5/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -278,7 +278,7 @@
 
                 <!-- Post Title -->
                 <div><h1 class="posttitle">Kotlin 함수편 - [5]</h1></div>
-                <h4 class="postdescription">Kotlin 함수형 프로그래밍 - 2</h4>
+                <h4 class="postdescription">익명함수, 인라인함수, 확장함수, 중위표현법, 꼬리재귀함수</h4>
 
                 <div class="post-top-meta">
                     <span class="meta-footer-thumb">
@@ -319,6 +319,7 @@
                 
                 <!-- End Toc -->
                 <h3 id="익명-함수">익명 함수</h3>
+
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="p">(</span><span class="nx">x</span><span class="p">:</span> <span class="nx">Int</span><span class="p">,</span> <span class="nx">y</span><span class="p">;</span> <span class="nx">Int</span><span class="p">):</span> <span class="nx">Int</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span> <span class="c1">// 함수의 이름이 생략되어 있다.</span>
 </pre></td></tr></tbody></table></code></pre></div></div>

@@ -16,14 +16,14 @@
 <meta property="og:title" content="Kotlin 객체편 - [17]" />
 <meta name="author" content="study" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Kotlin 배열의 정렬" />
-<meta property="og:description" content="Kotlin 배열의 정렬" />
+<meta name="description" content="배열 정렬" />
+<meta property="og:description" content="배열 정렬" />
 <meta property="og:site_name" content="Malg:eon" />
 <meta property="og:image" content="/assets/images/study/kotlin.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-08-18T00:00:00+00:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 객체편 - [17]","dateModified":"2020-08-18T00:00:00+00:00","description":"Kotlin 배열의 정렬","datePublished":"2020-08-18T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_kotlin_27/"},"@type":"BlogPosting","url":"/study_kotlin_27/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 객체편 - [17]","dateModified":"2020-08-18T00:00:00+00:00","description":"배열 정렬","datePublished":"2020-08-18T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_kotlin_27/"},"@type":"BlogPosting","url":"/study_kotlin_27/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -278,7 +278,7 @@
 
                 <!-- Post Title -->
                 <div><h1 class="posttitle">Kotlin 객체편 - [17]</h1></div>
-                <h4 class="postdescription">Kotlin 배열의 정렬</h4>
+                <h4 class="postdescription">배열 정렬</h4>
 
                 <div class="post-top-meta">
                     <span class="meta-footer-thumb">
@@ -393,6 +393,7 @@
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>practice</p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -498,6 +499,7 @@
 
 <h3 id="배열-필터링하기">배열 필터링하기</h3>
 <p>filter() 메서드를 활용하면 원하는 데이터를 골라낼 수 있다.</p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -513,6 +515,7 @@ arr.filter { it &gt; 0 }.forEach { print(it + " ")}
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>체이닝을 통한 필터링 예</p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -534,6 +537,7 @@ arr.filter { it &gt; 0 }.forEach { print(it + " ")}
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>when 문을 사용한 요소 확인</p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -545,6 +549,7 @@ arr.filter { it &gt; 0 }.forEach { print(it + " ")}
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>큰 값 작은 값 골라내기</p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -555,8 +560,10 @@ arr.filter { it &gt; 0 }.forEach { print(it + " ")}
 
 <p>배열 평탄화 하기</p>
 <ul>
-  <li>flatten() : 다차원 배열을 단일 배열 생성
-    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+  <li>flatten() : 다차원 배열을 단일 배열 생성</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -567,18 +574,16 @@ arr.filter { it &gt; 0 }.forEach { print(it + " ")}
 9
 10
 </pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="nf">main</span><span class="o">()</span> <span class="o">{</span>
-  <span class="n">val</span> <span class="n">numbers</span> <span class="o">=</span> <span class="n">arrayOf</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">)</span>
-  <span class="n">val</span> <span class="n">strs</span> <span class="o">=</span> <span class="n">arrayOf</span><span class="o">(</span><span class="s">"one"</span><span class="o">,</span> <span class="s">"two"</span><span class="o">,</span> <span class="s">"three"</span><span class="o">)</span>
-  <span class="n">val</span> <span class="n">simpleArray</span> <span class="o">=</span> <span class="n">arrayOf</span><span class="o">(</span><span class="n">numbers</span><span class="o">,</span> <span class="n">strs</span><span class="o">)</span> <span class="c1">// 2차원 배열</span>
+    <span class="n">val</span> <span class="n">numbers</span> <span class="o">=</span> <span class="n">arrayOf</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">)</span>
+    <span class="n">val</span> <span class="n">strs</span> <span class="o">=</span> <span class="n">arrayOf</span><span class="o">(</span><span class="s">"one"</span><span class="o">,</span> <span class="s">"two"</span><span class="o">,</span> <span class="s">"three"</span><span class="o">)</span>
+    <span class="n">val</span> <span class="n">simpleArray</span> <span class="o">=</span> <span class="n">arrayOf</span><span class="o">(</span><span class="n">numbers</span><span class="o">,</span> <span class="n">strs</span><span class="o">)</span> <span class="c1">// 2차원 배열</span>
 
-  <span class="n">simpleArray</span><span class="o">.</span><span class="na">forEach</span><span class="o">{</span> <span class="n">println</span><span class="o">(</span><span class="n">it</span><span class="o">)</span> <span class="o">}</span>
+    <span class="n">simpleArray</span><span class="o">.</span><span class="na">forEach</span><span class="o">{</span> <span class="n">println</span><span class="o">(</span><span class="n">it</span><span class="o">)</span> <span class="o">}</span>
 
-  <span class="n">val</span> <span class="n">flattenSimpleArray</span> <span class="o">=</span> <span class="n">simpleArray</span><span class="o">.</span><span class="na">flatten</span><span class="o">()</span> <span class="c1">// 단일 배열로 변환하기</span>
-  <span class="n">println</span><span class="o">(</span><span class="n">flattenSimpleArray</span><span class="o">)</span>
+    <span class="n">val</span> <span class="n">flattenSimpleArray</span> <span class="o">=</span> <span class="n">simpleArray</span><span class="o">.</span><span class="na">flatten</span><span class="o">()</span> <span class="c1">// 단일 배열로 변환하기</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">flattenSimpleArray</span><span class="o">)</span>
 <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-</ul>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 
             </div>

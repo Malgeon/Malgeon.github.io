@@ -389,6 +389,10 @@
 <lastmod>2020-08-24T00:00:00+00:00</lastmod>
 </url>
 <url>
+<loc>/study_CODE_design_2/</loc>
+<lastmod>2020-09-01T00:00:00+00:00</lastmod>
+</url>
+<url>
 <loc>/about</loc>
 </url>
 <url>
@@ -545,6 +549,9 @@
 <loc>/test/standard/page4/</loc>
 </url>
 <url>
+<loc>/test/standard/page5/</loc>
+</url>
+<url>
 <loc>/test/</loc>
 </url>
 <url>
@@ -555,5 +562,8 @@
 </url>
 <url>
 <loc>/test/page4/</loc>
+</url>
+<url>
+<loc>/test/page5/</loc>
 </url>
 </urlset>

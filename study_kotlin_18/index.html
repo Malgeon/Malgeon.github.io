@@ -16,14 +16,14 @@
 <meta property="og:title" content="Kotlin 객체편 - [8]" />
 <meta name="author" content="study" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Kotlin 클래스 - 데이터 클래스" />
-<meta property="og:description" content="Kotlin 클래스 - 데이터 클래스" />
+<meta name="description" content="데이터 클래스" />
+<meta property="og:description" content="데이터 클래스" />
 <meta property="og:site_name" content="Malg:eon" />
 <meta property="og:image" content="/assets/images/study/kotlin.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-08-11T00:00:00+00:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 객체편 - [8]","dateModified":"2020-08-11T00:00:00+00:00","description":"Kotlin 클래스 - 데이터 클래스","datePublished":"2020-08-11T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_kotlin_18/"},"@type":"BlogPosting","url":"/study_kotlin_18/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 객체편 - [8]","dateModified":"2020-08-11T00:00:00+00:00","description":"데이터 클래스","datePublished":"2020-08-11T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_kotlin_18/"},"@type":"BlogPosting","url":"/study_kotlin_18/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -278,7 +278,7 @@
 
                 <!-- Post Title -->
                 <div><h1 class="posttitle">Kotlin 객체편 - [8]</h1></div>
-                <h4 class="postdescription">Kotlin 클래스 - 데이터 클래스</h4>
+                <h4 class="postdescription">데이터 클래스</h4>
 
                 <div class="post-top-meta">
                     <span class="meta-footer-thumb">
@@ -334,12 +334,12 @@
 
 <p>코틀린의 데이터 클래스(data class)</p>
 <ul>
-  <li>DTO를 표현하기 적합한 클래스 표현으로 data class 키워드를 사용해 정의한다
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>코틀린의 프로퍼티 = 필드(변수) + 게터와 세터
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
+  <li>DTO를 표현하기 적합한 클래스 표현으로 data class 키워드를 사용해 정의한다</li>
 </ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>코틀린의 프로퍼티 = 필드(변수) + 게터와 세터
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>자동으로 생성되는 메서드들</p>
 <ul>
@@ -363,6 +363,7 @@
 </ul>
 
 <p>데이터 클래스에 간단한 로직을 포함하려면 부 생성자나 init 블록을 넣어 데이터를 위한 간단한 로직을 포함 할 수 있다.</p>
+
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -383,14 +384,38 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>자동 생성 메서드들
-| 제공된 메서드 | 기능 |
-| — | — | 
-| equals() | 두 객체의 내용이 같은지 비교하는 연산자로 ==와 동일(고유값은 다르지만 의미값이 같을 떄) | 
-| hashCode() | 객체를 구별하기 위한 고유한 정수값 생성, 데이터 셋이나 해시테이블을 사용하기 위한 하나의 생성된 인덱스 | 
-| copys() | 빌더 없이 특정 프로퍼티만 변경해서 객체 복사하기 | 
-| toString() | 데이터 객체를 읽기 편한 문자열로 반환하기 | 
-| componentN() | 객체의 선언부 구조를 분해하기 위해 프로퍼티에 상응하는 메서드 |</p>
+<p>자동 생성 메서드들</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>제공된 메서드</th>
+      <th>기능</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>equals()</td>
+      <td>두 객체의 내용이 같은지 비교하는 연산자로 ==와 동일(고유값은 다르지만 의미값이 같을 떄)</td>
+    </tr>
+    <tr>
+      <td>hashCode()</td>
+      <td>객체를 구별하기 위한 고유한 정수값 생성, 데이터 셋이나 해시테이블을 사용하기 위한 하나의 생성된 인덱스</td>
+    </tr>
+    <tr>
+      <td>copys()</td>
+      <td>빌더 없이 특정 프로퍼티만 변경해서 객체 복사하기</td>
+    </tr>
+    <tr>
+      <td>toString()</td>
+      <td>데이터 객체를 읽기 편한 문자열로 반환하기</td>
+    </tr>
+    <tr>
+      <td>componentN()</td>
+      <td>객체의 선언부 구조를 분해하기 위해 프로퍼티에 상응하는 메서드</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>메서드 사용 예</p>
 

@@ -16,14 +16,14 @@
 <meta property="og:title" content="Kotlin 함수편 - [7]" />
 <meta name="author" content="study" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Kotlin 반복문" />
-<meta property="og:description" content="Kotlin 반복문" />
+<meta name="description" content="반복문" />
+<meta property="og:description" content="반복문" />
 <meta property="og:site_name" content="Malg:eon" />
 <meta property="og:image" content="/assets/images/study/kotlin.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-08-04T00:00:00+00:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 함수편 - [7]","dateModified":"2020-08-04T00:00:00+00:00","description":"Kotlin 반복문","datePublished":"2020-08-04T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_kotlin_7/"},"@type":"BlogPosting","url":"/study_kotlin_7/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 함수편 - [7]","dateModified":"2020-08-04T00:00:00+00:00","description":"반복문","datePublished":"2020-08-04T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_kotlin_7/"},"@type":"BlogPosting","url":"/study_kotlin_7/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -278,7 +278,7 @@
 
                 <!-- Post Title -->
                 <div><h1 class="posttitle">Kotlin 함수편 - [7]</h1></div>
-                <h4 class="postdescription">Kotlin 반복문</h4>
+                <h4 class="postdescription">반복문</h4>
 
                 <div class="post-top-meta">
                     <span class="meta-footer-thumb">
@@ -320,6 +320,7 @@
                 <!-- End Toc -->
                 <h3 id="for문">for문</h3>
 <p>자바와 같은 세미콜론을 이용한 for문은 사용할 수 없다.</p>
+
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -333,6 +334,7 @@
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>하행 반복</p>
+
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre><span class="c1">// for (x in 5..1) println(x) // 잘못된 사용! 아무것도 출력되지 않는다.</span>
@@ -340,6 +342,7 @@
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>필요한 단계 증가</p>
+
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre><span class="k">for</span> <span class="p">(</span><span class="nx">x</span> <span class="k">in</span> <span class="mi">1</span><span class="p">..</span><span class="mi">5</span> <span class="nx">step</span> <span class="mi">2</span><span class="p">)</span> <span class="nx">println</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="c1">// 1 3 5</span>
@@ -347,6 +350,7 @@
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>until</p>
+
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="k">for</span> <span class="p">(</span><span class="nx">x</span> <span class="k">in</span> <span class="mi">1</span> <span class="nx">until</span> <span class="mi">6</span><span class="p">)</span> <span class="nx">println</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="c1">// 6 전까지만 간다.</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
@@ -445,6 +449,7 @@
 
 <p>암묵적 라벨
 라벨에 이름을 붙여주는 대신 함수이름을 사용할 수 있다.</p>
+
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -505,6 +510,7 @@
 <p>익명 함수를 사용하게 되면 코딩의 직관성이 떨어져서, 주의해서 사용하자.</p>
 
 <p>람다식과 익명 함수 비교</p>
+
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
