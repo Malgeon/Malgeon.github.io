@@ -361,8 +361,10 @@ CharSequence.subSequence( 인덱스 범위 지정 ): CharSequence
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
+3
 </pre></td><td class="rouge-code"><pre><span class="kt">var</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"abcdef"</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">"x"</span> <span class="o">+</span> <span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">3</span><span class="o">..</span><span class="na">s</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="c1">// ab를 추출하고 x를 덧붙이고 다시 def를 추출 -&gt; abxdef</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">"x"</span> <span class="o">+</span> <span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">3</span><span class="o">..</span><span class="na">s</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> 
+<span class="c1">// ab를 추출하고 x를 덧붙이고 다시 def를 추출 -&gt; abxdef</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="문자열-비교">문자열 비교</h3>

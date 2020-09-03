@@ -370,13 +370,34 @@
   <li>불변형이므로 Collection으로부터 확장된 Set과 List는 읽기 전용의 컬렉션됨</li>
 </ul>
 
-<p>Collection 인터페이스의 멤버
-| 멤버 | 설명 |
-| — | — |
-| size | 컬렉션의 크기를 나타낸다 |
-| isEmpty() | 컬렉션이 비어 있는 경우 true를 반환한다 |
-| contains(element: E) | 특정 요소가 있다면 true를 반환한다 |
-| containsAll(element: Collection<E>) | 인자로 받아들인 Collection이 있다면 true를 반환한다. |</E></p>
+<p>Collection 인터페이스의 멤버</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>멤버</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>size</td>
+      <td>컬렉션의 크기를 나타낸다</td>
+    </tr>
+    <tr>
+      <td>isEmpty()</td>
+      <td>컬렉션이 비어 있는 경우 true를 반환한다</td>
+    </tr>
+    <tr>
+      <td>contains(element: E)</td>
+      <td>특정 요소가 있다면 true를 반환한다</td>
+    </tr>
+    <tr>
+      <td>containsAll(element: Collection<E>)</E></td>
+      <td>인자로 받아들인 Collection이 있다면 true를 반환한다.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="mutableiterable과-mutablecollection-인터페이스">MutableIterable과 MutableCollection 인터페이스</h3>
 <p>특징</p>
@@ -385,15 +406,42 @@
   <li>요소를 추가하거나 제거하는 등의 기능을 수행할 수 있따.</li>
 </ul>
 
-<p>MutableCollection의 멤버
-| 멤버 | 설명 |
-| — | — |
-| add(element: E) | 인자로 전달반은 요소를 추가하고 true를 반환하며, 이미 요소가 있거나 중복이 허용되지 않으면 false를 반환한다. |
-| remove(element: E) | 인자로 받은 요소를 삭제하고 true를 반환하며, 삭제하려는 요소가 없다면 false를 반환한다. |
-| addAll(elements: Collection<E>) | 컬렉션을 인자로 전달받아 모든 요소를 추가하고 true를 반환하며, 실패 시 false를 반환한다. |
-| removeAll(elements: Collection<E>) | 컬렉션을 인자로 전달받아 모든 요소를 삭제하고 true를 반환하며, 실패 시 false를 반환한다. |
-| retainAll(elements: Collection<E>) | 인자로 전달받은 컬렉션의 요소만 보유한다. 성공 시 true를 반환하고 실패 시 false를 반환한다. |
-| clear() | 컬렉션의 모든 요소를 삭제한다. |</E></E></E></p>
+<p>MutableCollection의 멤버</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>멤버</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>add(element: E)</td>
+      <td>인자로 전달반은 요소를 추가하고 true를 반환하며, 이미 요소가 있거나 중복이 허용되지 않으면 false를 반환한다.</td>
+    </tr>
+    <tr>
+      <td>remove(element: E)</td>
+      <td>인자로 받은 요소를 삭제하고 true를 반환하며, 삭제하려는 요소가 없다면 false를 반환한다.</td>
+    </tr>
+    <tr>
+      <td>addAll(elements: Collection<E>)</E></td>
+      <td>컬렉션을 인자로 전달받아 모든 요소를 추가하고 true를 반환하며, 실패 시 false를 반환한다.</td>
+    </tr>
+    <tr>
+      <td>removeAll(elements: Collection<E>)</E></td>
+      <td>컬렉션을 인자로 전달받아 모든 요소를 삭제하고 true를 반환하며, 실패 시 false를 반환한다.</td>
+    </tr>
+    <tr>
+      <td>retainAll(elements: Collection<E>)</E></td>
+      <td>인자로 전달받은 컬렉션의 요소만 보유한다. 성공 시 true를 반환하고 실패 시 false를 반환한다.</td>
+    </tr>
+    <tr>
+      <td>clear()</td>
+      <td>컬렉션의 모든 요소를 삭제한다.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="list">List</h3>
 <p>List</p>
@@ -462,8 +510,10 @@ var mixedTypes: List&lt;Any&gt; = listOf("Hello", 1, 2.445, 's')
 
 <h3 id="컬렉션에-접근할-때">컬렉션에 접근할 때</h3>
 <ul>
-  <li>for와 .indices 멤버를 통한 접근
-    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+  <li>for와 .indices 멤버를 통한 접근</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -471,18 +521,16 @@ var mixedTypes: List&lt;Any&gt; = listOf("Hello", 1, 2.445, 's')
 </pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="n">fruits</span> <span class="o">=</span> <span class="n">listOf</span><span class="o">(</span><span class="s">"apple"</span><span class="o">,</span> <span class="s">"banana"</span><span class="o">,</span> <span class="s">"kiwi"</span><span class="o">)</span>
 <span class="c1">// for과 in을 사용한 출력</span>
 <span class="k">for</span> <span class="o">(</span><span class="n">item</span> <span class="n">in</span> <span class="n">fruits</span><span class="o">)</span> <span class="o">{</span>
-  <span class="n">println</span><span class="o">(</span><span class="n">item</span><span class="o">)</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">item</span><span class="o">)</span>
 <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre></td><td class="rouge-code"><pre>apple
 banana
 kiwi
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-</ul>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -503,28 +551,28 @@ fruits[2] = kiwi
 
 <p>emptyList()</p>
 <ul>
-  <li>빈 리스트를 생성
-    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="nl">emptyList:</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span> <span class="o">=</span> <span class="n">emptyList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;()</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
+  <li>빈 리스트를 생성</li>
 </ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="nl">emptyList:</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span> <span class="o">=</span> <span class="n">emptyList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;()</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>listOfNotNull()</p>
 <ul>
-  <li>null을 제외한 요소만 반환
-    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+  <li>null을 제외한 요소만 반환</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre></td><td class="rouge-code"><pre><span class="c1">// null이 아닌 요소만 골라 컬렉션을 초기화</span>
 <span class="n">val</span> <span class="nl">nonNullsList:</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">listOfNotNull</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">45</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span>
 <span class="n">println</span><span class="o">(</span><span class="n">nonNullsList</span><span class="o">)</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>[2, 45, 2, 5]
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-</ul>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="list-추가-멤버-메서드">List 추가 멤버 메서드</h3>
 
@@ -560,6 +608,7 @@ fruits[2] = kiwi
 </table>
 
 <p>practice</p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
