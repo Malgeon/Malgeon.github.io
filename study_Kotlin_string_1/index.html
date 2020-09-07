@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.jpg">
+
+
+<title>문자열 활용 예제 | Malg:eon</title>
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>문자열 활용 예제 | Malg:eon</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="문자열 활용 예제" />
+<meta name="author" content="test" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="공간" />
+<meta property="og:description" content="공간" />
+<meta property="og:site_name" content="Malg:eon" />
+<meta property="og:image" content="/assets/images/test/programmers.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-07T00:00:00+00:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"test"},"headline":"문자열 활용 예제","dateModified":"2020-09-07T00:00:00+00:00","description":"공간","datePublished":"2020-09-07T00:00:00+00:00","image":"/assets/images/test/programmers.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_Kotlin_string_1/"},"@type":"BlogPosting","url":"/study_Kotlin_string_1/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"test"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link href="/assets/css/screen.css" rel="stylesheet">
+<link href="/assets/css/main.css" rel="stylesheet">
+<script src="/assets/js/jquery.min.js"></script>
+
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white mediumnavigation nav-down x">
+
+    <div class="container pr-0">
+
+        <!-- Begin Logo -->
+        <a class="navbar-brand my-order-1 my-order-md-3" href="/">
+            <div class="mainlogo">
+                <!--<h1 class="sitetitle">Malg:eon</h1>-->
+                <h2 class="sitetitle">Malg:eon </h2>
+            </div>
+        </a>
+        <!-- End Logo -->
+
+        <button class="navbar-toggler my-order-2 my-order-md-1" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse my-order-3 my-order-md-2" id="navbarMediumish">
+
+            <!-- Begin Menu -->
+
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/">Main</a>
+                    </li>
+                    
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/study">Study</a>
+                    </li>
+
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/project">Project</a>
+                    </li>
+
+                    
+                    <li class="nav-item active">
+                    
+                        <a class="nav-link" href="/test">Test</a>
+                    </li>
+
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+
+                </ul>
+
+            <!-- End Menu -->
+        </div>
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<!-- For Nav Z-index Height
+================================================== -->
+
+    
+    <div class="post-content">
+    
+    <div class="collectionHeader-blockNav mediumnavigation btmr">
+    <div class="u-borderBox u-maxWidth1072 u-paddingLeft31 u-paddingRight20 u-marginAuto">
+        <nav class="collectionHeader-nav u-clearfix js-collectionHeaderNav u-lineHeight40 u-overflowHiddenY">
+            <div class="buttonSet u-middle u-noWrap u-overflowX u-paddingBottom100">
+                
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                            
+                            
+                        
+                            <a class="link link--darker link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/standard">standard</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/stack">stack</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/queue">queue</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/heap">heap</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/sort">sort</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/bp">bp</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/greedy">greedy</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/dynamic">dynamic</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/dfs">dfs</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/bfs">bfs</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/binary">binary</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/graph">graph</a>
+                        
+                        </li>
+                        
+                    
+                
+            </div>
+            <!--
+            <div class="buttonSet u-textAlignRight u-marginLeft18 u-flex0 u-noWrap">
+                <a class="button button--chromeless is-touchIconBlackPulse u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--chromeless u-verticalAlignMiddle"   href="https://twitter.com/forgemag" title="Visit “Forge” on Twitter" aria-label="Visit “Forge” on Twitter" rel="me" target="_blank">
+                    <span class="button-defaultState">
+                        <span class="svgIcon svgIcon--twitterFilled svgIcon--25px">
+                            <svg class="svgIcon-use" width="25" height="25" >
+                                <path d="M22.31 4.305a8.48 8.48 0 01-2.684 1.073A4.245 4.245 0 0016.486 4a4.293 4.293 0 00-4.293 4.29c0 .34.037.669.077.997a12.199 12.199 0 01-8.814-4.521 4.805 4.805 0 00-.613 2.141c.033 1.514.79 2.83 1.916 3.594a4.13 4.13 0 01-1.913-.542.185.185 0 000 .074c-.005 2.055 1.476 3.79 3.446 4.21-.37.073-.746.122-1.15.147-.266-.025-.535-.05-.767-.074.517 1.686 2.101 2.917 3.988 2.99a9.028 9.028 0 01-5.366 1.834L2 19.08A12.258 12.258 0 008.59 21c7.886 0 12.203-6.547 12.185-12.184a4.103 4.103 0 000-.616 8.057 8.057 0 002.147-2.227 7.612 7.612 0 01-2.451.69 4.092 4.092 0 001.838-2.376"/>
+                            </svg>
+                        </span>
+                    </span>
+                </a>
+                
+                <a class="button button--chromeless is-touchIconBlackPulse u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--chromeless u-verticalAlignMiddle"   href="https://instagram.com/forgemag" title="Visit “Forge” on Instagram" aria-label="Visit “Forge” on Instagram" rel="me" target="_blank">
+                    <span class="button-defaultState">
+                        <span class="svgIcon svgIcon--instagram svgIcon--25px">
+                            <svg class="svgIcon-use" width="25" height="25" >
+                                <path d="M12.497 5.531c2.27 0 2.536.01 3.433.05.83.038 1.279.176 1.579.294.398.156.681.338.978.635.297.296.482.58.634.978.115.3.257.749.294 1.578.04.897.05 1.164.05 3.434 0 2.27-.01 2.537-.05 3.434-.037.83-.176 1.278-.294 1.578a2.637 2.637 0 01-.634.979 2.61 2.61 0 01-.978.634c-.3.114-.749.256-1.579.293-.897.04-1.163.05-3.433.05-2.27 0-2.537-.01-3.434-.05-.83-.037-1.278-.175-1.579-.293a2.638 2.638 0 01-.978-.634 2.596 2.596 0 01-.634-.979c-.115-.3-.256-.748-.293-1.578-.04-.897-.051-1.164-.051-3.434 0-2.27.01-2.537.05-3.434.038-.83.176-1.278.294-1.578.155-.398.337-.682.634-.978a2.6 2.6 0 01.978-.635c.3-.114.75-.256 1.579-.293.897-.044 1.164-.05 3.434-.05zm0-1.531c-2.307 0-2.598.01-3.505.05-.904.041-1.521.186-2.06.395-.56.216-1.033.51-1.505.982a4.214 4.214 0 00-.982 1.504c-.209.54-.354 1.157-.394 2.064C4.01 9.9 4 10.19 4 12.497c0 2.307.01 2.597.05 3.504.041.904.186 1.521.395 2.064.216.56.51 1.033.982 1.505s.948.762 1.504.981c.54.21 1.157.355 2.064.395.908.04 1.195.05 3.505.05 2.31 0 2.597-.01 3.505-.05.904-.04 1.52-.186 2.064-.395a4.14 4.14 0 001.504-.981c.472-.472.762-.948.982-1.505.209-.54.354-1.157.394-2.064.04-.907.051-1.194.051-3.504s-.01-2.598-.05-3.505c-.041-.904-.186-1.521-.395-2.064a4.142 4.142 0 00-.982-1.505 4.215 4.215 0 00-1.504-.981c-.54-.21-1.157-.354-2.064-.395C15.094 4.01 14.804 4 12.497 4z"/>
+                                <path d="M12.496 8.132a4.365 4.365 0 000 8.73 4.367 4.367 0 004.365-4.365 4.367 4.367 0 00-4.365-4.365zm0 7.198a2.833 2.833 0 110-5.666 2.833 2.833 0 010 5.666z"/>
+                                <path d="M17.034 8.979a1.019 1.019 0 100-2.038 1.019 1.019 0 000 2.038z"/>
+                            </svg> 
+                        </span>
+                    </span>
+                </a>
+                <button class="button button--primary button--smallest u-noUserSelect button--withChrome u-accentColor--buttonNormal js-relationshipButton is-smallPill"  data-action="toggle-follow-collection" data-action-source="pub_header----3f6ecf56618----------------------follow_pub" data-collection-id="3f6ecf56618">
+                    <span class="button-label  js-buttonLabel">Follow</span>
+                </button>
+            </div>
+            -->
+        </nav>
+    </div>
+</div>
+    
+
+<div class="container md-paddingLeft20 md-paddingRight20">
+
+   
+    
+<!-- Site Title
+================================================== -->
+ 
+<div class="mainheading">
+    <h1 class="sitetitle"></h1>
+    <p class="lead">
+    </p>
+</div>
+
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="post-container post-md-container">
+    <div class="row">
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0 mpr">
+            <div class="share sticky-top sticky-top-offset">
+    <p class="share-title">
+        Malg:eon
+    </p>
+    <p class="share-subtitle">Just Do It.</p>
+
+
+    <div class="sep">
+    </div>
+    <ul>
+        <li class="small smoothscroll">
+            TEST
+        </li>
+    </ul>
+
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Post Title -->
+                <div><h1 class="posttitle">문자열 활용 예제</h1></div>
+                <h4 class="postdescription"></h4>
+
+                <div class="post-top-meta">
+                    <span class="meta-footer-thumb">
+                        
+                        <img class="author-thumb" src="/assets/images/main_picture/test.jpg" alt="">
+                        
+                    </span>
+                    <span class="author-meta">
+                        <div>
+                        <a target="_blank" class="link-dark" href="">test</a>
+                        </div>
+
+                        <div>
+                        <span class="author-description">07 Sep 2020</span>
+                        <span class="post-main u-textColorNormal"><a href="" title="Read Story"><svg class="svgIcon-use" width="15" height="15" viewbox="0 0 15 15"><path d="M7.438 2.324c.034-.099.09-.099.123 0l1.2 3.53a.29.29 0 0 0 .26.19h3.884c.11 0 .127.049.038.111L9.8 8.327a.271.271 0 0 0-.099.291l1.2 3.53c.034.1-.011.131-.098.069l-3.142-2.18a.303.303 0 0 0-.32 0l-3.145 2.182c-.087.06-.132.03-.099-.068l1.2-3.53a.271.271 0 0 0-.098-.292L2.056 6.146c-.087-.06-.071-.112.038-.112h3.884a.29.29 0 0 0 .26-.19l1.2-3.52z" fill-rule="evenodd"></path></svg></a></span>
+                        </div>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+            
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <h3 id="문자열">문자열</h3>
+
+<div class="card h-100 my-u-padding"><div class="insertcover"><a target="_blank" class="text-dark" href="https://programmers.co.kr/learn/courses/30/lessons/12922"><div class=""><img class="inserturl" src="/assets/images/study/programmers.png" alt="programmers.co.kr" /></div><div class="insert-img-body"><h4 class="insert-img-title">연습문제 : 수박수박수박수박수박수?</h4><p class="insert-img-description">programmers.co.kr</p></div></a></div></div>
+
+<p>코틀린에서 문자열연산 operator를 지원한다
+즉, “연산” + “연산” =&gt; “연산연산”</p>
+
+<p>따라서 다음과 같이 해결할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">n:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">String</span> <span class="o">{</span>
+        <span class="kt">var</span> <span class="n">pattern</span> <span class="o">=</span> <span class="s">"수박"</span>
+        <span class="kt">var</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span>
+        
+        <span class="kt">var</span> <span class="n">isOdd</span> <span class="o">=</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span>
+        
+        <span class="k">for</span> <span class="o">(</span> <span class="n">x</span> <span class="n">in</span> <span class="mi">1</span><span class="o">..</span><span class="na">n</span><span class="o">/</span><span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">answer</span> <span class="o">+=</span> <span class="n">pattern</span>
+        <span class="o">}</span>        
+        <span class="k">if</span><span class="o">(</span><span class="n">isOdd</span><span class="o">==</span><span class="mi">1</span><span class="o">)</span> <span class="n">answer</span> <span class="o">+=</span> <span class="n">pattern</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> 
+        <span class="k">return</span> <span class="n">answer</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>kotlin에서는 자료형의 구분이 명확하다. 즉, Int의 0, 1은 Boolean의 false, true와 다르다.</li>
+</ul>
+
+<p>또한 문자열에서 함수를 이용해 해결이 가능하다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">n:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">String</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"수박"</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="o">)</span> <span class="o">+</span> <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="s">"수"</span> <span class="k">else</span> <span class="s">""</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>CharArray을 이용해 해결이 가능하다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>&lt;init&gt;
+Creates a new array of the specified size, where each element is calculated 
+by calling the specified init function.
+
+&lt;init&gt;(size: Int, init: (Int) -&gt; Char)
+Creates a new array of the specified size, with all elements 
+initialized to null char (`\u0000').
+
+&lt;init&gt;(size: Int)
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nc">CharArray</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span> <span class="c1">// 5개 크기의 CharArray 생성</span>
+<span class="nc">CharArray</span><span class="o">(</span><span class="mi">5</span><span class="o">){</span> <span class="sc">'가'</span> <span class="o">}</span> <span class="c1">// ['가', '가', '가', '가', '가']</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="c1">// fun solution(n: Int): String = String(CharArray(n, {i-&gt; if(i%2==0) '수' else '박'}))</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">n:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">String</span> <span class="o">=</span> <span class="nc">String</span><span class="o">(</span><span class="nc">CharArray</span><span class="o">(</span><span class="n">n</span><span class="o">){</span><span class="n">i</span><span class="o">-&gt;</span> <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span> <span class="sc">'수'</span> <span class="k">else</span> <span class="sc">'박'</span><span class="o">})</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="card h-100 my-u-padding"><div class="insertcover"><a target="_blank" class="text-dark" href="https://programmers.co.kr/learn/courses/30/lessons/12930"><div class=""><img class="inserturl" src="/assets/images/study/programmers.png" alt="programmers.co.kr" /></div><div class="insert-img-body"><h4 class="insert-img-title">연습문제 : 이상한 문자 만들기</h4><p class="insert-img-description">programmers.co.kr</p></div></a></div></div>
+
+<p>전형적인 문제풀이</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">s:</span> <span class="nc">String</span><span class="o">):</span> <span class="nc">String</span> <span class="o">{</span>
+        <span class="kt">var</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span>
+        <span class="kt">var</span> <span class="n">idxInWord</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="n">c</span> <span class="n">in</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">c</span><span class="o">==</span><span class="sc">' '</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">answer</span> <span class="o">+=</span> <span class="s">" "</span>
+                <span class="n">idxInWord</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">idxInWord</span><span class="o">++</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">idxInWord</span><span class="o">%</span><span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">answer</span> <span class="o">+=</span> <span class="n">c</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">()</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="n">answer</span> <span class="o">+=</span> <span class="n">c</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">()</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>mapIndexed 와 joinToString의 transform을 이용하면 문장을 확연히 줄일 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">s:</span> <span class="nc">String</span><span class="o">):</span> <span class="nc">String</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">).</span><span class="na">joinToString</span><span class="o">(</span><span class="s">" "</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">it</span><span class="o">.</span><span class="na">mapIndexed</span> <span class="o">{</span> <span class="n">index</span><span class="o">,</span> <span class="n">value</span> <span class="o">-&gt;</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">index</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="n">value</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">()</span> <span class="k">else</span> <span class="n">value</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">()</span>
+        <span class="o">}.</span><span class="na">joinToString</span><span class="o">(</span><span class="s">""</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>joinToString의 Transform을 사용하여 각각의 항목에 대하여 mapIndexed를 적용할 수 있게 해준다.</p>
+
+<div class="card h-100 my-u-padding"><div class="insertcover"><a target="_blank" class="text-dark" href="https://programmers.co.kr/learn/courses/30/lessons/12948"><div class=""><img class="inserturl" src="/assets/images/study/programmers.png" alt="programmers.co.kr" /></div><div class="insert-img-body"><h4 class="insert-img-title">연습문제 : 핸드폰 번호 가리기</h4><p class="insert-img-description">programmers.co.kr</p></div></a></div></div>
+
+<p>바꿀 글자 길이를 가져와서  “*“를 만든다음 substring으로 합치는 방법을 사용하였다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">phone_number:</span> <span class="nc">String</span><span class="o">):</span> <span class="nc">String</span> <span class="o">{</span>
+        <span class="kt">var</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span>
+        <span class="n">val</span> <span class="n">len</span> <span class="o">=</span> <span class="n">phone_number</span><span class="o">.</span><span class="na">length</span>
+        <span class="nf">for</span><span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="mi">0</span><span class="o">..</span><span class="na">len</span><span class="o">-</span><span class="mi">5</span><span class="o">)</span> <span class="n">answer</span> <span class="o">+=</span> <span class="s">"*"</span>
+        <span class="k">return</span> <span class="n">answer</span> <span class="o">+</span> <span class="n">phone_number</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">len</span><span class="o">-</span><span class="mi">4</span><span class="o">..</span><span class="na">len</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>slice를 사용할 수 도 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">phone_number:</span> <span class="nc">String</span><span class="o">):</span> <span class="nc">String</span> <span class="o">{</span>
+        <span class="kt">var</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span>
+        <span class="n">val</span> <span class="n">last</span> <span class="o">=</span> <span class="n">phone_number</span><span class="o">.</span><span class="na">lastIndex</span>
+
+        <span class="nf">for</span> <span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="mi">0</span><span class="o">..</span><span class="na">last</span> <span class="o">-</span> <span class="mi">4</span><span class="o">)</span> <span class="n">answer</span> <span class="o">+=</span> <span class="s">"*"</span>
+        <span class="k">return</span> <span class="n">answer</span> <span class="o">+</span> <span class="n">phone_number</span><span class="o">.</span><span class="na">slice</span><span class="o">(</span><span class="n">last</span> <span class="o">-</span> <span class="mi">3</span><span class="o">..</span><span class="na">last</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="문자열---정수">문자열 -&gt; 정수</h3>
+
+<div class="card h-100 my-u-padding"><div class="insertcover"><a target="_blank" class="text-dark" href="https://programmers.co.kr/learn/courses/30/lessons/12925"><div class=""><img class="inserturl" src="/assets/images/study/programmers.png" alt="programmers.co.kr" /></div><div class="insert-img-body"><h4 class="insert-img-title">연습문제 : 문자열을 정수로 바꾸기</h4><p class="insert-img-description">programmers.co.kr</p></div></a></div></div>
+
+<p>toInt()는 “-1234” 또한 부호화 해서 -1234로 바꿔준다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">s:</span> <span class="nc">String</span><span class="o">)</span> <span class="o">=</span> <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="na">toInt</span><span class="o">()</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="card h-100 my-u-padding"><div class="insertcover"><a target="_blank" class="text-dark" href="https://programmers.co.kr/learn/courses/30/lessons/12931"><div class=""><img class="inserturl" src="/assets/images/study/programmers.png" alt="programmers.co.kr" /></div><div class="insert-img-body"><h4 class="insert-img-title">연습문제 : 자릿수 더하기</h4><p class="insert-img-description">programmers.co.kr</p></div></a></div></div>
+
+<p>나는 문제를 보자마자 String로 변환해서 더한다음 Int로 변환해주는 것으로 설계하였다.
+그러나, 사실 10으로 mod 해주면서 나머지 값을 더해주는 것도 한 방법이다. (Int가 주어지기 때문에 굳이 자릿수에 대한 생각하지 않아도 된다.)</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">n:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Int</span> <span class="o">{</span>
+        <span class="kt">var</span> <span class="n">input</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="kt">var</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">while</span> <span class="o">(</span><span class="n">input</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">answer</span> <span class="o">+=</span> <span class="n">input</span> <span class="o">%</span> <span class="mi">10</span>
+            <span class="n">input</span> <span class="o">/=</span> <span class="mi">10</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>아래는 String을 이용해 문제를 해결하는 방법이다.
+String.forEach가 각각의 String으로 변환해 주는 것을 기억하자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">n:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Int</span> <span class="o">{</span>
+        <span class="kt">var</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">n</span><span class="o">.</span><span class="na">toString</span><span class="o">().</span><span class="na">forEach</span> <span class="o">{</span> <span class="n">res</span> <span class="o">+=</span> <span class="n">it</span><span class="o">.</span><span class="na">toInt</span><span class="o">()</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">.</span><span class="na">toInt</span><span class="o">()</span> <span class="o">}</span>
+        <span class="k">return</span> <span class="n">res</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>나는 위와 같이 String.forEach를 알지 못해 굳이 Char로 바꿔서 해결하였다.
+Char을 사용하려니 toInt() 사용하지 못하였고, getNumericValue() 를 알게 되었다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">n:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Int</span> <span class="o">{</span>
+        <span class="kt">var</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">n</span><span class="o">.</span><span class="na">toString</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">().</span><span class="na">forEach</span><span class="o">{</span>
+            <span class="n">answer</span> <span class="o">+=</span> <span class="nc">Character</span><span class="o">.</span><span class="na">getNumericValue</span><span class="o">(</span><span class="n">it</span><span class="o">)</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="card h-100 my-u-padding"><div class="insertcover"><a target="_blank" class="text-dark" href="https://programmers.co.kr/learn/courses/30/lessons/12932"><div class=""><img class="inserturl" src="/assets/images/study/programmers.png" alt="programmers.co.kr" /></div><div class="insert-img-body"><h4 class="insert-img-title">연습문제 : 자연수 뒤집어 배열로 만들기</h4><p class="insert-img-description">programmers.co.kr</p></div></a></div></div>
+
+<p>자연수를 문자열로 만들어 reversed 한다음 다시 intArray로 만들어야 한다.</p>
+
+<p>순서대로 n을 n.toString()으로 문자열을 만든다.</p>
+
+<ul>
+  <li>이때 해당 문자열을 split(““)로 array<String>을 만들게되면
+맨 앞과 맨 뒤에 공백칸이 존재하게 된다.
+예를들어 1234라면 ["", "1", "2", "3", "4", ""]
+해당 값들은 string이기 때문에 toInt를 하면 바로 숫자로 바뀌게 되나,
+공백을 제거해 줘야 한다.</String></li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">n:</span> <span class="nc">Long</span><span class="o">):</span> <span class="nc">IntArray</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">n</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">reversed</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">""</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">filter</span> <span class="o">{</span> <span class="n">it</span> <span class="o">!=</span> <span class="s">""</span> <span class="o">}</span>
+            <span class="o">.</span><span class="na">map</span> <span class="o">{</span> <span class="n">it</span><span class="o">.</span><span class="na">toInt</span><span class="o">()</span> <span class="o">}</span>
+            <span class="o">.</span><span class="na">toIntArray</span><span class="o">()</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>그렇다면 공백을 사용하지 않도록 map을 이용하려다 보니, 이때 다루는 값은 String의 원소
+(String[0]) Char 값이다. 이것을 toInt() 이용하면 ascii값이 나온다. 따라서 기존점을 이용하여 숫자를 만들어 준다.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">n:</span> <span class="nc">Long</span><span class="o">):</span> <span class="nc">IntArray</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">reversed</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">map</span><span class="o">{</span><span class="n">it</span><span class="o">.</span><span class="na">toInt</span><span class="o">()</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">.</span><span class="na">toInt</span><span class="o">()}</span>
+            <span class="o">.</span><span class="na">toIntArray</span><span class="o">()</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="card h-100 my-u-padding"><div class="insertcover"><a target="_blank" class="text-dark" href="https://programmers.co.kr/learn/courses/30/lessons/12933"><div class=""><img class="inserturl" src="/assets/images/study/programmers.png" alt="programmers.co.kr" /></div><div class="insert-img-body"><h4 class="insert-img-title">연습문제 : 정수 내림차순으로 배치하기</h4><p class="insert-img-description">programmers.co.kr</p></div></a></div></div>
+
+<p>Long을 배열로 바꾼 뒤 정렬을 하고 다시 Long으로 return 해야 하는 문제.</p>
+
+<p>map으로 list<Int>로 바꿔준뒤, 정렬을 하고 다시 joinToString으로 String 변환 후 Long return</Int></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">n:</span> <span class="nc">Long</span><span class="o">):</span> <span class="nc">Long</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span>
+         <span class="o">.</span><span class="na">map</span><span class="o">{</span><span class="n">it</span><span class="o">.</span><span class="na">toInt</span><span class="o">()</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">.</span><span class="na">toInt</span><span class="o">()}</span>
+         <span class="o">.</span><span class="na">sortedDescending</span><span class="o">()</span>
+         <span class="o">.</span><span class="na">joinToString</span><span class="o">(</span><span class="s">""</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">toLong</span><span class="o">()</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>그런데 map을 쓰려는 이유가 sorted를 사용하려 했던건데, sortedArray()를 사용해서 해결도 가능하다.
+sortedArray를 사용하려면 array에서만 동작하므로 toCharArray()</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">n:</span> <span class="nc">Long</span><span class="o">):</span> <span class="nc">Long</span> <span class="o">=</span> 
+        <span class="nc">String</span><span class="o">(</span><span class="n">n</span><span class="o">.</span><span class="na">toString</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">().</span><span class="na">sortedArrayDescending</span><span class="o">())</span>
+            <span class="o">.</span><span class="na">toLong</span><span class="o">()</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="chararray-or-array">CharArray or Array<String></String></h3>
+
+<div class="card h-100 my-u-padding"><div class="insertcover"><a target="_blank" class="text-dark" href="https://programmers.co.kr/learn/courses/30/lessons/12917"><div class=""><img class="inserturl" src="/assets/images/study/programmers.png" alt="programmers.co.kr" /></div><div class="insert-img-body"><h4 class="insert-img-title">연습문제 : 문자열 내림차순으로 배치하기</h4><p class="insert-img-description">programmers.co.kr</p></div></a></div></div>
+
+<p>단순히 문자열을 분리한 다음 내림차순 정렬 후 다시 합치면 된다.
+이때, 문자열을 분리하여 저장하는 것이 CharArray와 Array<String> 두가지로 나뉠 수 있다.</String></p>
+
+<ul>
+  <li>CharArray
+array를 사용하게 되면 sortedArray를 사용할수 있다. array를 받아 array를 return char
+또한 charArray는 String으로 감싸 String으로 return 할수 있다. (charArray, byteArray 사용 가능)</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">s:</span> <span class="nc">String</span><span class="o">):</span> <span class="nc">String</span> <span class="o">=</span> 
+        <span class="nc">String</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">().</span><span class="na">sortedArrayDescending</span><span class="o">())</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>Array<String>
+array.map은 List를 retrun하는데, 그렇게 되면 sort를 사용할수 있다. 그리고 다싯 String으로 바꾸기 위해선
+joinToString을 사용해야 한다.</String></li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">s:</span> <span class="nc">String</span><span class="o">):</span> <span class="nc">String</span> <span class="o">{</span>
+        <span class="kt">var</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">map</span> <span class="o">{</span><span class="n">it</span><span class="o">.</span><span class="na">toString</span><span class="o">()}.</span><span class="na">toTypedArray</span><span class="o">()</span>
+        <span class="n">answer</span><span class="o">.</span><span class="na">sortByDescending</span> <span class="o">{</span><span class="n">it</span><span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">.</span><span class="na">joinToString</span><span class="o">(</span><span class="s">""</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2020-09-07"></time></span>           
+            </small>
+            </p>
+            
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#standard">standard</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2020 Malg:eon 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                지나가는 생각과 경험을 잡아두는 공간
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

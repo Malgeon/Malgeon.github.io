@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.jpg">
+
+
+<title>표준 함수 활용 예제 | Malg:eon</title>
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>표준 함수 활용 예제 | Malg:eon</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="표준 함수 활용 예제" />
+<meta name="author" content="test" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="공간" />
+<meta property="og:description" content="공간" />
+<meta property="og:site_name" content="Malg:eon" />
+<meta property="og:image" content="/assets/images/test/programmers.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-07T00:00:00+00:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"test"},"headline":"표준 함수 활용 예제","dateModified":"2020-09-07T00:00:00+00:00","description":"공간","datePublished":"2020-09-07T00:00:00+00:00","image":"/assets/images/test/programmers.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_Kotlin_standardfunction_1/"},"@type":"BlogPosting","url":"/study_Kotlin_standardfunction_1/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"test"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link href="/assets/css/screen.css" rel="stylesheet">
+<link href="/assets/css/main.css" rel="stylesheet">
+<script src="/assets/js/jquery.min.js"></script>
+
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white mediumnavigation nav-down x">
+
+    <div class="container pr-0">
+
+        <!-- Begin Logo -->
+        <a class="navbar-brand my-order-1 my-order-md-3" href="/">
+            <div class="mainlogo">
+                <!--<h1 class="sitetitle">Malg:eon</h1>-->
+                <h2 class="sitetitle">Malg:eon </h2>
+            </div>
+        </a>
+        <!-- End Logo -->
+
+        <button class="navbar-toggler my-order-2 my-order-md-1" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse my-order-3 my-order-md-2" id="navbarMediumish">
+
+            <!-- Begin Menu -->
+
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/">Main</a>
+                    </li>
+                    
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/study">Study</a>
+                    </li>
+
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/project">Project</a>
+                    </li>
+
+                    
+                    <li class="nav-item active">
+                    
+                        <a class="nav-link" href="/test">Test</a>
+                    </li>
+
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+
+                </ul>
+
+            <!-- End Menu -->
+        </div>
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<!-- For Nav Z-index Height
+================================================== -->
+
+    
+    <div class="post-content">
+    
+    <div class="collectionHeader-blockNav mediumnavigation btmr">
+    <div class="u-borderBox u-maxWidth1072 u-paddingLeft31 u-paddingRight20 u-marginAuto">
+        <nav class="collectionHeader-nav u-clearfix js-collectionHeaderNav u-lineHeight40 u-overflowHiddenY">
+            <div class="buttonSet u-middle u-noWrap u-overflowX u-paddingBottom100">
+                
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                            
+                            
+                        
+                            <a class="link link--darker link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/standard">standard</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/stack">stack</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/queue">queue</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/heap">heap</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/sort">sort</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/bp">bp</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/greedy">greedy</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/dynamic">dynamic</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/dfs">dfs</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/bfs">bfs</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/binary">binary</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/graph">graph</a>
+                        
+                        </li>
+                        
+                    
+                
+            </div>
+            <!--
+            <div class="buttonSet u-textAlignRight u-marginLeft18 u-flex0 u-noWrap">
+                <a class="button button--chromeless is-touchIconBlackPulse u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--chromeless u-verticalAlignMiddle"   href="https://twitter.com/forgemag" title="Visit “Forge” on Twitter" aria-label="Visit “Forge” on Twitter" rel="me" target="_blank">
+                    <span class="button-defaultState">
+                        <span class="svgIcon svgIcon--twitterFilled svgIcon--25px">
+                            <svg class="svgIcon-use" width="25" height="25" >
+                                <path d="M22.31 4.305a8.48 8.48 0 01-2.684 1.073A4.245 4.245 0 0016.486 4a4.293 4.293 0 00-4.293 4.29c0 .34.037.669.077.997a12.199 12.199 0 01-8.814-4.521 4.805 4.805 0 00-.613 2.141c.033 1.514.79 2.83 1.916 3.594a4.13 4.13 0 01-1.913-.542.185.185 0 000 .074c-.005 2.055 1.476 3.79 3.446 4.21-.37.073-.746.122-1.15.147-.266-.025-.535-.05-.767-.074.517 1.686 2.101 2.917 3.988 2.99a9.028 9.028 0 01-5.366 1.834L2 19.08A12.258 12.258 0 008.59 21c7.886 0 12.203-6.547 12.185-12.184a4.103 4.103 0 000-.616 8.057 8.057 0 002.147-2.227 7.612 7.612 0 01-2.451.69 4.092 4.092 0 001.838-2.376"/>
+                            </svg>
+                        </span>
+                    </span>
+                </a>
+                
+                <a class="button button--chromeless is-touchIconBlackPulse u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--chromeless u-verticalAlignMiddle"   href="https://instagram.com/forgemag" title="Visit “Forge” on Instagram" aria-label="Visit “Forge” on Instagram" rel="me" target="_blank">
+                    <span class="button-defaultState">
+                        <span class="svgIcon svgIcon--instagram svgIcon--25px">
+                            <svg class="svgIcon-use" width="25" height="25" >
+                                <path d="M12.497 5.531c2.27 0 2.536.01 3.433.05.83.038 1.279.176 1.579.294.398.156.681.338.978.635.297.296.482.58.634.978.115.3.257.749.294 1.578.04.897.05 1.164.05 3.434 0 2.27-.01 2.537-.05 3.434-.037.83-.176 1.278-.294 1.578a2.637 2.637 0 01-.634.979 2.61 2.61 0 01-.978.634c-.3.114-.749.256-1.579.293-.897.04-1.163.05-3.433.05-2.27 0-2.537-.01-3.434-.05-.83-.037-1.278-.175-1.579-.293a2.638 2.638 0 01-.978-.634 2.596 2.596 0 01-.634-.979c-.115-.3-.256-.748-.293-1.578-.04-.897-.051-1.164-.051-3.434 0-2.27.01-2.537.05-3.434.038-.83.176-1.278.294-1.578.155-.398.337-.682.634-.978a2.6 2.6 0 01.978-.635c.3-.114.75-.256 1.579-.293.897-.044 1.164-.05 3.434-.05zm0-1.531c-2.307 0-2.598.01-3.505.05-.904.041-1.521.186-2.06.395-.56.216-1.033.51-1.505.982a4.214 4.214 0 00-.982 1.504c-.209.54-.354 1.157-.394 2.064C4.01 9.9 4 10.19 4 12.497c0 2.307.01 2.597.05 3.504.041.904.186 1.521.395 2.064.216.56.51 1.033.982 1.505s.948.762 1.504.981c.54.21 1.157.355 2.064.395.908.04 1.195.05 3.505.05 2.31 0 2.597-.01 3.505-.05.904-.04 1.52-.186 2.064-.395a4.14 4.14 0 001.504-.981c.472-.472.762-.948.982-1.505.209-.54.354-1.157.394-2.064.04-.907.051-1.194.051-3.504s-.01-2.598-.05-3.505c-.041-.904-.186-1.521-.395-2.064a4.142 4.142 0 00-.982-1.505 4.215 4.215 0 00-1.504-.981c-.54-.21-1.157-.354-2.064-.395C15.094 4.01 14.804 4 12.497 4z"/>
+                                <path d="M12.496 8.132a4.365 4.365 0 000 8.73 4.367 4.367 0 004.365-4.365 4.367 4.367 0 00-4.365-4.365zm0 7.198a2.833 2.833 0 110-5.666 2.833 2.833 0 010 5.666z"/>
+                                <path d="M17.034 8.979a1.019 1.019 0 100-2.038 1.019 1.019 0 000 2.038z"/>
+                            </svg> 
+                        </span>
+                    </span>
+                </a>
+                <button class="button button--primary button--smallest u-noUserSelect button--withChrome u-accentColor--buttonNormal js-relationshipButton is-smallPill"  data-action="toggle-follow-collection" data-action-source="pub_header----3f6ecf56618----------------------follow_pub" data-collection-id="3f6ecf56618">
+                    <span class="button-label  js-buttonLabel">Follow</span>
+                </button>
+            </div>
+            -->
+        </nav>
+    </div>
+</div>
+    
+
+<div class="container md-paddingLeft20 md-paddingRight20">
+
+   
+    
+<!-- Site Title
+================================================== -->
+ 
+<div class="mainheading">
+    <h1 class="sitetitle"></h1>
+    <p class="lead">
+    </p>
+</div>
+
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="post-container post-md-container">
+    <div class="row">
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0 mpr">
+            <div class="share sticky-top sticky-top-offset">
+    <p class="share-title">
+        Malg:eon
+    </p>
+    <p class="share-subtitle">Just Do It.</p>
+
+
+    <div class="sep">
+    </div>
+    <ul>
+        <li class="small smoothscroll">
+            TEST
+        </li>
+    </ul>
+
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Post Title -->
+                <div><h1 class="posttitle">표준 함수 활용 예제</h1></div>
+                <h4 class="postdescription"></h4>
+
+                <div class="post-top-meta">
+                    <span class="meta-footer-thumb">
+                        
+                        <img class="author-thumb" src="/assets/images/main_picture/test.jpg" alt="">
+                        
+                    </span>
+                    <span class="author-meta">
+                        <div>
+                        <a target="_blank" class="link-dark" href="">test</a>
+                        </div>
+
+                        <div>
+                        <span class="author-description">07 Sep 2020</span>
+                        <span class="post-main u-textColorNormal"><a href="" title="Read Story"><svg class="svgIcon-use" width="15" height="15" viewbox="0 0 15 15"><path d="M7.438 2.324c.034-.099.09-.099.123 0l1.2 3.53a.29.29 0 0 0 .26.19h3.884c.11 0 .127.049.038.111L9.8 8.327a.271.271 0 0 0-.099.291l1.2 3.53c.034.1-.011.131-.098.069l-3.142-2.18a.303.303 0 0 0-.32 0l-3.145 2.182c-.087.06-.132.03-.099-.068l1.2-3.53a.271.271 0 0 0-.098-.292L2.056 6.146c-.087-.06-.071-.112.038-.112h3.884a.29.29 0 0 0 .26-.19l1.2-3.52z" fill-rule="evenodd"></path></svg></a></span>
+                        </div>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+            
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <div class="card h-100 my-u-padding"><div class="insertcover"><a target="_blank" class="text-dark" href="https://programmers.co.kr/learn/courses/30/lessons/12903"><div class=""><img class="inserturl" src="/assets/images/study/programmers.png" alt="programmers.co.kr" /></div><div class="insert-img-body"><h4 class="insert-img-title">연습문제 : 가운데 글자 가져오기</h4><p class="insert-img-description">programmers.co.kr</p></div></a></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">s:</span> <span class="nc">String</span><span class="o">):</span> <span class="nc">String</span> <span class="o">{</span>
+        <span class="kt">var</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span>
+        <span class="kt">var</span> <span class="n">middle</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">val</span> <span class="n">size</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span>
+        
+        <span class="kt">var</span> <span class="n">isOdd</span> <span class="o">=</span> <span class="n">size</span> <span class="o">%</span> <span class="mi">2</span>
+        <span class="kt">var</span> <span class="nl">point:</span><span class="nc">Int</span> <span class="o">=</span> <span class="n">size</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="k">if</span><span class="o">(</span><span class="n">isOdd</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">point</span><span class="o">..</span><span class="na">point</span><span class="o">)</span> <span class="k">else</span> <span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">point</span><span class="o">-</span><span class="mi">1</span><span class="o">..</span><span class="na">point</span><span class="o">)</span>
+        <span class="k">return</span> <span class="n">answer</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>Int형이 아닌 수를 받으면 toInt하지 않아도 소수점 아래는 버려진다.</li>
+  <li>함수의 return은 String형이다. 따라서 s[1]같은 경우는 char형이기 때문에 컴파일 오류</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+  <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">s:</span> <span class="nc">String</span><span class="o">)</span> <span class="o">=</span>
+    <span class="n">with</span><span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="o">{</span> <span class="n">substring</span><span class="o">(</span><span class="n">length</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="o">(</span><span class="n">length</span> <span class="o">%</span> <span class="mi">2</span><span class="o">)</span> <span class="o">..</span> <span class="n">length</span> <span class="o">/</span> <span class="mi">2</span><span class="o">)</span> <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>나의 풀이방식으로 하는 표준함수를 이용하였다.</li>
+</ul>
+
+<p>앞서 정리해둔 <a href="../study_kotlin_9">표준 함수 활용1</a>과 <a href="../study_kotlin_10">표준 함수 활용2</a>에서 자세히 다루고 있다.</p>
+
+<p>사실, with와 run의 기능이 유사하기 때문에 이를 run을 이용할 수도 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">s:</span> <span class="nc">String</span><span class="o">):</span> <span class="nc">String</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="na">run</span> <span class="o">{</span>
+                <span class="n">substring</span><span class="o">(</span><span class="n">length</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="o">(</span><span class="n">length</span> <span class="o">%</span> <span class="mi">2</span><span class="o">)</span> <span class="o">..</span> <span class="n">length</span> <span class="o">/</span> <span class="mi">2</span><span class="o">)</span>
+            <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>그런데 엄밀히 따지자면 
+with의 사용조건은 수신 객체가 Non-nullable이면서, 결과가 필요하지 않은 경우에 해당한다.
+run은 어떤 값을 계산할 필요가 있거나 여러개의 지역 변수의 범위를 제한하기 위해 사용한다.</p>
+
+<div class="card h-100 my-u-padding"><div class="insertcover"><a target="_blank" class="text-dark" href="https://programmers.co.kr/learn/courses/30/lessons/12919"><div class=""><img class="inserturl" src="/assets/images/study/programmers.png" alt="programmers.co.kr" /></div><div class="insert-img-body"><h4 class="insert-img-title">연습문제 : 서울에서 김서방 찾기</h4><p class="insert-img-description">programmers.co.kr</p></div></a></div></div>
+
+<p>array에서 “Kim”을 찾아 해당 Idx를 출력해주는 문제.</p>
+
+<p>나는 코틀린에 익숙하지 않아, 직접 idx를 구하고, 문자열도 합쳐주었다. 
+그러나 코틀린에서는 더 나은 기능을 제공한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">seoul:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;):</span> <span class="nc">String</span> <span class="o">=</span> 
+        <span class="s">"김서방은 ${seoul.indexOf("</span><span class="nc">Kim</span><span class="s">")}에 있다"</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>아래는 자바스크립트와는 다르게 콜백함수에서도 break 하여 idx를 가져오는 방법이다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">seoul:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;):</span> <span class="nc">String</span> <span class="o">{</span>
+        <span class="kt">var</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">run</span> <span class="n">loop</span><span class="err">@</span><span class="o">{</span>
+            <span class="n">seoul</span><span class="o">.</span><span class="na">forEachIndexed</span><span class="o">{</span> <span class="n">index</span><span class="o">,</span> <span class="n">value</span> <span class="o">-&gt;</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">value</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"Kim"</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="n">answer</span> <span class="o">=</span> <span class="n">index</span>
+                    <span class="k">return</span><span class="nd">@loop</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="s">"김서방은 ${answer}에 있다"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="card h-100 my-u-padding"><div class="insertcover"><a target="_blank" class="text-dark" href="https://programmers.co.kr/learn/courses/30/lessons/12926"><div class=""><img class="inserturl" src="/assets/images/study/programmers.png" alt="programmers.co.kr" /></div><div class="insert-img-body"><h4 class="insert-img-title">연습문제 : 시저 암호</h4><p class="insert-img-description">programmers.co.kr</p></div></a></div></div>
+
+<p>ASCII 값을 이용해 문제를 푸는 방식이 가장 간단하다.</p>
+
+<p>kotlin은 범위 연산자와 when을 지원하므로 이것을 통해 해결했다.
+추가로 <a href="../study_kotlin_5">확장 함수</a>를 사용한다면 더 깔끔해진다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">s:</span> <span class="nc">String</span><span class="o">,</span> <span class="nl">n:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">String</span> <span class="o">=</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">map</span> <span class="o">{</span>
+            <span class="n">when</span> <span class="o">(</span><span class="n">it</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">in</span> <span class="sc">'A'</span><span class="o">..</span><span class="sc">'Z'</span> <span class="o">-&gt;</span> <span class="n">it</span><span class="o">.</span><span class="na">calAscii</span><span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="sc">'A'</span><span class="o">,</span> <span class="sc">'Z'</span><span class="o">)</span>
+                <span class="n">in</span> <span class="sc">'a'</span><span class="o">..</span><span class="sc">'z'</span> <span class="o">-&gt;</span> <span class="n">it</span><span class="o">.</span><span class="na">calAscii</span><span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="sc">'a'</span><span class="o">,</span> <span class="sc">'z'</span><span class="o">)</span>
+                <span class="k">else</span> <span class="o">-&gt;</span> <span class="n">it</span>
+            <span class="o">}</span>
+        <span class="o">}.</span><span class="na">joinToString</span><span class="o">(</span><span class="s">""</span><span class="o">)</span>
+    <span class="n">fun</span> <span class="nc">Char</span><span class="o">.</span><span class="na">calAscii</span><span class="o">(</span><span class="nl">c:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">n:</span> <span class="nc">Char</span><span class="o">,</span> <span class="nl">m:</span> <span class="nc">Char</span><span class="o">):</span> <span class="nc">Char</span> <span class="o">=</span>
+        <span class="o">(</span><span class="n">n</span><span class="o">.</span><span class="na">toInt</span><span class="o">()</span> <span class="o">+</span> <span class="o">(</span><span class="n">toInt</span><span class="o">()</span> <span class="o">-</span> <span class="n">n</span><span class="o">.</span><span class="na">toInt</span><span class="o">()</span> <span class="o">+</span> <span class="n">c</span><span class="o">)</span> <span class="o">%</span> <span class="o">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)).</span><span class="na">toChar</span><span class="o">()</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>그런데 kotlin 제공 함수만을 이용해서 해결할 수 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">s:</span> <span class="nc">String</span><span class="o">,</span> <span class="nl">n:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">String</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nf">String</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">().</span><span class="na">also</span> <span class="o">{</span>
+            <span class="n">charArray</span> <span class="o">-&gt;</span>
+            <span class="n">charArray</span><span class="o">.</span><span class="na">forEachIndexed</span> <span class="o">{</span>
+                <span class="n">index</span><span class="o">,</span> <span class="n">eachCharacter</span> <span class="o">-&gt;</span>
+                <span class="k">if</span><span class="o">(!</span><span class="n">eachCharacter</span><span class="o">.</span><span class="na">isWhitespace</span><span class="o">())</span> <span class="o">{</span>
+                    <span class="n">charArray</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">eachCharacter</span><span class="o">.</span><span class="na">plus</span><span class="o">(</span><span class="n">n</span><span class="o">).</span><span class="na">run</span> <span class="o">{</span>
+                        <span class="k">if</span><span class="o">(</span><span class="n">isLetter</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="o">(!</span><span class="n">eachCharacter</span><span class="o">.</span><span class="na">isUpperCase</span><span class="o">()</span> <span class="o">||</span> <span class="n">isUpperCase</span><span class="o">()))</span> <span class="k">this</span>
+                        <span class="k">else</span> <span class="nf">minus</span><span class="o">(</span><span class="mi">26</span><span class="o">)</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">})</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>여기서 기억해야할 지점은 also의 활용인데, 위의 코딩에서 보면 String을 charArray로 변환하여 이 객체를 인자로 받아서 계산하고자 할때 가능한 방법이 let 과 also이다.</p>
+
+<p>이 때 인자가 Array이기 때문에 값이 변경이 이뤄지기 때문에 해당 값을 그대로 결과값으로 return 해도 된다. 따라서 굳이 block(this)를 리턴하기 보다 this를 return 하여 block 내에서 굳이 어떤 값을 return 하도록 설계 하지 않아도 된다.</p>
+
+<p>char.plus()는 char의 값을 바꾸지 않고 return한다.</p>
+
+<div class="card h-100 my-u-padding"><div class="insertcover"><a target="_blank" class="text-dark" href="https://programmers.co.kr/learn/courses/30/lessons/12915"><div class=""><img class="inserturl" src="/assets/images/study/programmers.png" alt="programmers.co.kr" /></div><div class="insert-img-body"><h4 class="insert-img-title">연습문제 : 문자열 내 마음대로 정렬하기</h4><p class="insert-img-description">programmers.co.kr</p></div></a></div></div>
+
+<p>커스텀 기준점으로 정렬을 하면 되는 문제이다.
+기준점은 2단계로 나뉘어 있는데,</p>
+<ol>
+  <li>특정 순번의 Char 값을 기준으로 정렬</li>
+  <li>해당 Char 값이 같을 경우, 전체 값을 기준으로 정렬</li>
+</ol>
+
+<p>위와 같은 기준점을 해결하기 위해 방법으로는 3가지가 존재한다.</p>
+
+<ul>
+  <li>Comparator 이용 : 가장 처음으로 떠올린 방법으로 람다식을 이용해 기준점을 설정한다.</li>
+</ul>
+
+<p>기본적으로 람다식의 결과값이 양수면 swap, 0 또는 음수면 remain 하게 된다.
+같은 값을 찾아 내야 할 필요가 없으므로, 단순히 음수로 표현하여 만들었다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">strings:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;,</span> <span class="nl">n:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
+        <span class="n">strings</span><span class="o">.</span><span class="na">sortWith</span><span class="o">(</span><span class="nc">Comparator</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span> <span class="n">a</span><span class="o">,</span> <span class="n">b</span> <span class="o">-&gt;</span>
+            <span class="n">when</span> <span class="o">{</span>
+                <span class="n">a</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">b</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">-&gt;</span> <span class="mi">1</span>
+                <span class="n">a</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">==</span> <span class="n">b</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">-&gt;</span> <span class="o">{</span>
+                    <span class="n">when</span> <span class="o">{</span>
+                        <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">-&gt;</span> <span class="mi">1</span>
+                        <span class="k">else</span> <span class="o">-&gt;</span> <span class="o">-</span><span class="mi">1</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+                <span class="k">else</span> <span class="o">-&gt;</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="o">}</span>
+        <span class="o">})</span>
+        <span class="k">return</span> <span class="n">strings</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>compareBy 이용 : comparator의 동작을 하나 단순하게 사용하게 도와주는 함수이다.</li>
+</ul>
+
+<p>기준점이 한단계만 존재 할 경우, 단순히 { it.length } 와 같이 사용할 수 있다.
+그러나 위 문제에선 기준점이 두단계가 존재하며, 그것은 아래와 같이 해결한다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">strings:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;,</span> <span class="nl">n:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
+        <span class="kt">var</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">strings</span>
+        <span class="kt">var</span> <span class="n">list</span> <span class="o">=</span>  <span class="n">answer</span><span class="o">.</span><span class="na">sortedWith</span><span class="o">(</span><span class="n">compareBy</span><span class="o">({</span> <span class="n">it</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">},</span> <span class="o">{</span> <span class="n">it</span> <span class="o">}))</span>
+        <span class="cm">/*
+         순서가 매우 중요한데, {it[n]} 이 같게 되면 {it} 으로 
+         정렬을 해주는 것으로 이해하고있다.
+        */</span>
+        <span class="k">return</span> <span class="n">list</span><span class="o">.</span><span class="na">toTypedArray</span><span class="o">()</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>그런데 사실 위 문제는 정렬 과정의 기준점을 단계적으로 설정하는 것과는 다르게 전체값 기준 정렬을 한 후, 특정 Char값으로 정렬을 해서 풀수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">strings:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;,</span> <span class="nl">n:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
+        <span class="kt">var</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">strings</span>
+        <span class="kt">var</span> <span class="n">list</span> <span class="o">=</span>  <span class="n">answer</span><span class="o">.</span><span class="na">sorted</span><span class="o">()</span>
+        <span class="kt">var</span> <span class="n">result</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">sortedWith</span><span class="o">(</span><span class="n">compareBy</span><span class="o">({</span> <span class="n">it</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">}))</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">toTypedArray</span><span class="o">()</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>객체의 값을 변경해도 될 경우 also와 sort()를 사용하여 해결 할 수 있다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">strings:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;,</span> <span class="nl">n:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">strings</span><span class="o">.</span><span class="na">also</span> <span class="o">{</span>
+            <span class="n">it</span><span class="o">.</span><span class="na">sort</span><span class="o">()</span>
+            <span class="n">it</span><span class="o">.</span><span class="na">sortBy</span> <span class="o">{</span> <span class="n">it</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="card h-100 my-u-padding"><div class="insertcover"><a target="_blank" class="text-dark" href="https://programmers.co.kr/learn/courses/30/lessons/12918"><div class=""><img class="inserturl" src="/assets/images/study/programmers.png" alt="programmers.co.kr" /></div><div class="insert-img-body"><h4 class="insert-img-title">연습문제 : 문자열 다루기 기본</h4><p class="insert-img-description">programmers.co.kr</p></div></a></div></div>
+
+<p>문자열을 Int로 바꿔주며, 만일 바꾸지 못할시 Null처리를 해주는 함수를 이용하여 Null시 let을 이용해 처리를 해주는 방법으로 해결하였다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">s:</span> <span class="nc">String</span><span class="o">):</span> <span class="nc">Boolean</span> <span class="o">{</span>
+        <span class="n">val</span> <span class="n">len</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span>
+        <span class="nf">if</span><span class="o">(</span><span class="n">len</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">||</span> <span class="n">len</span> <span class="o">==</span> <span class="mi">6</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">var</span> <span class="n">isInt</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">toIntOrNull</span><span class="o">()</span>
+            <span class="n">isInt</span><span class="o">?.</span><span class="na">let</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">true</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">false</span>  
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Java에서와 같이 isDigit을 이용해 풀수 있기도 하다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">s:</span> <span class="nc">String</span><span class="o">):</span> <span class="nc">Boolean</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">length</span> <span class="o">!=</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span> <span class="o">!=</span> <span class="mi">6</span><span class="o">){</span>
+            <span class="k">return</span> <span class="kc">false</span>
+        <span class="o">}</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">c</span> <span class="n">in</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">()){</span>
+            <span class="k">if</span> <span class="o">(!</span><span class="n">c</span><span class="o">.</span><span class="na">isDigit</span><span class="o">()){</span>
+                <span class="k">return</span> <span class="kc">false</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">true</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2020-09-07"></time></span>           
+            </small>
+            </p>
+            
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#standard">standard</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2020 Malg:eon 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                지나가는 생각과 경험을 잡아두는 공간
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
