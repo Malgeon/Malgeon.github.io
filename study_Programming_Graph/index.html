@@ -7,23 +7,23 @@
 <link rel="icon" href="/assets/images/logo.jpg">
 
 
-<title>Kotlin 코딩테스트 템플릿 | Malg:eon</title>
+<title>우선순위 큐 | Malg:eon</title>
 
 
 <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Kotlin 코딩테스트 템플릿 | Malg:eon</title>
+<title>우선순위 큐 | Malg:eon</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Kotlin 코딩테스트 템플릿" />
+<meta property="og:title" content="우선순위 큐" />
 <meta name="author" content="study" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="문제를 풀때 참고할만한 정보" />
-<meta property="og:description" content="문제를 풀때 참고할만한 정보" />
+<meta name="description" content="우선순위 큐 다루기" />
+<meta property="og:description" content="우선순위 큐 다루기" />
 <meta property="og:site_name" content="Malg:eon" />
 <meta property="og:image" content="/assets/images/study/kotlin.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-08-24T00:00:00+00:00" />
+<meta property="article:published_time" content="2020-09-08T00:00:00+00:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 코딩테스트 템플릿","dateModified":"2020-08-24T00:00:00+00:00","description":"문제를 풀때 참고할만한 정보","datePublished":"2020-08-24T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/feat_study_programming_templet/"},"@type":"BlogPosting","url":"/feat_study_programming_templet/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"study"},"headline":"우선순위 큐","dateModified":"2020-09-08T00:00:00+00:00","description":"우선순위 큐 다루기","datePublished":"2020-09-08T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_Programming_Graph/"},"@type":"BlogPosting","url":"/study_Programming_Graph/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -290,8 +290,8 @@
             <div class="mainheading">
 
                 <!-- Post Title -->
-                <div><h1 class="posttitle">Kotlin 코딩테스트 템플릿</h1></div>
-                <h4 class="postdescription">문제를 풀때 참고할만한 정보</h4>
+                <div><h1 class="posttitle">우선순위 큐</h1></div>
+                <h4 class="postdescription">우선순위 큐 다루기</h4>
 
                 <div class="post-top-meta">
                     <span class="meta-footer-thumb">
@@ -305,7 +305,7 @@
                         </div>
 
                         <div>
-                        <span class="author-description">24 Aug 2020</span>
+                        <span class="author-description">08 Sep 2020</span>
                         <span class="post-main u-textColorNormal"><a href="" title="Read Story"><svg class="svgIcon-use" width="15" height="15" viewbox="0 0 15 15"><path d="M7.438 2.324c.034-.099.09-.099.123 0l1.2 3.53a.29.29 0 0 0 .26.19h3.884c.11 0 .127.049.038.111L9.8 8.327a.271.271 0 0 0-.099.291l1.2 3.53c.034.1-.011.131-.098.069l-3.142-2.18a.303.303 0 0 0-.32 0l-3.145 2.182c-.087.06-.132.03-.099-.068l1.2-3.53a.271.271 0 0 0-.098-.292L2.056 6.146c-.087-.06-.071-.112.038-.112h3.884a.29.29 0 0 0 .26-.19l1.2-3.52z" fill-rule="evenodd"></path></svg></a></span>
                         </div>
                     </span>
@@ -320,6 +320,10 @@
             
             
             
+            <img class="featured-image img-fluid" src="/assets/images/study/kotlin.png" alt="우선순위 큐">
+            
+            
+            
             <!-- End Featured Image -->
 
             <!-- Post Content -->
@@ -327,90 +331,135 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <h3 id="코틀린-기본">코틀린 기본</h3>
-<p>코틀린에서 기본적인 동작을 예제에서 확인해보자.</p>
+                <h1 id="우선순위-큐">우선순위 큐</h1>
+<p>max heap 또는 min heap 이라고도 할 수 있는 우선순위 큐를 코틀린에서는 지원을 해준다.</p>
 
-<ul>
-  <li><a href="../study_Kotlin_array_1">배열</a></li>
-  <li><a href="../study_Kotlin_string_1">문자열</a></li>
-  <li><a href="../study_Kotlin_loop_1">반복문</a></li>
-  <li><a href="../study_Kotlin_math_1">수식</a></li>
-  <li><a href="../study_Kotlin_recursive_1">재귀</a></li>
-  <li><a href="../study_Kotlin_logicaloperator_1">논리 연산자</a></li>
-</ul>
+<p>이런 우선순위 큐를 알아보자.</p>
 
-<h3 id="배열-정렬">배열 정렬</h3>
-<p>기본적인 함수라고 할수 있지만, 자주 쓰이므로 따로 구분해 놓는다.</p>
-<ul>
-  <li><a href="../study_Kotlin_27">배열의 정렬</a></li>
-</ul>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>import java.util.PriorityQueue
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="nf">main</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">val</span> <span class="n">queue1</span> <span class="o">=</span> <span class="nc">PriorityQueue</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;()</span> 
+  <span class="n">val</span> <span class="n">queue2</span> <span class="o">=</span> <span class="nc">PriorityQueue</span><span class="o">(</span><span class="nc">Comparator</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;())</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p><a href="../study_Kotlin_design_3">배열의 정렬 예제</a></p>
+<p>PriorityQueue를 사용하기 위해서는 java.util.PriorityQueue(java.util.*)가 필요하다. <br />
+기본값으로는 값이 낮을 수록 우선순위가 높게 설정되어 있다. 이를 값이 높을 수록 우선순위가 높도록 바꾸기 위해선 queue2처럼 선언하면 된다.</p>
 
-<h3 id="표준-함수">표준 함수</h3>
-<p>함수형 프로그래밍을 하도록 코틀린에서 지원하는 여러 함수 들을 잘 숙지하고 이용하자.</p>
+<p>사용가능한 함수로는 아래와 같다.</p>
 
-<ul>
-  <li><a href="../study_Kotlin_9">closure, let, also, apply</a></li>
-  <li><a href="../study_Kotlin_10">run, with, use, takeIf, takeUnless</a></li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>함수</th>
+      <th>기능</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>add</td>
+      <td>추가</td>
+    </tr>
+    <tr>
+      <td>offer</td>
+      <td>추가</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>크기</td>
+    </tr>
+    <tr>
+      <td>clear</td>
+      <td>모두 지우기</td>
+    </tr>
+    <tr>
+      <td>peek</td>
+      <td>가장 앞부분 가져오기(해당 값 복사)</td>
+    </tr>
+    <tr>
+      <td>poll</td>
+      <td>가장 앞부분 빼오기(해당 값 잘라내기)</td>
+    </tr>
+    <tr>
+      <td>isEmpty</td>
+      <td>비어있는지 확인</td>
+    </tr>
+  </tbody>
+</table>
 
-<p><a href="../study_Kotlin_standardfunction_1">표준 함수의 이용 예제</a></p>
+<h3 id="add-와-offer의-차이">add 와 offer의 차이</h3>
 
-<h3 id="확장-함수">확장 함수</h3>
-<p>함수형 프로그래밍을 하도록 코틀린에서 지원하는 여러 함수 들을 잘 숙지하고 이용하자.</p>
+<p>AbstarctQueue일때</p>
 
-<ul>
-  <li><a href="../study_Kotlin_33">forEach, reduce, fold</a></li>
-  <li><a href="../study_Kotlin_34">map, groupBy, sequence</a></li>
-</ul>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">add</span><span class="o">(</span><span class="no">E</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">offer</span><span class="o">(</span><span class="n">e</span><span class="o">))</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="k">else</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalStateException</span><span class="o">(</span><span class="s">"Queue full"</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<h3 id="collection">Collection</h3>
-<p>Collection은 Data의 입력, 출력에서 강력한 기능을 가지고 있기 때문에 자주 쓰인다.
-해당 기능 수행 후 toIntArray() 와 같이 원하는 자료형 형태로 return이 가능하게 해준다.</p>
+<h3 id="사용-예">사용 예</h3>
 
-<ul>
-  <li>List : <br />
-    <ul>
-      <li><a href="../study_Kotlin_29">Collection List-1</a></li>
-      <li><a href="../study_Kotlin_30">Collection List-2</a></li>
-    </ul>
-  </li>
-  <li>Set : <br />
-    <ul>
-      <li><a href="../study_Kotlin_31">Collection Set</a></li>
-    </ul>
-  </li>
-  <li>Map : <br />
-    <ul>
-      <li><a href="../study_Kotlin_32">Collection Map</a></li>
-    </ul>
-  </li>
-</ul>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="nf">main</span><span class="o">(</span><span class="nl">args:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;)</span> <span class="o">{</span>
+  <span class="n">val</span> <span class="nl">nums:</span> <span class="nc">PriorityQueue</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nc">PriorityQueue</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;()</span>
 
-<p><a href="../study_Kotlin_standardfunction_1">Collection 관련 예제</a></p>
+  <span class="c1">// Add items (enqueue)</span>
+  <span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">800</span><span class="o">)</span>
+  <span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">50</span><span class="o">)</span>
+  <span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">200</span><span class="o">)</span>
+  <span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">550</span><span class="o">)</span>
 
-<h3 id="그래프">그래프</h3>
-<p>DFS, BFS에서 주로 사용된다. 
-방향, 가중치를 이용한 문제도 출시 된적이 있으니 잘 숙지해두자.</p>
+  <span class="n">println</span><span class="o">(</span><span class="s">"peek: "</span> <span class="o">+</span> <span class="n">nums</span><span class="o">.</span><span class="na">peek</span><span class="o">())</span>
+  
+  <span class="c1">// Remove items (dequeue)</span>
+  <span class="k">while</span> <span class="o">(!</span><span class="n">nums</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">nums</span><span class="o">.</span><span class="na">remove</span><span class="o">())</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<h3 id="우선순위-큐">우선순위 큐</h3>
-<p>코틀린은 자바와 같이 우선순위 큐를 지원해 준다.</p>
+<p>Output:</p>
 
-<p><a href="../study_Programming_priorityQueue">우선 순위 큐 기본</a></p>
-<ul>
-  <li><a href="../study_Kotlin_stack&amp;queue_1">우선 순위 큐 예제</a></li>
-</ul>
-
-<h3 id="이분탐색">이분탐색</h3>
-<p>어려운 문제로 등장하기 쉬운 문제 중 하나 이다.</p>
-
-<p>기본 컨셉은 매우 간단해서 단순히 이분 탐색을 이용해 조건에 맞는 값을 찾는 것을 구하는 것보다 upper/lower bound를 이용하여 조건에 맞는 가장 작은 값을 찾는 문제로 변별력을 갖추려는 것 같다.</p>
-
-<ul>
-  <li><a href="../study_Kotlin_binarySearch_1">이분 탐색 예제 - upper/lower bound easy</a></li>
-  <li><a href="../study_Kotlin_binarySearch_2">이분 탐색 예제 - upper/lower bound hard</a></li>
-</ul>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>peek: 50
+50
+200
+550
+800
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 
             </div>
@@ -421,7 +470,7 @@
             <!-- Post Date -->
             <p>
             <small>
-                <span class="post-date"><time class="post-date" datetime="2020-08-24"></time></span>           
+                <span class="post-date"><time class="post-date" datetime="2020-09-08"></time></span>           
             </small>
             </p>
             
