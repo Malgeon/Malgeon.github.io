@@ -352,6 +352,14 @@
 </pre></td><td class="rouge-code"><pre><span class="kt">var</span> <span class="n">a</span> <span class="o">=</span> <span class="nc">Array</span><span class="o">(</span><span class="mi">1000</span><span class="o">,</span> <span class="o">{</span> <span class="n">i</span> <span class="o">-&gt;</span> <span class="n">myClass</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">})</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<p>다차원 배열 생성</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="kt">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="nc">Array</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span> <span class="o">{</span> <span class="nc">Array</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span> <span class="o">{</span> <span class="mi">0</span> <span class="o">}}</span>
+<span class="n">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">deepToString</span><span class="o">(</span><span class="n">arr</span><span class="o">))</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <p>배열에 요소 추가하고 잘라내기
 배열이 일단 정의되면 고정됨</p>
 <ul>
@@ -376,8 +384,9 @@
 <span class="n">println</span><span class="o">(</span><span class="s">"arr3: ${Arrays.toString(arr3)}"</span><span class="o">)</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>기타 배열 관련 API
-API 사용 예</p>
+<p>기타 배열 관련 API</p>
+
+<p>API 사용 예</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2

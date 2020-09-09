@@ -7,23 +7,23 @@
 <link rel="icon" href="/assets/images/logo.jpg">
 
 
-<title>우선순위 큐 | Malg:eon</title>
+<title>Graph - dfs/bfs | Malg:eon</title>
 
 
 <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>우선순위 큐 | Malg:eon</title>
+<title>Graph - DFS/BFS | Malg:eon</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="우선순위 큐" />
+<meta property="og:title" content="Graph - DFS/BFS" />
 <meta name="author" content="study" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="우선순위 큐 다루기" />
-<meta property="og:description" content="우선순위 큐 다루기" />
+<meta name="description" content="무방향 그래프, 방향, 가중치 그래프 그리고 DFS/BFS" />
+<meta property="og:description" content="무방향 그래프, 방향, 가중치 그래프 그리고 DFS/BFS" />
 <meta property="og:site_name" content="Malg:eon" />
 <meta property="og:image" content="/assets/images/study/kotlin.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-09-08T00:00:00+00:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"study"},"headline":"우선순위 큐","dateModified":"2020-09-08T00:00:00+00:00","description":"우선순위 큐 다루기","datePublished":"2020-09-08T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_Programming_Graph/"},"@type":"BlogPosting","url":"/study_Programming_Graph/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"study"},"headline":"Graph - DFS/BFS","dateModified":"2020-09-08T00:00:00+00:00","description":"무방향 그래프, 방향, 가중치 그래프 그리고 DFS/BFS","datePublished":"2020-09-08T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_Programming_Graph/"},"@type":"BlogPosting","url":"/study_Programming_Graph/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -290,8 +290,8 @@
             <div class="mainheading">
 
                 <!-- Post Title -->
-                <div><h1 class="posttitle">우선순위 큐</h1></div>
-                <h4 class="postdescription">우선순위 큐 다루기</h4>
+                <div><h1 class="posttitle">Graph - DFS/BFS</h1></div>
+                <h4 class="postdescription">무방향 그래프, 방향, 가중치 그래프 그리고 DFS/BFS</h4>
 
                 <div class="post-top-meta">
                     <span class="meta-footer-thumb">
@@ -320,10 +320,6 @@
             
             
             
-            <img class="featured-image img-fluid" src="/assets/images/study/kotlin.png" alt="우선순위 큐">
-            
-            
-            
             <!-- End Featured Image -->
 
             <!-- Post Content -->
@@ -331,71 +327,50 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <h1 id="우선순위-큐">우선순위 큐</h1>
-<p>max heap 또는 min heap 이라고도 할 수 있는 우선순위 큐를 코틀린에서는 지원을 해준다.</p>
+                <h3 id="graph">Graph</h3>
+<p>그래프를 다뤄보자.</p>
 
-<p>이런 우선순위 큐를 알아보자.</p>
+<ul>
+  <li>정점 (Vertex / Node) <br />
+  그래프에서 위치를 나타냅니다.</li>
+  <li>간선 (Edge / Link / Branch) <br />
+  그래프에서 위치간의 관계를 나타냅니다. 즉, 각 정점(노드)를 연결하는 선을 의미합니다.</li>
+  <li>인접 정점 (Adjacent Vertex) <br />
+  간선(Edge)에 의해 직접 연결된 정점을 의미합니다.</li>
+  <li>G(V, E) <br />
+  그래프는 정점과 간선의 집합이므로 G(V, E)는 그래프 자체를 의미합니다.</li>
+</ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>import java.util.PriorityQueue
-</pre></td></tr></tbody></table></code></pre></div></div>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="nf">main</span><span class="o">()</span> <span class="o">{</span>
-  <span class="n">val</span> <span class="n">queue1</span> <span class="o">=</span> <span class="nc">PriorityQueue</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;()</span> 
-  <span class="n">val</span> <span class="n">queue2</span> <span class="o">=</span> <span class="nc">PriorityQueue</span><span class="o">(</span><span class="nc">Comparator</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;())</span>
-<span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+<h4 id="무방향-그래프undirected-graph">무방향 그래프(undirected graph)</h4>
 
-<p>PriorityQueue를 사용하기 위해서는 java.util.PriorityQueue(java.util.*)가 필요하다. <br />
-기본값으로는 값이 낮을 수록 우선순위가 높게 설정되어 있다. 이를 값이 높을 수록 우선순위가 높도록 바꾸기 위해선 queue2처럼 선언하면 된다.</p>
-
-<p>사용가능한 함수로는 아래와 같다.</p>
+<div class="card h-100 my-u-padding"><div class="insertcover"><div class=""><img class="inserturl" src="/assets/images/study/Graph.png" alt="programmers.co.kr" /></div></div></div>
 
 <table>
   <thead>
     <tr>
-      <th>함수</th>
-      <th>기능</th>
+      <th style="text-align: center">Vertex</th>
+      <th style="text-align: center">Edge</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>add</td>
-      <td>추가</td>
-    </tr>
-    <tr>
-      <td>offer</td>
-      <td>추가</td>
-    </tr>
-    <tr>
-      <td>size</td>
-      <td>크기</td>
-    </tr>
-    <tr>
-      <td>clear</td>
-      <td>모두 지우기</td>
-    </tr>
-    <tr>
-      <td>peek</td>
-      <td>가장 앞부분 가져오기(해당 값 복사)</td>
-    </tr>
-    <tr>
-      <td>poll</td>
-      <td>가장 앞부분 빼오기(해당 값 잘라내기)</td>
-    </tr>
-    <tr>
-      <td>isEmpty</td>
-      <td>비어있는지 확인</td>
+      <td style="text-align: center">8</td>
+      <td style="text-align: center">[[1, 2], [1, 3], [2, 4], [2, 5], [3, 6], [3, 7], [4, 8], [5, 8], [6, 8], [7, 8]]</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="add-와-offer의-차이">add 와 offer의 차이</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="n">edge</span> <span class="o">=</span> <span class="n">arrayOf</span><span class="o">(</span><span class="n">intArrayOf</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">),</span> <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">),</span> <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">),</span>
+            <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">),</span> <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">6</span><span class="o">),</span> <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">7</span><span class="o">),</span>
+            <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">8</span><span class="o">),</span> <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">8</span><span class="o">),</span> <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">6</span><span class="o">,</span> <span class="mi">8</span><span class="o">),</span> <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">))</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>AbstarctQueue일때</p>
+<ul>
+  <li>행렬</li>
+</ul>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -403,15 +378,112 @@
 4
 5
 6
-</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">add</span><span class="o">(</span><span class="no">E</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">offer</span><span class="o">(</span><span class="n">e</span><span class="o">))</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="k">else</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalStateException</span><span class="o">(</span><span class="s">"Queue full"</span><span class="o">);</span>
-<span class="o">}</span>
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="n">arr</span> <span class="o">=</span> <span class="nc">Array</span><span class="o">(</span><span class="mi">9</span><span class="o">)</span> <span class="o">{</span> <span class="nc">Array</span><span class="o">(</span><span class="mi">9</span><span class="o">)</span> <span class="o">{</span> <span class="mi">0</span> <span class="o">}</span> <span class="o">}</span>
+<span class="c1">// 무뱡향</span>
+<span class="n">edge</span><span class="o">.</span><span class="na">forEach</span> <span class="o">{</span>
+        <span class="n">arr</span><span class="o">[</span><span class="n">it</span><span class="o">[</span><span class="mi">0</span><span class="o">]][</span><span class="n">it</span><span class="o">[</span><span class="mi">1</span><span class="o">]]</span> <span class="o">=</span> <span class="mi">1</span> 
+        <span class="n">arr</span><span class="o">[</span><span class="n">it</span><span class="o">[</span><span class="mi">1</span><span class="o">]][</span><span class="n">it</span><span class="o">[</span><span class="mi">0</span><span class="o">]]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="o">}</span>
+<span class="n">arr</span><span class="o">.</span><span class="na">forEach</span> <span class="o">{</span>
+        <span class="n">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">it</span><span class="o">))</span>
+    <span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>[0, 0, 0, 0, 0, 0, 0, 0, 0]
+[0, 0, 1, 1, 0, 0, 0, 0, 0]
+[0, 1, 0, 0, 1, 1, 0, 0, 0]
+[0, 1, 0, 0, 0, 0, 1, 1, 0]
+[0, 0, 1, 0, 0, 0, 0, 0, 1]
+[0, 0, 1, 0, 0, 0, 0, 0, 1]
+[0, 0, 0, 1, 0, 0, 0, 0, 1]
+[0, 0, 0, 1, 0, 0, 0, 0, 1]
+[0, 0, 0, 0, 1, 1, 1, 1, 0]
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h3 id="사용-예">사용 예</h3>
+<ul>
+  <li>리스트</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="n">list</span> <span class="o">=</span> <span class="nc">List</span><span class="o">(</span><span class="mi">9</span><span class="o">)</span> <span class="o">{</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;()</span> <span class="o">}</span>
+<span class="c1">// 무뱡향</span>
+<span class="n">edge</span><span class="o">.</span><span class="na">forEach</span> <span class="o">{</span>
+        <span class="n">list</span><span class="o">[</span><span class="n">it</span><span class="o">[</span><span class="mi">0</span><span class="o">]].</span><span class="na">add</span><span class="o">(</span><span class="n">it</span><span class="o">[</span><span class="mi">1</span><span class="o">])</span>
+        <span class="n">list</span><span class="o">[</span><span class="n">it</span><span class="o">[</span><span class="mi">1</span><span class="o">]].</span><span class="na">add</span><span class="o">(</span><span class="n">it</span><span class="o">[</span><span class="mi">0</span><span class="o">])</span>
+    <span class="o">}</span>
+<span class="n">list</span><span class="o">.</span><span class="na">forEach</span> <span class="o">{</span>
+        <span class="n">println</span><span class="o">(</span><span class="n">it</span><span class="o">.</span><span class="na">toString</span><span class="o">())</span>
+    <span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>[]
+[2, 3]
+[1, 4, 5]
+[1, 6, 7]
+[2, 8]
+[2, 8]
+[3, 8]
+[3, 8]
+[4, 5, 6, 7]
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="방향-그래프digraph-directed-graph-가중치-그래프weighted-graph">방향 그래프(digraph, directed graph), 가중치 그래프(weighted graph)</h4>
+
+<div class="card h-100 my-u-padding"><div class="insertcover"><div class=""><img class="inserturl" src="/assets/images/study/Weighted_Direction_Graph.png" alt="programmers.co.kr" /></div></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Vertex</th>
+      <th style="text-align: center">Edge [vertex1, vertex2, weight]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">[[1, 2, 12], [1, 3, 6], [1, 4, 10], [2, 3, 10], [2, 5, 2], [3, 4, 3], [4, 2, 2], [4, 5, 5]]</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="n">edge</span> <span class="o">=</span> <span class="n">arrayOf</span><span class="o">(</span><span class="n">intArrayOf</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">12</span><span class="o">),</span> <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">6</span><span class="o">),</span> 
+            <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">10</span><span class="o">),</span> <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">10</span><span class="o">),</span> <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">),</span>
+            <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">),</span> <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">),</span> <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">))</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>행렬</li>
+</ul>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -423,44 +495,73 @@
 8
 9
 10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="nf">main</span><span class="o">(</span><span class="nl">args:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;)</span> <span class="o">{</span>
-  <span class="n">val</span> <span class="nl">nums:</span> <span class="nc">PriorityQueue</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nc">PriorityQueue</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;()</span>
-
-  <span class="c1">// Add items (enqueue)</span>
-  <span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">800</span><span class="o">)</span>
-  <span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">50</span><span class="o">)</span>
-  <span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">200</span><span class="o">)</span>
-  <span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">550</span><span class="o">)</span>
-
-  <span class="n">println</span><span class="o">(</span><span class="s">"peek: "</span> <span class="o">+</span> <span class="n">nums</span><span class="o">.</span><span class="na">peek</span><span class="o">())</span>
-  
-  <span class="c1">// Remove items (dequeue)</span>
-  <span class="k">while</span> <span class="o">(!</span><span class="n">nums</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-    <span class="n">println</span><span class="o">(</span><span class="n">nums</span><span class="o">.</span><span class="na">remove</span><span class="o">())</span>
-  <span class="o">}</span>
-<span class="o">}</span>
+</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="n">infinite</span> <span class="o">=</span> <span class="mi">99999999</span>
+<span class="n">val</span> <span class="n">arr</span> <span class="o">=</span> <span class="nc">Array</span><span class="o">(</span><span class="mi">6</span><span class="o">)</span> <span class="o">{</span> <span class="nc">Array</span><span class="o">(</span><span class="mi">6</span><span class="o">)</span> <span class="o">{</span> <span class="n">infinite</span> <span class="o">}</span> <span class="o">}</span> 
+<span class="c1">// 1 ~ 5 의 vertex를 가진다. weight 초기값은 무한</span>
+<span class="c1">// 단방향</span>
+<span class="n">edge</span><span class="o">.</span><span class="na">forEach</span> <span class="o">{</span>
+        <span class="n">arr</span><span class="o">[</span><span class="n">it</span><span class="o">[</span><span class="mi">0</span><span class="o">]][</span><span class="n">it</span><span class="o">[</span><span class="mi">1</span><span class="o">]]</span> <span class="o">=</span> <span class="n">it</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+    <span class="o">}</span>
+<span class="n">arr</span><span class="o">.</span><span class="na">forEach</span> <span class="o">{</span>
+        <span class="n">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">it</span><span class="o">))</span>
+    <span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Output:</p>
-
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
-</pre></td><td class="rouge-code"><pre>peek: 50
-50
-200
-550
-800
+6
+</pre></td><td class="rouge-code"><pre>[∞, ∞,  ∞,  ∞,  ∞,  ∞]
+[∞, ∞, 12,  6, 10,  ∞]
+[∞, ∞,  ∞, 10,  ∞,  2]
+[∞, ∞,  ∞,  ∞,  3,  ∞]
+[∞, ∞,  2,  ∞,  ∞,  5]
+[∞, ∞,  ∞,  ∞,  ∞,  ∞]
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<ul>
+  <li>리스트</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="n">list</span> <span class="o">=</span> <span class="nc">List</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span> <span class="o">{</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;()</span> <span class="o">}</span> <span class="c1">// 1 ~ 8 의 vertex를 가진다.</span>
+<span class="c1">// 단방향</span>
+<span class="n">edge</span><span class="o">.</span><span class="na">forEach</span> <span class="o">{</span>
+        <span class="n">list</span><span class="o">[</span><span class="n">it</span><span class="o">[</span><span class="mi">0</span><span class="o">]].</span><span class="na">add</span><span class="o">(</span><span class="n">it</span><span class="o">[</span><span class="mi">1</span><span class="o">])</span>
+    <span class="o">}</span>
+    
+<span class="n">list</span><span class="o">.</span><span class="na">forEach</span> <span class="o">{</span>
+        <span class="n">println</span><span class="o">(</span><span class="n">it</span><span class="o">.</span><span class="na">toString</span><span class="o">())</span>
+    <span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>[]
+[2, 3]
+[1, 4, 5]
+[1, 6, 7]
+[2, 8]
+[2, 8]
+[3, 8]
+[3, 8]
+[4, 5, 6, 7]
+</pre></td></tr></tbody></table></code></pre></div></div>
 
             </div>
 
