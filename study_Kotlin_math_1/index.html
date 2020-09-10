@@ -426,6 +426,12 @@ Math.pow(sqrt + 1, 2.0(double!))
 <span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<p>재귀</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="nf">gcd</span><span class="o">(</span><span class="nl">a:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">b:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Int</span> <span class="o">=</span> <span class="k">if</span> <span class="o">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="n">a</span> <span class="k">else</span> <span class="nf">gcd</span><span class="o">(</span><span class="n">b</span><span class="o">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="o">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <p>a와 b가 있을때, a와 b의 최대공약수를 구하면 a를 b로 나눈 나머지를 구하고,
 해당 나머지를 다시 b로 나눈 나머지를 구하며 나누어 떨어질때까지 진행한다.
 a와 b의 크기에 따른 순서는 상관이 없다. 유클리드 호제법을 통한 최대공약수를 구한는 방법이다.</p>

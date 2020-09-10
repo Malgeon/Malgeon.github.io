@@ -462,6 +462,42 @@ returnedList = [1, 2, 3, 4, 5, 6]
 returnedMap = {11=Java, 22=Kotlin, 33=C++}
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<h3 id="foreach에서-break의-기능을-할수-있도록-해보자">forEach에서 break의 기능을 할수 있도록 해보자</h3>
+
+<p>사실 확장 함수로서 return의 지점을 정해주는 것이 정확한 표현이지만 더 기억하기 쉽도록 하자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">seoul:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;):</span> <span class="nc">String</span> <span class="o">{</span>
+        <span class="kt">var</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">run</span> <span class="n">loop</span><span class="err">@</span><span class="o">{</span>
+            <span class="n">seoul</span><span class="o">.</span><span class="na">forEachIndexed</span><span class="o">{</span> <span class="n">index</span><span class="o">,</span> <span class="n">value</span> <span class="o">-&gt;</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">value</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"Kim"</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="n">answer</span> <span class="o">=</span> <span class="n">index</span>
+                    <span class="k">return</span><span class="nd">@loop</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="s">"김서방은 ${answer}에 있다"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <h3 id="요소를-집계를-위한-확장-함수">요소를 집계를 위한 확장 함수</h3>
 <p>각 요소의 정해진 식 적용</p>
 <ul>
@@ -501,6 +537,7 @@ returnedMap = {11=Java, 22=Kotlin, 33=C++}
 <span class="n">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">reduce</span> <span class="o">{</span> <span class="n">total</span><span class="o">,</span> <span class="n">next</span> <span class="o">-&gt;</span> <span class="n">total</span> <span class="o">+</span> <span class="n">next</span> <span class="o">})</span> <span class="c1">// 1 + ... + 6 = 21</span>
 <span class="n">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">reduceRight</span><span class="o">)</span> <span class="o">{</span> <span class="n">total</span><span class="o">,</span> <span class="n">next</span> <span class="o">-&gt;</span> <span class="n">total</span> <span class="o">+</span> <span class="n">next</span> <span class="o">})</span> <span class="c1">// 6 + ... + 1 = 21</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+
 
             </div>
 
