@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.jpg">
+
+
+<title>Kotlin 함수편 - [1] | Malg:eon</title>
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Kotlin 함수편 - [1] | Malg:eon</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Kotlin 함수편 - [1]" />
+<meta name="author" content="study" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="변수, 자료형, elvis 연산자" />
+<meta property="og:description" content="변수, 자료형, elvis 연산자" />
+<meta property="og:site_name" content="Malg:eon" />
+<meta property="og:image" content="/assets/images/study/kotlin.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-30T00:00:00+00:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 함수편 - [1]","dateModified":"2020-07-30T00:00:00+00:00","description":"변수, 자료형, elvis 연산자","datePublished":"2020-07-30T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_Kotlin_1/"},"@type":"BlogPosting","url":"/study_Kotlin_1/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link href="/assets/css/screen.css" rel="stylesheet">
+<link href="/assets/css/main.css" rel="stylesheet">
+<script src="/assets/js/jquery.min.js"></script>
+
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white mediumnavigation nav-down x">
+
+    <div class="container pr-0">
+
+        <!-- Begin Logo -->
+        <a class="navbar-brand my-order-1 my-order-md-3" href="/">
+            <div class="mainlogo">
+                <!--<h1 class="sitetitle">Malg:eon</h1>-->
+                <h2 class="sitetitle">Malg:eon </h2>
+            </div>
+        </a>
+        <!-- End Logo -->
+
+        <button class="navbar-toggler my-order-2 my-order-md-1" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse my-order-3 my-order-md-2" id="navbarMediumish">
+
+            <!-- Begin Menu -->
+
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/">Main</a>
+                    </li>
+                    
+                    
+                    <li class="nav-item active">
+                    
+                        <a class="nav-link" href="/study">Study</a>
+                    </li>
+
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/project">Project</a>
+                    </li>
+
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/test">Test</a>
+                    </li>
+
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+
+                </ul>
+
+            <!-- End Menu -->
+        </div>
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<!-- For Nav Z-index Height
+================================================== -->
+
+    
+    <div class="post-content">
+    
+    <div class="collectionHeader-blockNav mediumnavigation btmr">
+    <div class="u-borderBox u-maxWidth1072 u-paddingLeft31 u-paddingRight20 u-marginAuto">
+        <nav class="collectionHeader-nav u-clearfix js-collectionHeaderNav u-lineHeight40 u-overflowHiddenY">
+            <div class="buttonSet u-middle u-noWrap u-overflowX u-paddingBottom100">
+                
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/java">java</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/javascript">javascript</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                            
+                            
+                        
+                            <a class="link link--darker link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/kotlin">kotlin</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/programming">programming</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/web">web</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/android">android</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/db">db</a>
+                        
+                        </li>
+                        
+                    
+
+                
+            </div>
+            <!--
+            <div class="buttonSet u-textAlignRight u-marginLeft18 u-flex0 u-noWrap">
+                <a class="button button--chromeless is-touchIconBlackPulse u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--chromeless u-verticalAlignMiddle"   href="https://twitter.com/forgemag" title="Visit “Forge” on Twitter" aria-label="Visit “Forge” on Twitter" rel="me" target="_blank">
+                    <span class="button-defaultState">
+                        <span class="svgIcon svgIcon--twitterFilled svgIcon--25px">
+                            <svg class="svgIcon-use" width="25" height="25" >
+                                <path d="M22.31 4.305a8.48 8.48 0 01-2.684 1.073A4.245 4.245 0 0016.486 4a4.293 4.293 0 00-4.293 4.29c0 .34.037.669.077.997a12.199 12.199 0 01-8.814-4.521 4.805 4.805 0 00-.613 2.141c.033 1.514.79 2.83 1.916 3.594a4.13 4.13 0 01-1.913-.542.185.185 0 000 .074c-.005 2.055 1.476 3.79 3.446 4.21-.37.073-.746.122-1.15.147-.266-.025-.535-.05-.767-.074.517 1.686 2.101 2.917 3.988 2.99a9.028 9.028 0 01-5.366 1.834L2 19.08A12.258 12.258 0 008.59 21c7.886 0 12.203-6.547 12.185-12.184a4.103 4.103 0 000-.616 8.057 8.057 0 002.147-2.227 7.612 7.612 0 01-2.451.69 4.092 4.092 0 001.838-2.376"/>
+                            </svg>
+                        </span>
+                    </span>
+                </a>
+                
+                <a class="button button--chromeless is-touchIconBlackPulse u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--chromeless u-verticalAlignMiddle"   href="https://instagram.com/forgemag" title="Visit “Forge” on Instagram" aria-label="Visit “Forge” on Instagram" rel="me" target="_blank">
+                    <span class="button-defaultState">
+                        <span class="svgIcon svgIcon--instagram svgIcon--25px">
+                            <svg class="svgIcon-use" width="25" height="25" >
+                                <path d="M12.497 5.531c2.27 0 2.536.01 3.433.05.83.038 1.279.176 1.579.294.398.156.681.338.978.635.297.296.482.58.634.978.115.3.257.749.294 1.578.04.897.05 1.164.05 3.434 0 2.27-.01 2.537-.05 3.434-.037.83-.176 1.278-.294 1.578a2.637 2.637 0 01-.634.979 2.61 2.61 0 01-.978.634c-.3.114-.749.256-1.579.293-.897.04-1.163.05-3.433.05-2.27 0-2.537-.01-3.434-.05-.83-.037-1.278-.175-1.579-.293a2.638 2.638 0 01-.978-.634 2.596 2.596 0 01-.634-.979c-.115-.3-.256-.748-.293-1.578-.04-.897-.051-1.164-.051-3.434 0-2.27.01-2.537.05-3.434.038-.83.176-1.278.294-1.578.155-.398.337-.682.634-.978a2.6 2.6 0 01.978-.635c.3-.114.75-.256 1.579-.293.897-.044 1.164-.05 3.434-.05zm0-1.531c-2.307 0-2.598.01-3.505.05-.904.041-1.521.186-2.06.395-.56.216-1.033.51-1.505.982a4.214 4.214 0 00-.982 1.504c-.209.54-.354 1.157-.394 2.064C4.01 9.9 4 10.19 4 12.497c0 2.307.01 2.597.05 3.504.041.904.186 1.521.395 2.064.216.56.51 1.033.982 1.505s.948.762 1.504.981c.54.21 1.157.355 2.064.395.908.04 1.195.05 3.505.05 2.31 0 2.597-.01 3.505-.05.904-.04 1.52-.186 2.064-.395a4.14 4.14 0 001.504-.981c.472-.472.762-.948.982-1.505.209-.54.354-1.157.394-2.064.04-.907.051-1.194.051-3.504s-.01-2.598-.05-3.505c-.041-.904-.186-1.521-.395-2.064a4.142 4.142 0 00-.982-1.505 4.215 4.215 0 00-1.504-.981c-.54-.21-1.157-.354-2.064-.395C15.094 4.01 14.804 4 12.497 4z"/>
+                                <path d="M12.496 8.132a4.365 4.365 0 000 8.73 4.367 4.367 0 004.365-4.365 4.367 4.367 0 00-4.365-4.365zm0 7.198a2.833 2.833 0 110-5.666 2.833 2.833 0 010 5.666z"/>
+                                <path d="M17.034 8.979a1.019 1.019 0 100-2.038 1.019 1.019 0 000 2.038z"/>
+                            </svg> 
+                        </span>
+                    </span>
+                </a>
+                <button class="button button--primary button--smallest u-noUserSelect button--withChrome u-accentColor--buttonNormal js-relationshipButton is-smallPill"  data-action="toggle-follow-collection" data-action-source="pub_header----3f6ecf56618----------------------follow_pub" data-collection-id="3f6ecf56618">
+                    <span class="button-label  js-buttonLabel">Follow</span>
+                </button>
+            </div>
+            -->
+        </nav>
+    </div>
+</div>
+    
+
+<div class="container md-paddingLeft20 md-paddingRight20">
+
+   
+    
+<!-- Site Title
+================================================== -->
+ 
+<div class="mainheading">
+    <h1 class="sitetitle"></h1>
+    <p class="lead">
+    </p>
+</div>
+
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="post-container post-md-container">
+    <div class="row">
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0 mpr">
+            <div class="share sticky-top sticky-top-offset">
+    <p class="share-title">
+        Malg:eon
+    </p>
+    <p class="share-subtitle">Just Do It.</p>
+
+
+    <div class="sep">
+    </div>
+    <ul>
+        <li class="small smoothscroll">
+            STUDY
+        </li>
+    </ul>
+
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Post Title -->
+                <div><h1 class="posttitle">Kotlin 함수편 - [1]</h1></div>
+                <h4 class="postdescription">변수, 자료형, elvis 연산자</h4>
+
+                <div class="post-top-meta">
+                    <span class="meta-footer-thumb">
+                        
+                        <img class="author-thumb" src="/assets/images/main_picture/study.jpg" alt="">
+                        
+                    </span>
+                    <span class="author-meta">
+                        <div>
+                        <a target="_blank" class="link-dark" href="">study</a>
+                        </div>
+
+                        <div>
+                        <span class="author-description">30 Jul 2020</span>
+                        <span class="post-main u-textColorNormal"><a href="" title="Read Story"><svg class="svgIcon-use" width="15" height="15" viewbox="0 0 15 15"><path d="M7.438 2.324c.034-.099.09-.099.123 0l1.2 3.53a.29.29 0 0 0 .26.19h3.884c.11 0 .127.049.038.111L9.8 8.327a.271.271 0 0 0-.099.291l1.2 3.53c.034.1-.011.131-.098.069l-3.142-2.18a.303.303 0 0 0-.32 0l-3.145 2.182c-.087.06-.132.03-.099-.068l1.2-3.53a.271.271 0 0 0-.098-.292L2.056 6.146c-.087-.06-.071-.112.038-.112h3.884a.29.29 0 0 0 .26-.19l1.2-3.52z" fill-rule="evenodd"></path></svg></a></span>
+                        </div>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+            
+            
+            <img class="featured-image img-fluid" src="/assets/images/study/kotlin.png" alt="Kotlin 함수편 - [1]">
+            
+            
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <h2 id="변수">변수</h2>
+<p>val(value) - 불변형 (immutable)
+  var(variable) - 가변형 (mutable)</p>
+
+<p>val username(: String - 컴파일에서 추론 가능할 경우 생략 가능) = “Eon”</p>
+
+<p>따라서 단순 선언 같은 경우 추론이 불가능하므로 생략 불가</p>
+
+<h2 id="자료형">자료형</h2>
+
+<h3 id="기본형primitive-data-type">기본형(primitive data type)</h3>
+<ul>
+  <li>보통 코틀린에서는 사용하지 않으나 자바에서 사용하므로 알아두자</li>
+  <li>int, long, float, double</li>
+</ul>
+
+<h3 id="참조형reference-type">참조형(reference type)</h3>
+<ul>
+  <li>동적 공간에 데이터를 둔 다음 이것을 참조하는 자료형</li>
+  <li>Int, Long, Float, Double</li>
+</ul>
+
+<h3 id="자료형-추론">자료형 추론</h3>
+<p>123 =&gt; Int
+123L =&gt; Long (접미사 L)
+123F =&gt; Float (접미사 F)
+0x0F =&gt; 16진수 Int (접두사 0x)
+0b00001011 =&gt; 2진수 Int (접두사 0b)</p>
+
+<p>작은 값을 사용하고자 하면 자료형을 명시적으로 지정해주자.</p>
+
+<p>숫자 자료형을 경우 사이에 언더바는 아무런 영향을 주지 않는다. 그냥 자릿수 확인으로 사용 가능</p>
+
+<p>큰수일 경우 3.14E + 16 이런식으로 사용</p>
+
+<p>코틀린에서는 부동 소수점을 표현할 때, 지수부와 가수부로 나뉘어 저장된다. 이러한 부동 소수점에 대해 연산을 하게 될 경우 공간 제약으로 인해 정확한 값을 return하지 않는다. 유념해서 설계하자.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">num</span><span class="p">:</span> <span class="nx">Double</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="nx">x</span> <span class="k">in</span> <span class="mi">0</span><span class="p">...</span><span class="mi">999</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">num</span> <span class="o">+=</span> <span class="mf">0.1</span>
+  <span class="p">}</span>
+
+  <span class="nx">println</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="c1">//100.09999...</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="문자열-자료형">문자열 자료형</h3>
+
+<p>문자열은 String으로 선언되며 String Pool 이라는 공간에 구성된다. 이때 참조형 변수이기 때문에, 변수를 선언할 경우 Heap에 값은 String Pool 저장되게 되며 이 값은 변경되지 않는다. 즉, 만일 값이 같은 변수를 선언할 경우 똑같은 참조이게 된다.</p>
+
+<p>코틀린에서 [== : 값만 비교] <a href="나중에 다시 설명">=== : 값과 참조 주소 비교</a></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span>
+  <span class="kd">var</span> <span class="nx">str2</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">World</span><span class="dl">"</span>
+  <span class="kd">var</span> <span class="nx">str3</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span>
+  
+  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1 === str2: ${str1 === str2}</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// false</span>
+  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1 === str3: ${str1 === str3}</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// true</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="표현식에서-문자열">표현식에서 문자열</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="kd">var</span> <span class="nx">str1</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">a = $a</span><span class="dl">"</span>
+  <span class="kd">var</span> <span class="nx">str2</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">a = ${a +2}</span><span class="dl">"</span>
+  
+  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1: </span><span class="se">\"</span><span class="s2">$str1</span><span class="se">\"</span><span class="s2">, str2: </span><span class="se">\"</span><span class="s2">$str2</span><span class="se">\"</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// "를 print하고 싶다면 [\"] 이렇게 쓰면 된다.</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="nullable">nullable</h3>
+<p>코틀린에서는 기본적으로 null을 허용하지 않는다. (프로그램이 NPE에서 자유롭게 구동하려는 의도로 이해하고 있다.) 그러나 상황에 따라 null이 필요하게 될 경우 자료형에 물음표를 붙임으로써 사용이 가능하다. 그리고 코틀린에서는 nullable 변수를 사용하더라도, 사용할 때 NPE에서 자유롭도록 코딩을 유도한다.</p>
+
+<p>주의할 점은 자료형 과 자료형? 은 다른 Type이다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span>
+  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// error null을 허용하지 않는다.</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span>
+  <span class="nx">str1</span> <span class="o">=</span> <span class="kc">null</span>
+  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// error null을 허용하지 않는다.</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
+  <span class="nx">str1</span> <span class="o">=</span> <span class="kc">null</span>
+  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// return : null</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
+  <span class="nx">str1</span> <span class="o">=</span> <span class="kc">null</span>
+  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1: $str1, length: ${str1.length</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// error null값의 길이를 참조할 수 있게 된다.</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이때 추가적으로 코딩을 하지 않고 해결할 수 있는 방법은 2가지 이다.</p>
+
+<ol>
+  <li>세이프콜(?.)을 사용한다. 
+ 혹시라도 Null일 경우 ?.의 뒷부분을 실행하지 않도록 해준다.</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
+  <span class="nx">str1</span> <span class="o">=</span> <span class="kc">null</span>
+  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1: $str1, length: ${str1?.length</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// error null값의 길이를 참조할 수 있게 된다.</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ol>
+  <li>NonNull 단정 기호(!!.)를 사용한다.
+ Null이 아닐것임을 단정해서 컴파일러가 오류를 무시하고 넘어간다. 되도록이면 사용하지 말자.</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
+  <span class="nx">str1</span> <span class="o">=</span> <span class="kc">null</span>
+  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1: $str1, length: ${str1!!.length</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// NPE 발생..</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>물론 if문을 통해 걸러주는 방법을 사용해도 된다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
+  <span class="nx">str1</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span>
+  <span class="kd">var</span> <span class="nx">len</span> <span class="o">=</span> <span class="k">if</span> <span class="p">(</span><span class="nx">str1</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
+  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1: $str1, length: $len</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="---elvis-연산자">?: - elvis 연산자</h3>
+<p>Null 값을 혀용하지 않는 변수에 Null 값이 들어올때, Null 값 대신 다른 값을 반환토록 해준다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
+  <span class="nx">str1</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span>
+  <span class="kd">var</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">str1</span><span class="p">?.</span><span class="nx">length</span> <span class="p">?:</span> <span class="o">-</span><span class="mi">1</span>
+  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1: $str1, length: $len</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>또한 함수형으로 이렇게도 표현이 가능하다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">str1</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
+  <span class="nx">str1</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span>
+  <span class="kd">var</span> <span class="nx">len</span> <span class="o">=</span> <span class="k">if</span> <span class="p">(</span><span class="nx">str1</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="nx">str1</span><span class="p">.</span><span class="nx">length</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
+  <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">str1: $str1, length: $len</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2020-07-30"></time></span>           
+            </small>
+            </p>
+            
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#kotlin">kotlin</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2020 Malg:eon 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                지나가는 생각과 경험을 잡아두는 공간
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

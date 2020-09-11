@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.jpg">
+
+
+<title>Kotlin 객체편 - [10] | Malg:eon</title>
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Kotlin 객체편 - [10] | Malg:eon</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Kotlin 객체편 - [10]" />
+<meta name="author" content="study" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="지역 클래스, 익명 객체, 실드 클래스, 열거형 클래스" />
+<meta property="og:description" content="지역 클래스, 익명 객체, 실드 클래스, 열거형 클래스" />
+<meta property="og:site_name" content="Malg:eon" />
+<meta property="og:image" content="/assets/images/study/kotlin.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-12T00:00:00+00:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"study"},"headline":"Kotlin 객체편 - [10]","dateModified":"2020-08-12T00:00:00+00:00","description":"지역 클래스, 익명 객체, 실드 클래스, 열거형 클래스","datePublished":"2020-08-12T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_Kotlin_20/"},"@type":"BlogPosting","url":"/study_Kotlin_20/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link href="/assets/css/screen.css" rel="stylesheet">
+<link href="/assets/css/main.css" rel="stylesheet">
+<script src="/assets/js/jquery.min.js"></script>
+
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white mediumnavigation nav-down x">
+
+    <div class="container pr-0">
+
+        <!-- Begin Logo -->
+        <a class="navbar-brand my-order-1 my-order-md-3" href="/">
+            <div class="mainlogo">
+                <!--<h1 class="sitetitle">Malg:eon</h1>-->
+                <h2 class="sitetitle">Malg:eon </h2>
+            </div>
+        </a>
+        <!-- End Logo -->
+
+        <button class="navbar-toggler my-order-2 my-order-md-1" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse my-order-3 my-order-md-2" id="navbarMediumish">
+
+            <!-- Begin Menu -->
+
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/">Main</a>
+                    </li>
+                    
+                    
+                    <li class="nav-item active">
+                    
+                        <a class="nav-link" href="/study">Study</a>
+                    </li>
+
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/project">Project</a>
+                    </li>
+
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/test">Test</a>
+                    </li>
+
+                    
+                    <li class="nav-item">
+                    
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+
+                </ul>
+
+            <!-- End Menu -->
+        </div>
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<!-- For Nav Z-index Height
+================================================== -->
+
+    
+    <div class="post-content">
+    
+    <div class="collectionHeader-blockNav mediumnavigation btmr">
+    <div class="u-borderBox u-maxWidth1072 u-paddingLeft31 u-paddingRight20 u-marginAuto">
+        <nav class="collectionHeader-nav u-clearfix js-collectionHeaderNav u-lineHeight40 u-overflowHiddenY">
+            <div class="buttonSet u-middle u-noWrap u-overflowX u-paddingBottom100">
+                
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/java">java</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/javascript">javascript</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                            
+                            
+                        
+                            <a class="link link--darker link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/kotlin">kotlin</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/programming">programming</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/web">web</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/android">android</a>
+                        
+                        </li>
+                        
+                         
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/db">db</a>
+                        
+                        </li>
+                        
+                    
+
+                
+            </div>
+            <!--
+            <div class="buttonSet u-textAlignRight u-marginLeft18 u-flex0 u-noWrap">
+                <a class="button button--chromeless is-touchIconBlackPulse u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--chromeless u-verticalAlignMiddle"   href="https://twitter.com/forgemag" title="Visit “Forge” on Twitter" aria-label="Visit “Forge” on Twitter" rel="me" target="_blank">
+                    <span class="button-defaultState">
+                        <span class="svgIcon svgIcon--twitterFilled svgIcon--25px">
+                            <svg class="svgIcon-use" width="25" height="25" >
+                                <path d="M22.31 4.305a8.48 8.48 0 01-2.684 1.073A4.245 4.245 0 0016.486 4a4.293 4.293 0 00-4.293 4.29c0 .34.037.669.077.997a12.199 12.199 0 01-8.814-4.521 4.805 4.805 0 00-.613 2.141c.033 1.514.79 2.83 1.916 3.594a4.13 4.13 0 01-1.913-.542.185.185 0 000 .074c-.005 2.055 1.476 3.79 3.446 4.21-.37.073-.746.122-1.15.147-.266-.025-.535-.05-.767-.074.517 1.686 2.101 2.917 3.988 2.99a9.028 9.028 0 01-5.366 1.834L2 19.08A12.258 12.258 0 008.59 21c7.886 0 12.203-6.547 12.185-12.184a4.103 4.103 0 000-.616 8.057 8.057 0 002.147-2.227 7.612 7.612 0 01-2.451.69 4.092 4.092 0 001.838-2.376"/>
+                            </svg>
+                        </span>
+                    </span>
+                </a>
+                
+                <a class="button button--chromeless is-touchIconBlackPulse u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--chromeless u-verticalAlignMiddle"   href="https://instagram.com/forgemag" title="Visit “Forge” on Instagram" aria-label="Visit “Forge” on Instagram" rel="me" target="_blank">
+                    <span class="button-defaultState">
+                        <span class="svgIcon svgIcon--instagram svgIcon--25px">
+                            <svg class="svgIcon-use" width="25" height="25" >
+                                <path d="M12.497 5.531c2.27 0 2.536.01 3.433.05.83.038 1.279.176 1.579.294.398.156.681.338.978.635.297.296.482.58.634.978.115.3.257.749.294 1.578.04.897.05 1.164.05 3.434 0 2.27-.01 2.537-.05 3.434-.037.83-.176 1.278-.294 1.578a2.637 2.637 0 01-.634.979 2.61 2.61 0 01-.978.634c-.3.114-.749.256-1.579.293-.897.04-1.163.05-3.433.05-2.27 0-2.537-.01-3.434-.05-.83-.037-1.278-.175-1.579-.293a2.638 2.638 0 01-.978-.634 2.596 2.596 0 01-.634-.979c-.115-.3-.256-.748-.293-1.578-.04-.897-.051-1.164-.051-3.434 0-2.27.01-2.537.05-3.434.038-.83.176-1.278.294-1.578.155-.398.337-.682.634-.978a2.6 2.6 0 01.978-.635c.3-.114.75-.256 1.579-.293.897-.044 1.164-.05 3.434-.05zm0-1.531c-2.307 0-2.598.01-3.505.05-.904.041-1.521.186-2.06.395-.56.216-1.033.51-1.505.982a4.214 4.214 0 00-.982 1.504c-.209.54-.354 1.157-.394 2.064C4.01 9.9 4 10.19 4 12.497c0 2.307.01 2.597.05 3.504.041.904.186 1.521.395 2.064.216.56.51 1.033.982 1.505s.948.762 1.504.981c.54.21 1.157.355 2.064.395.908.04 1.195.05 3.505.05 2.31 0 2.597-.01 3.505-.05.904-.04 1.52-.186 2.064-.395a4.14 4.14 0 001.504-.981c.472-.472.762-.948.982-1.505.209-.54.354-1.157.394-2.064.04-.907.051-1.194.051-3.504s-.01-2.598-.05-3.505c-.041-.904-.186-1.521-.395-2.064a4.142 4.142 0 00-.982-1.505 4.215 4.215 0 00-1.504-.981c-.54-.21-1.157-.354-2.064-.395C15.094 4.01 14.804 4 12.497 4z"/>
+                                <path d="M12.496 8.132a4.365 4.365 0 000 8.73 4.367 4.367 0 004.365-4.365 4.367 4.367 0 00-4.365-4.365zm0 7.198a2.833 2.833 0 110-5.666 2.833 2.833 0 010 5.666z"/>
+                                <path d="M17.034 8.979a1.019 1.019 0 100-2.038 1.019 1.019 0 000 2.038z"/>
+                            </svg> 
+                        </span>
+                    </span>
+                </a>
+                <button class="button button--primary button--smallest u-noUserSelect button--withChrome u-accentColor--buttonNormal js-relationshipButton is-smallPill"  data-action="toggle-follow-collection" data-action-source="pub_header----3f6ecf56618----------------------follow_pub" data-collection-id="3f6ecf56618">
+                    <span class="button-label  js-buttonLabel">Follow</span>
+                </button>
+            </div>
+            -->
+        </nav>
+    </div>
+</div>
+    
+
+<div class="container md-paddingLeft20 md-paddingRight20">
+
+   
+    
+<!-- Site Title
+================================================== -->
+ 
+<div class="mainheading">
+    <h1 class="sitetitle"></h1>
+    <p class="lead">
+    </p>
+</div>
+
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="post-container post-md-container">
+    <div class="row">
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0 mpr">
+            <div class="share sticky-top sticky-top-offset">
+    <p class="share-title">
+        Malg:eon
+    </p>
+    <p class="share-subtitle">Just Do It.</p>
+
+
+    <div class="sep">
+    </div>
+    <ul>
+        <li class="small smoothscroll">
+            STUDY
+        </li>
+    </ul>
+
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Post Title -->
+                <div><h1 class="posttitle">Kotlin 객체편 - [10]</h1></div>
+                <h4 class="postdescription">지역 클래스, 익명 객체, 실드 클래스, 열거형 클래스</h4>
+
+                <div class="post-top-meta">
+                    <span class="meta-footer-thumb">
+                        
+                        <img class="author-thumb" src="/assets/images/main_picture/study.jpg" alt="">
+                        
+                    </span>
+                    <span class="author-meta">
+                        <div>
+                        <a target="_blank" class="link-dark" href="">study</a>
+                        </div>
+
+                        <div>
+                        <span class="author-description">12 Aug 2020</span>
+                        <span class="post-main u-textColorNormal"><a href="" title="Read Story"><svg class="svgIcon-use" width="15" height="15" viewbox="0 0 15 15"><path d="M7.438 2.324c.034-.099.09-.099.123 0l1.2 3.53a.29.29 0 0 0 .26.19h3.884c.11 0 .127.049.038.111L9.8 8.327a.271.271 0 0 0-.099.291l1.2 3.53c.034.1-.011.131-.098.069l-3.142-2.18a.303.303 0 0 0-.32 0l-3.145 2.182c-.087.06-.132.03-.099-.068l1.2-3.53a.271.271 0 0 0-.098-.292L2.056 6.146c-.087-.06-.071-.112.038-.112h3.884a.29.29 0 0 0 .26-.19l1.2-3.52z" fill-rule="evenodd"></path></svg></a></span>
+                        </div>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+            
+            
+            <img class="featured-image img-fluid" src="/assets/images/study/kotlin.png" alt="Kotlin 객체편 - [10]">
+            
+            
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <h3 id="지역-클래스">지역 클래스</h3>
+<p>특정 메서드의 블록이다 init 블록과 같이 블록 범위에서만 유효한 클래스이며 블록 범위를 벗어나면 더 이상 사용되지 않는다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="rouge-code"><pre><span class="p">...</span>
+<span class="kd">class</span> <span class="nx">Smartphone</span><span class="p">(</span><span class="nx">val</span> <span class="nx">model</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">private</span> <span class="nx">val</span> <span class="nx">cpu</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Exynos</span><span class="dl">"</span>
+    <span class="p">...</span>
+
+    <span class="nx">inner</span> <span class="kd">class</span> <span class="nx">ExternalStorage</span><span class="p">(</span><span class="nx">val</span> <span class="nx">size</span><span class="p">:</span> <span class="nx">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">fun</span> <span class="nx">getInfo</span><span class="p">()</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">${model}: Installed on $cpu with ${size}Gb</span><span class="dl">"</span> <span class="c1">// 바깥 클래스의 프로퍼티 접근</span>
+    <span class="p">}</span>
+
+    <span class="nx">fun</span> <span class="nx">powerOn</span><span class="p">():</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="kd">class</span> <span class="nx">Led</span><span class="p">(</span><span class="nx">val</span> <span class="nx">color</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 지역 클래스 선언</span>
+            <span class="nx">fun</span> <span class="nx">blink</span><span class="p">():</span> <span class="nb">String</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Blinking $color on $model</span><span class="dl">"</span> <span class="c1">// 외부의 프로퍼티는 접근 가능</span>
+        <span class="p">}</span>
+        <span class="nx">val</span> <span class="nx">powerStatus</span> <span class="o">=</span> <span class="nx">Led</span><span class="p">(</span><span class="dl">"</span><span class="s2">Red</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// 여기에서 지역 클래스가 사용됨</span>
+        <span class="k">return</span> <span class="nx">powerStatus</span><span class="p">.</span><span class="nx">blink</span><span class="p">()</span>
+    <span class="p">}</span> <span class="c1">// powerOn() 블록 끝</span>
+<span class="p">}</span>
+
+<span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">...</span>
+    <span class="nx">val</span> <span class="nx">myphone</span> <span class="o">=</span> <span class="nx">Smartphone</span><span class="p">(</span><span class="dl">"</span><span class="s2">Note9</span><span class="dl">"</span><span class="p">)</span>
+    <span class="nx">myphone</span><span class="p">.</span><span class="nx">ExternalStorage</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+    <span class="nx">println</span><span class="p">(</span><span class="nx">myphone</span><span class="p">.</span><span class="nx">powerOn</span><span class="p">())</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="익명-객체">익명 객체</h3>
+
+<p>자바에서는 익명 이너 클래스라는 것을 제공해 일회성으로 객체를 생성해 사용한다.
+코틀린에서는 object 키워드를 사용하는 익명 객체로 같은 기능을 수행한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">Switcher</span> <span class="p">{</span> <span class="c1">// 인터페이스의 선언</span>
+    <span class="nx">fun</span> <span class="nx">on</span><span class="p">():</span> <span class="nb">String</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">Smartphone</span><span class="p">(</span><span class="nx">val</span> <span class="nx">model</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">private</span> <span class="nx">val</span> <span class="nx">cpu</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Exynos</span><span class="dl">"</span>
+    <span class="p">...</span>
+
+    <span class="nx">inner</span> <span class="kd">class</span> <span class="nx">ExternalStorage</span><span class="p">(</span><span class="nx">val</span> <span class="nx">size</span><span class="p">:</span> <span class="nx">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">fun</span> <span class="nx">getInfo</span><span class="p">()</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">${model}: Installed on $cpu with ${size}Gb</span><span class="dl">"</span> 
+    <span class="p">}</span>
+
+    <span class="nx">fun</span> <span class="nx">powerOn</span><span class="p">():</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="kd">class</span> <span class="nx">Led</span><span class="p">(</span><span class="nx">val</span> <span class="nx">color</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span> 
+            <span class="nx">fun</span> <span class="nx">blink</span><span class="p">():</span> <span class="nb">String</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Blinking $color on $model</span><span class="dl">"</span> 
+        <span class="p">}</span>
+        <span class="nx">val</span> <span class="nx">powerStatus</span> <span class="o">=</span> <span class="nx">Led</span><span class="p">(</span><span class="dl">"</span><span class="s2">Red</span><span class="dl">"</span><span class="p">)</span> 
+        <span class="nx">val</span> <span class="nx">powerSwitch</span> <span class="o">=</span> <span class="nx">object</span> <span class="p">:</span> <span class="nx">Switcher</span> <span class="p">{</span> <span class="c1">// 익명 객체를 사용해 Switcher의 on()을 구현</span>
+            <span class="nx">override</span> <span class="nx">fun</span> <span class="nx">on</span><span class="p">():</span> <span class="nb">String</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">powerStatus</span><span class="p">.</span><span class="nx">blink</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="c1">// 익명(object) 객체 블록의 끝</span>
+        <span class="k">return</span> <span class="nx">powerSwitch</span><span class="p">.</span><span class="nx">on</span><span class="p">()</span> <span class="c1">// 익명 객체의 메서드 사용</span>
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="실드sealed-클래스">실드(Sealed) 클래스</h3>
+<ul>
+  <li>실드란 ‘봉인된’이라는 의미로 무언가 안전하게 보관하기 위해 묶어 두는 것</li>
+  <li>sealed 키워드를 class와 함께 사용</li>
+  <li>실드 클래스 그 자체로는 추상 클래스와 같기 때문에 객체를 만들 수는 없다.</li>
+  <li>생성자도 기본적으로는 private이며 private이 아닌 생성자는 허용하지 않음</li>
+  <li>실드 클래스는 같은 파일 안에서는 상속이 가능(다른 파일에서 상속 불가)</li>
+  <li>블록 안에 선언되는 클래스는 상속이 필요한 경우 open 키워드로 선언</li>
+</ul>
+
+<p>실드 클래스는 상태를 정의하고 관리하는데 주로 쓰인다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c1">// 실드 클래스 선언 첫번째 스타일</span>
+<span class="nx">sealed</span> <span class="kd">class</span> <span class="nx">Result</span> <span class="p">{</span>
+    <span class="nx">open</span> <span class="kd">class</span> <span class="nx">Success</span><span class="p">(</span><span class="nx">val</span> <span class="nx">message</span><span class="p">:</span> <span class="nb">String</span><span class="p">):</span> <span class="nx">Result</span><span class="p">()</span>
+    <span class="kd">class</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">val</span> <span class="nx">code</span><span class="p">:</span> <span class="nx">Int</span><span class="p">,</span> <span class="nx">val</span> <span class="nx">message</span><span class="p">:</span> <span class="nb">String</span><span class="p">):</span> <span class="nx">Result</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">Status</span><span class="p">:</span> <span class="nx">Result</span><span class="p">()</span> <span class="c1">// 실드 클래스 상속은 같은 파일에서만 가능</span>
+<span class="kd">class</span> <span class="nx">Inside</span><span class="p">:</span> <span class="nx">Result</span><span class="p">.</span><span class="nx">Success</span><span class="p">(</span><span class="dl">"</span><span class="s2">Status</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// 내부 클래스 상속</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c1">// 실드 클래스 선언 두번째 스타일</span>
+<span class="nx">sealed</span> <span class="kd">class</span> <span class="nx">Result</span>
+
+<span class="nx">open</span> <span class="kd">class</span> <span class="nx">Success</span><span class="p">(</span><span class="nx">val</span> <span class="nx">message</span><span class="p">:</span> <span class="nb">String</span><span class="p">):</span> <span class="nx">Result</span><span class="p">()</span>
+<span class="kd">class</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">val</span> <span class="nx">code</span><span class="p">:</span> <span class="nx">Int</span><span class="p">,</span> <span class="nx">val</span> <span class="nx">message</span><span class="p">:</span> <span class="nb">String</span><span class="p">):</span> <span class="nx">Result</span><span class="p">()</span>
+
+<span class="kd">class</span> <span class="nx">Status</span><span class="p">:</span> <span class="nx">Result</span><span class="p">()</span>
+<span class="kd">class</span> <span class="nx">Inside</span><span class="p">:</span> <span class="nx">Success</span><span class="p">(</span><span class="dl">"</span><span class="s2">Status</span><span class="dl">"</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">/// Success에 대한 객체 생성</span>
+    <span class="nx">val</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Result</span><span class="p">.</span><span class="nx">Success</span><span class="p">(</span><span class="dl">"</span><span class="s2">Good!</span><span class="dl">"</span><span class="p">)</span>
+    <span class="nx">val</span> <span class="nx">msg</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+    <span class="nx">println</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// 상태를 검사하기 위한 함수</span>
+<span class="nx">fun</span> <span class="nb">eval</span><span class="p">(</span><span class="nx">result</span><span class="p">:</span> <span class="nx">Result</span><span class="p">):</span> <span class="nb">String</span> <span class="o">=</span> <span class="nx">when</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">is</span> <span class="nx">Status</span> <span class="o">-&gt;</span> <span class="dl">"</span><span class="s2">in progress</span><span class="dl">"</span>
+    <span class="nx">is</span> <span class="nx">Result</span><span class="p">.</span><span class="nx">Success</span> <span class="o">-&gt;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">message</span>
+    <span class="nx">is</span> <span class="nx">Result</span><span class="p">.</span><span class="nb">Error</span> <span class="o">-&gt;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">message</span>
+    <span class="c1">// 모든 조건을 가지므로 else를 가질 필요가 없음</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="열거형-클래스">열거형 클래스</h3>
+<ul>
+  <li>여러 개의 상수를 선언하고 열거된 값을 조건에 따라 선택할 수 있는 특수한 클래스</li>
+  <li>자료형이 동일한 상수를 나열할 수 있다(실드 클래스 처럼 다양한 자료형을 다루지 못한다.)</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>enum class 클래스이름 [(생성자)] {
+    상수1[(값)], 상수2[(값)], 상수3[(값)], ...
+    [; 프로퍼티 혹은 메서드] // 상수가 끝났음을 의미하는 ; 그 이후 프로퍼티 혹은 메서드를 입력한다.
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kr">enum</span> <span class="kd">class</span> <span class="nx">Direction</span> <span class="p">{</span>
+    <span class="nx">NORTH</span><span class="p">,</span> <span class="nx">SOUTH</span><span class="p">,</span> <span class="nx">WEST</span><span class="p">,</span> <span class="nx">EAST</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kr">enum</span> <span class="kd">class</span> <span class="nx">DayOfWeek</span><span class="p">(</span><span class="nx">val</span> <span class="nx">num</span><span class="p">:</span> <span class="nx">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">MONDAY</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="nx">TUESDAY</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="nx">WEDNESDAY</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="nx">THURSDAY</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+    <span class="nx">FRIDAY</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="nx">SATURDAY</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="nx">SUNDAY</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nx">val</span> <span class="nx">day</span> <span class="o">=</span> <span class="nx">DayOfWeek</span><span class="p">.</span><span class="nx">SATURDAY</span> <span class="c1">// SATURDAY의 값을 읽기</span>
+<span class="nx">when</span><span class="p">(</span><span class="nx">day</span><span class="p">.</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="o">-&gt;</span> <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">Weekday</span><span class="dl">"</span><span class="p">)</span>
+    <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span> <span class="o">-&gt;</span> <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">Weekend!</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="c1">// 메서드가 포함되는 경우</span>
+<span class="kr">enum</span> <span class="kd">class</span> <span class="nx">Color</span><span class="p">(</span><span class="nx">val</span> <span class="nx">r</span><span class="p">:</span> <span class="nx">Int</span><span class="p">,</span> <span class="nx">val</span> <span class="nx">g</span><span class="p">:</span> <span class="nx">Int</span><span class="p">,</span> <span class="nx">val</span> <span class="nx">b</span><span class="p">:</span> <span class="nx">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">RED</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nx">ORANGE</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">165</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="nx">YELLOW</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nx">GREEN</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nx">BLUE</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+    <span class="nx">INDIGO</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">130</span><span class="p">),</span> <span class="nx">VIOLET</span><span class="p">(</span><span class="mi">238</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">238</span><span class="p">);</span> <span class="c1">// 여기에 세미콜론으로 끝을 알리고</span>
+
+    <span class="nx">fun</span> <span class="nx">rgb</span><span class="p">()</span> <span class="o">=</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span> <span class="mi">250</span> <span class="o">+</span> <span class="nx">g</span><span class="p">)</span> <span class="o">*</span> <span class="mi">256</span> <span class="o">+</span> <span class="nx">b</span> <span class="c1">// 메서드를 포함할 수 있다.</span>
+<span class="p">}</span>
+
+<span class="nx">fun</span> <span class="nx">main</span><span class="p">(</span><span class="nx">args</span><span class="p">:</span> <span class="nb">Array</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">println</span><span class="p">(</span><span class="nx">Color</span><span class="p">.</span><span class="nx">BLUE</span><span class="p">.</span><span class="nx">rhb</span><span class="p">())</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>열거형 클래스 사용 예시</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">Score</span> <span class="p">{</span>
+    <span class="nx">fun</span> <span class="nx">getScore</span><span class="p">():</span> <span class="nx">Int</span>
+<span class="p">}</span>
+
+<span class="kr">enum</span> <span class="kd">class</span> <span class="nx">Membertype</span><span class="p">(</span><span class="kd">var</span> <span class="nx">prio</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">:</span> <span class="nx">Score</span> <span class="p">{</span> <span class="c1">// Score를 구현할 엵형 클래스</span>
+    <span class="nx">NORMAL</span><span class="p">(</span><span class="dl">"</span><span class="s2">Thrid</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">override</span> <span class="nx">fun</span> <span class="nx">getScore</span><span class="p">():</span> <span class="nx">Int</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="p">},</span>
+    <span class="nx">SILVER</span><span class="p">(</span><span class="dl">"</span><span class="s2">Second</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">override</span> <span class="nx">fun</span> <span class="nx">getScore</span><span class="p">():</span> <span class="nx">Int</span> <span class="o">=</span> <span class="mi">500</span>
+    <span class="p">},</span>
+    <span class="nx">GOLD</span><span class="p">(</span><span class="dl">"</span><span class="s2">First</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">override</span> <span class="nx">fun</span> <span class="nx">getScore</span><span class="p">():</span> <span class="nx">Int</span> <span class="o">=</span> <span class="mi">1500</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">println</span><span class="p">(</span><span class="nx">MemberType</span><span class="p">.</span><span class="nx">NORMAL</span><span class="p">.</span><span class="nx">getScore</span><span class="p">())</span> <span class="c1">// 100</span>
+    <span class="nx">println</span><span class="p">(</span><span class="nx">MemberType</span><span class="p">.</span><span class="nx">GOLD</span><span class="p">)</span> <span class="c1">// GOLD</span>
+    <span class="nx">println</span><span class="p">(</span><span class="nx">MemberType</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">(</span><span class="dl">"</span><span class="s2">SILVER</span><span class="dl">"</span><span class="p">))</span> <span class="c1">// SILVER</span>
+    <span class="nx">println</span><span class="p">(</span><span class="nx">MemberType</span><span class="p">.</span><span class="nx">SILVER</span><span class="p">.</span><span class="nx">prio</span><span class="p">)</span> <span class="c1">// Second</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="nx">grade</span> <span class="k">in</span> <span class="nx">MemberType</span><span class="p">.</span><span class="nx">values</span><span class="p">())</span> <span class="p">{</span> <span class="c1">// 모든 값을 가져오기 위한 반복문</span>
+        <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">grade.name = ${grade.name}, prio = ${grade.prio}</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="애노테이션-클래스">애노테이션 클래스</h3>
+<p>annotation</p>
+<ul>
+  <li>코드에 부가 정보를 추가하는 기능 역할</li>
+  <li>@ 기호와 함꼐 나타내는 표기법으로 주로 컴파일러나 프로그램 실행 시간에서 사전 처리를 위해 사용
+    <ul>
+      <li>@Test 유닛 테스트</li>
+      <li>@JvmStatic 자바 코드에서 컴패니언 객체를 접근</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>annotation class 애노테이션명
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>애노테이션의 속성</p>
+<ul>
+  <li>@Target: 애노테이션이 지정되어 사용할 종류(클래스, 함수, 프로퍼티 등)를 정의</li>
+  <li>@Retention: 애노테이션을 컴파일된 클래스 파일에 저장할 것인지 실행 시간에 반영할 것인지 결정</li>
+  <li>@Repeatable: 애노테이션을 같은 요소에 여러 번 사용 가능하게 할지를 결정</li>
+  <li>@MustBeDocumented: 애노테이션이 API의 일부분으로 문서화하기 위해 사용</li>
+</ul>
+
+<p>속성과 함께 정의된 애노테이션 클래스의 예</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>@Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION,
+        AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.EXPRESSION)
+@Retention(AnnotationRetention.SOURCE) // 애노테이션의 처리 방법 - SOURCE: 컴파일 시간에 제거됨
+@MustBeDocumented
+annotation class Fancy
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2020-08-12"></time></span>           
+            </small>
+            </p>
+            
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#kotlin">kotlin</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2020 Malg:eon 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                지나가는 생각과 경험을 잡아두는 공간
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
