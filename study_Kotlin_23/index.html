@@ -446,12 +446,15 @@
 3
 4
 5
+6
 </pre></td><td class="rouge-code"><pre><span class="nx">fun</span> <span class="o">&lt;</span><span class="nx">T</span><span class="p">:</span> <span class="nb">Number</span><span class="o">&gt;</span> <span class="nx">addLimit</span><span class="p">(</span><span class="nx">a</span><span class="p">:</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">op</span><span class="p">:</span> <span class="p">(</span><span class="nx">T</span><span class="p">,</span> <span class="nx">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nx">T</span><span class="p">):</span> <span class="nx">T</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">op</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span>
 <span class="p">}</span>
 <span class="p">...</span>
-<span class="nx">val</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">addLimit</span><span class="p">(</span><span class="dl">"</span><span class="s2">abc</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">def</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="o">-&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">})</span> <span class="c1">// 제한된 자료형으로 인해 오류 발생!</span>
+<span class="nx">val</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">addLimit</span><span class="p">(</span><span class="dl">"</span><span class="s2">abc</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">def</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="o">-&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">})</span> 
+<span class="c1">// 제한된 자료형으로 인해 오류 발생!</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+<p><br /></p>
 
 <h3 id="상ㆍ하위-형식의-가변성">상ㆍ하위 형식의 가변성</h3>
 
@@ -465,13 +468,39 @@
   </li>
 </ul>
 
-<p>클래스와 자료형
-| 형태 | 클래스인가? | 자료형인가? |
-| — | — | — |
-| String | 네 | 네 |
-| String? | 아니오 | 네 |
-| List | 네 | 네 |
-| List<String> | 아니오 | 네 |</String></p>
+<p>클래스와 자료형</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>형태</th>
+      <th>클래스인가?</th>
+      <th>자료형인가?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>String</td>
+      <td>네</td>
+      <td>네</td>
+    </tr>
+    <tr>
+      <td>String?</td>
+      <td>아니오</td>
+      <td>네</td>
+    </tr>
+    <tr>
+      <td>List</td>
+      <td>네</td>
+      <td>네</td>
+    </tr>
+    <tr>
+      <td>List<String></String></td>
+      <td>아니오</td>
+      <td>네</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>하위 크래스는 상위 클래스가 수용한다.</p>
 <ul>
@@ -481,8 +510,10 @@
 <p>number &lt;- Int</p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
+3
 </pre></td><td class="rouge-code"><pre><span class="nx">val</span> <span class="nx">integer</span><span class="p">:</span> <span class="nx">Int</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="nx">val</span> <span class="nx">number</span><span class="p">:</span> <span class="nb">Number</span> <span class="o">=</span> <span class="nx">integer</span> <span class="c1">// 하위 자료형 Int를 Number가 수용함 (캐스팅 되어 할당 된다.)</span>
+<span class="nx">val</span> <span class="nx">number</span><span class="p">:</span> <span class="nb">Number</span> <span class="o">=</span> <span class="nx">integer</span> 
+<span class="c1">// 하위 자료형 Int를 Number가 수용함 (캐스팅 되어 할당 된다.)</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Int? &lt;- Int</p>
@@ -491,15 +522,36 @@
 </pre></td><td class="rouge-code"><pre><span class="nx">val</span> <span class="nx">integer</span><span class="p">:</span> <span class="nx">Int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nx">val</span> <span class="nx">nullableInteger</span><span class="p">:</span> <span class="nx">Int</span><span class="p">?</span> <span class="o">-</span> <span class="nx">integer</span><span class="p">;</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+<p><br /></p>
 
 <h3 id="가변성의-3가지-유형">가변성의 3가지 유형</h3>
-<p>| 용어 | 의미 |
-| — | — |
-| 공변성(covariance) | T’가 T의 하위 자료형이면, C&lt;T’&gt;는 C<T>의 하위 자료형이다. 생산자 입장의 out 성질 |
-| 반공변성(contravariance) | T'가 T의 하위 자료형이면, C<T>는 C&lt;T'&gt;의 하위 자료형이다. 소비자 입장의 in 성질 |
-| 무변성(invariance) | C&lt;T'&gt;는 C<T>는 아무 관계가 없다. 생산자 + 소비자 |</T></T></T></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>용어</th>
+      <th>의미</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>공변성(covariance)</td>
+      <td>T’가 T의 하위 자료형이면, C&lt;T’&gt;는 C<T>의 하위 자료형이다. 생산자 입장의 out 성질</T></td>
+    </tr>
+    <tr>
+      <td>반공변성(contravariance)</td>
+      <td>T’가 T의 하위 자료형이면, C<T>는 C&lt;T'&gt;의 하위 자료형이다. 소비자 입장의 in 성질</T></td>
+    </tr>
+    <tr>
+      <td>무변성(invariance)</td>
+      <td>C&lt;T’&gt;는 C<T>는 아무 관계가 없다. 생산자 + 소비자</T></td>
+    </tr>
+  </tbody>
+</table>
 
 <p><img src="/assets/images/study/kotlin_oop_variance.jpg" alt="가변성의3가지유형" /></p>
+
+<p><br /><br /></p>
 
 <h4 id="무변성invariance">무변성(invariance)</h4>
 <ul>

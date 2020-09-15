@@ -473,6 +473,14 @@
 <lastmod>2020-09-14T00:00:00+00:00</lastmod>
 </url>
 <url>
+<loc>/study_Kotlin_greedy_1/</loc>
+<lastmod>2020-09-15T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>/study_Kotlin_greedy_2/</loc>
+<lastmod>2020-09-15T00:00:00+00:00</lastmod>
+</url>
+<url>
 <loc>/about</loc>
 </url>
 <url>
@@ -483,9 +491,6 @@
 </url>
 <url>
 <loc>/category/test/</loc>
-</url>
-<url>
-<loc>/category/queue/</loc>
 </url>
 <url>
 <loc>/project/</loc>
@@ -660,5 +665,8 @@
 </url>
 <url>
 <loc>/test/page7/</loc>
+</url>
+<url>
+<loc>/test/page8/</loc>
 </url>
 </urlset>

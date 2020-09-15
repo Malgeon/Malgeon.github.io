@@ -345,7 +345,7 @@
 클래스명과 함께 기술되며 보통의 경우 constructor 키우드를 생략할 수 있다.</li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -368,7 +368,7 @@
 21
 22
 23
-</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nx">Bird</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">val</span> <span class="nx">wing</span><span class="p">:</span> <span class="nx">Int</span><span class="p">,</span> <span class="kd">var</span> <span class="nx">beak</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nf">Bird</span> <span class="o">(</span><span class="kt">var</span> <span class="nl">name:</span> <span class="nc">String</span><span class="o">,</span> <span class="n">val</span> <span class="nl">wing:</span> <span class="nc">Int</span><span class="o">,</span> <span class="kt">var</span> <span class="nl">beak:</span> <span class="nc">String</span><span class="o">)</span> <span class="o">{</span>
     <span class="cm">/*var name: String = _name
     val wing: Int = _wing
     var beak: String = _beak*/</span>
@@ -377,20 +377,20 @@
         wing = _wing
         beak = _beak
     }*/</span>
-    <span class="nx">init</span> <span class="p">{</span>
-        <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">-----------init start ------------</span><span class="dl">"</span><span class="p">)</span>
-        <span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">.</span><span class="nx">capitalize</span><span class="p">()</span>
-        <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">name: $name, wing: $wing, break: $break</span><span class="dl">"</span><span class="p">)</span>
-        <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">-----------init end   ------------</span><span class="dl">"</span><span class="p">)</span>
-    <span class="p">}</span>
-    <span class="nx">fun</span> <span class="nx">fly</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">Fly</span><span class="dl">"</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">val</span> <span class="nx">coco</span> <span class="o">=</span> <span class="nx">Bird</span><span class="p">(</span><span class="dl">"</span><span class="s2">coco</span><span class="dl">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">long</span><span class="dl">"</span><span class="p">)</span>
-    <span class="nx">coco</span><span class="p">.</span><span class="nx">fly</span><span class="p">()</span>
-<span class="p">}</span>
+    <span class="n">init</span> <span class="o">{</span>
+        <span class="n">println</span><span class="o">(</span><span class="s">"-----------init start ------------"</span><span class="o">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="na">capitalize</span><span class="o">()</span>
+        <span class="n">println</span><span class="o">(</span><span class="s">"name: $name, wing: $wing, break: $break"</span><span class="o">)</span>
+        <span class="n">println</span><span class="o">(</span><span class="s">"-----------init end   ------------"</span><span class="o">)</span>
+    <span class="o">}</span>
+    <span class="n">fun</span> <span class="nf">fly</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">println</span><span class="o">(</span><span class="s">"Fly"</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="n">fun</span> <span class="nf">main</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">val</span> <span class="n">coco</span> <span class="o">=</span> <span class="nc">Bird</span><span class="o">(</span><span class="s">"coco"</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="s">"long"</span><span class="o">)</span>
+    <span class="n">coco</span><span class="o">.</span><span class="na">fly</span><span class="o">()</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <h3 id="init-초기화-블록">init{} 초기화 블록</h3>
 <p>객체가 생성될 때 자동으로 실행되는 block을 설정할수 있다. 해당 블록의 작업시간이 길어질수록 객체 생성 시간이 늘어나므로 간단한 코드를 사용한다.</p>
@@ -400,7 +400,7 @@
 클래스 본문에 기술되며 하나 잇아의 부 생성자를 정의할 수 있다.</li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -427,33 +427,33 @@
 25
 26
 27
-</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nx">Bird</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">name</span><span class="p">:</span> <span class="nb">String</span>
-    <span class="nx">val</span> <span class="nx">wing</span><span class="p">:</span> <span class="nx">Int</span>
-    <span class="kd">var</span> <span class="nx">beak</span><span class="p">:</span> <span class="nb">String</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Bird</span> <span class="o">{</span>
+    <span class="kt">var</span> <span class="nl">name:</span> <span class="nc">String</span>
+    <span class="n">val</span> <span class="nl">wing:</span> <span class="nc">Int</span>
+    <span class="kt">var</span> <span class="nl">beak:</span> <span class="nc">String</span>
 
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">_name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">_wing</span><span class="p">:</span> <span class="nx">Int</span><span class="p">,</span> <span class="nx">_beak</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span>
-        <span class="nx">wing</span> <span class="o">=</span> <span class="nx">_wing</span>
-        <span class="nx">beak</span> <span class="o">=</span> <span class="nx">_beak</span>
-    <span class="p">}</span>
+    <span class="nf">constructor</span><span class="o">(</span><span class="nl">_name:</span> <span class="nc">String</span><span class="o">,</span> <span class="nl">_wing:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">_beak:</span> <span class="nc">String</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">_name</span>
+        <span class="n">wing</span> <span class="o">=</span> <span class="n">_wing</span>
+        <span class="n">beak</span> <span class="o">=</span> <span class="n">_beak</span>
+    <span class="o">}</span>
 
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">_name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">_beak</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span>
-        <span class="nx">wing</span> <span class="o">=</span> <span class="mi">2</span>
-        <span class="nx">beak</span> <span class="o">=</span> <span class="nx">_beak</span>
-    <span class="p">}</span>
-    <span class="nx">fun</span> <span class="nx">fly</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">Fly</span><span class="dl">"</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">val</span> <span class="nx">coco</span> <span class="o">=</span> <span class="nx">Bird</span><span class="p">(</span><span class="dl">"</span><span class="s2">coco</span><span class="dl">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">long</span><span class="dl">"</span><span class="p">)</span>
-    <span class="nx">val</span> <span class="nx">coco2</span> <span class="o">=</span> <span class="nx">Bird</span><span class="p">(</span><span class="dl">"</span><span class="s2">coco</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">short</span><span class="dl">"</span><span class="p">)</span>
-    <span class="nx">coco</span><span class="p">.</span><span class="nx">fly</span><span class="p">()</span>
+    <span class="n">constructor</span><span class="o">(</span><span class="nl">_name:</span> <span class="nc">String</span><span class="o">,</span> <span class="nl">_beak:</span> <span class="nc">String</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">_name</span>
+        <span class="n">wing</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">beak</span> <span class="o">=</span> <span class="n">_beak</span>
+    <span class="o">}</span>
+    <span class="n">fun</span> <span class="nf">fly</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">println</span><span class="o">(</span><span class="s">"Fly"</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="n">fun</span> <span class="nf">main</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">val</span> <span class="n">coco</span> <span class="o">=</span> <span class="nc">Bird</span><span class="o">(</span><span class="s">"coco"</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="s">"long"</span><span class="o">)</span>
+    <span class="n">val</span> <span class="n">coco2</span> <span class="o">=</span> <span class="nc">Bird</span><span class="o">(</span><span class="s">"coco"</span><span class="o">,</span> <span class="s">"short"</span><span class="o">)</span>
+    <span class="n">coco</span><span class="o">.</span><span class="na">fly</span><span class="o">()</span>
 
-    <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">coco2: name: ${coco2.name}, wing: ${coco2.wing}, beak: ${coco2.beak}</span><span class="dl">"</span><span class="p">)</span>
-<span class="p">}</span>
+    <span class="n">println</span><span class="o">(</span><span class="s">"coco2: name: ${coco2.name}, wing: ${coco2.wing}, beak: ${coco2.beak}"</span><span class="o">)</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="상속">상속</h3>
@@ -474,7 +474,7 @@ class 파생 클래스명 : 기반 클래스명() { // 기반 클래스로 부�
 
 <p>코틀린의 모든 클래스는 묵시적으로 Any로부터 상속</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -500,32 +500,32 @@ class 파생 클래스명 : 기반 클래스명() { // 기반 클래스로 부�
 24
 25
 26
-</pre></td><td class="rouge-code"><pre><span class="nx">open</span> <span class="kd">class</span> <span class="nx">Bird</span><span class="p">(</span><span class="kd">var</span> <span class="nx">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="kd">var</span> <span class="nx">wing</span><span class="p">:</span> <span class="nx">Int</span><span class="p">,</span> <span class="kd">var</span> <span class="nx">beak</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">fun</span> <span class="nx">fly</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">Fly</span><span class="dl">"</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="n">open</span> <span class="kd">class</span> <span class="nf">Bird</span><span class="o">(</span><span class="kt">var</span> <span class="nl">name:</span> <span class="nc">String</span><span class="o">,</span> <span class="kt">var</span> <span class="nl">wing:</span> <span class="nc">Int</span><span class="o">,</span> <span class="kt">var</span> <span class="nl">beak:</span> <span class="nc">String</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">fly</span> <span class="o">()</span> <span class="o">{</span>
+        <span class="n">println</span><span class="o">(</span><span class="s">"Fly"</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-<span class="kd">class</span> <span class="nx">Lark</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">wing</span><span class="p">:</span> <span class="nx">Int</span><span class="p">,</span> <span class="nx">beak</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">:</span> <span class="nx">Bird</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">wing</span><span class="p">,</span> <span class="nx">beak</span><span class="p">){</span>
-    <span class="nx">fun</span> <span class="nx">singHitone</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">sing Hitone</span><span class="dl">"</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="kd">class</span> <span class="nf">Lark</span><span class="o">(</span><span class="nl">name:</span> <span class="nc">String</span><span class="o">,</span> <span class="nl">wing:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">beak:</span> <span class="nc">String</span><span class="o">)</span> <span class="o">:</span> <span class="nc">Bird</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">wing</span><span class="o">,</span> <span class="n">beak</span><span class="o">){</span>
+    <span class="n">fun</span> <span class="nf">singHitone</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">println</span><span class="o">(</span><span class="s">"sing Hitone"</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-<span class="kd">class</span> <span class="nx">Parrot</span> <span class="p">:</span> <span class="nx">Bird</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">language</span><span class="p">:</span> <span class="nb">String</span>
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">wing</span><span class="p">:</span> <span class="nx">Int</span><span class="p">,</span> <span class="nx">beak</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">language</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">:</span> <span class="k">super</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">wing</span><span class="p">,</span> <span class="nx">beak</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">language</span> <span class="o">=</span> <span class="nx">language</span>
-    <span class="p">}</span>
-    <span class="nx">fun</span> <span class="nx">speak</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">println</span><span class="p">(</span><span class="dl">"</span><span class="s2">Speak: $language</span><span class="dl">"</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="kd">class</span> <span class="nc">Parrot</span> <span class="o">:</span> <span class="nc">Bird</span> <span class="o">{</span>
+    <span class="kt">var</span> <span class="nl">language:</span> <span class="nc">String</span>
+    <span class="nf">constructor</span><span class="o">(</span><span class="nl">name:</span> <span class="nc">String</span><span class="o">,</span> <span class="nl">wing:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">beak:</span> <span class="nc">String</span><span class="o">,</span> <span class="nl">language:</span> <span class="nc">String</span><span class="o">)</span> <span class="o">:</span> <span class="kd">super</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">wing</span><span class="o">,</span> <span class="n">beak</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">language</span> <span class="o">=</span> <span class="n">language</span>
+    <span class="o">}</span>
+    <span class="n">fun</span> <span class="nf">speak</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">println</span><span class="o">(</span><span class="s">"Speak: $language"</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-<span class="nx">fun</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">val</span> <span class="nx">lark</span> <span class="o">=</span> <span class="nx">Lark</span><span class="p">(</span><span class="dl">"</span><span class="s2">myLark</span><span class="dl">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">short</span><span class="dl">"</span><span class="p">)</span>
-    <span class="nx">val</span> <span class="nx">parrot</span> <span class="o">=</span> <span class="nx">Parrot</span><span class="p">(</span><span class="dl">"</span><span class="s2">myParrot</span><span class="dl">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">long</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">English</span><span class="dl">"</span><span class="p">)</span>
-<span class="p">}</span>
+<span class="n">fun</span> <span class="nf">main</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">val</span> <span class="n">lark</span> <span class="o">=</span> <span class="nc">Lark</span><span class="o">(</span><span class="s">"myLark"</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="s">"short"</span><span class="o">)</span>
+    <span class="n">val</span> <span class="n">parrot</span> <span class="o">=</span> <span class="nc">Parrot</span><span class="o">(</span><span class="s">"myParrot"</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="s">"long"</span><span class="o">,</span> <span class="s">"English"</span><span class="o">)</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="다형성polymorphism">다형성(polymorphism)</h3>
@@ -537,10 +537,10 @@ class 파생 클래스명 : 기반 클래스명() { // 기반 클래스로 부�
   <li>단순하게 보면 메서드 overloding을 사용할 때</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-</pre></td><td class="rouge-code"><pre>fun example(a: Int)
-fun example(a: Int, b: Int)
+</pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="nf">example</span><span class="o">(</span><span class="nl">a:</span> <span class="nc">Int</span><span class="o">)</span>
+<span class="n">fun</span> <span class="nf">example</span><span class="o">(</span><span class="nl">a:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">b:</span> <span class="nc">Int</span><span class="o">)</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Dynamic Polymorphism</p>
@@ -549,7 +549,7 @@ fun example(a: Int, b: Int)
   <li>동적으로 구성되는 overrideing된 메서드를 사용할 때</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -564,21 +564,21 @@ fun example(a: Int, b: Int)
 13
 14
 15
-</pre></td><td class="rouge-code"><pre>open class Parent (name: Int) {
-    open fun example()
-}
-class Child1(name: Int) : Parent(name) {
-    override fun example()
-}
-class Child2(name: Int) : Parent(name) {
-    override fun example()
-}
+</pre></td><td class="rouge-code"><pre><span class="n">open</span> <span class="kd">class</span> <span class="nf">Parent</span> <span class="o">(</span><span class="nl">name:</span> <span class="nc">Int</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">open</span> <span class="n">fun</span> <span class="nf">example</span><span class="o">()</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nf">Child1</span><span class="o">(</span><span class="nl">name:</span> <span class="nc">Int</span><span class="o">)</span> <span class="o">:</span> <span class="nc">Parent</span><span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">override</span> <span class="n">fun</span> <span class="nf">example</span><span class="o">()</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nf">Child2</span><span class="o">(</span><span class="nl">name:</span> <span class="nc">Int</span><span class="o">)</span> <span class="o">:</span> <span class="nc">Parent</span><span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">override</span> <span class="n">fun</span> <span class="nf">example</span><span class="o">()</span>
+<span class="o">}</span>
 
-var child1 = Child1(1)
-var child2 = Child1(1)
+<span class="kt">var</span> <span class="n">child1</span> <span class="o">=</span> <span class="nc">Child1</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+<span class="kt">var</span> <span class="n">child2</span> <span class="o">=</span> <span class="nc">Child1</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
 
-child1.example()
-child2.example()
+<span class="n">child1</span><span class="o">.</span><span class="na">example</span><span class="o">()</span>
+<span class="n">child2</span><span class="o">.</span><span class="na">example</span><span class="o">()</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>overriding</p>
