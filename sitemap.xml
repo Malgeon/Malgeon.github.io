@@ -449,7 +449,11 @@
 <lastmod>2020-09-08T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>/study_Programming_BFS&amp;DFS/</loc>
+<loc>/study_Programming_BFS&amp;DFS-copy/</loc>
+<lastmod>2020-09-10T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>/study_Programming_permutation&amp;combination/</loc>
 <lastmod>2020-09-10T00:00:00+00:00</lastmod>
 </url>
 <url>
@@ -479,6 +483,10 @@
 <url>
 <loc>/study_Kotlin_greedy_2/</loc>
 <lastmod>2020-09-15T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>/study_Kotlin_sort_1/</loc>
+<lastmod>2020-09-16T00:00:00+00:00</lastmod>
 </url>
 <url>
 <loc>/about</loc>
@@ -581,6 +589,9 @@
 </url>
 <url>
 <loc>/study/kotlin/page8/</loc>
+</url>
+<url>
+<loc>/study/kotlin/page9/</loc>
 </url>
 <url>
 <loc>/study/programming/</loc>

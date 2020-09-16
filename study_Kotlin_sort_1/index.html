@@ -7,23 +7,23 @@
 <link rel="icon" href="/assets/images/logo.jpg">
 
 
-<title>순열과 조합 | Malg:eon</title>
+<title>정렬 : 가장 큰 수 | Malg:eon</title>
 
 
 <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>순열과 조합 | Malg:eon</title>
+<title>정렬 : 가장 큰 수 | Malg:eon</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="순열과 조합" />
-<meta name="author" content="study" />
+<meta property="og:title" content="정렬 : 가장 큰 수" />
+<meta name="author" content="test" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="순열과 조합을 만들어보자" />
-<meta property="og:description" content="순열과 조합을 만들어보자" />
+<meta name="description" content="연습 문제" />
+<meta property="og:description" content="연습 문제" />
 <meta property="og:site_name" content="Malg:eon" />
-<meta property="og:image" content="/assets/images/study/kotlin.png" />
+<meta property="og:image" content="/assets/images/test/programmers.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-09-10T00:00:00+00:00" />
+<meta property="article:published_time" content="2020-09-16T00:00:00+00:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"study"},"headline":"순열과 조합","dateModified":"2020-09-10T00:00:00+00:00","description":"순열과 조합을 만들어보자","datePublished":"2020-09-10T00:00:00+00:00","image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_Programming_permutation&combination/"},"@type":"BlogPosting","url":"/study_Programming_permutation&combination/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"test"},"headline":"정렬 : 가장 큰 수","dateModified":"2020-09-16T00:00:00+00:00","description":"연습 문제","datePublished":"2020-09-16T00:00:00+00:00","image":"/assets/images/test/programmers.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_Kotlin_sort_1/"},"@type":"BlogPosting","url":"/study_Kotlin_sort_1/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"test"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -77,7 +77,7 @@
                     </li>
                     
                     
-                    <li class="nav-item active">
+                    <li class="nav-item">
                     
                         <a class="nav-link" href="/study">Study</a>
                     </li>
@@ -89,7 +89,7 @@
                     </li>
 
                     
-                    <li class="nav-item">
+                    <li class="nav-item active">
                     
                         <a class="nav-link" href="/test">Test</a>
                     </li>
@@ -120,92 +120,128 @@
         <nav class="collectionHeader-nav u-clearfix js-collectionHeaderNav u-lineHeight40 u-overflowHiddenY">
             <div class="buttonSet u-middle u-noWrap u-overflowX u-paddingBottom100">
                 
-                         
+                    
                         <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
                          
                         
-                         
                         
                         
-                        
-                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/java">java</a>
-                        
-                        </li>
-                        
-                         
-                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
-                         
-                        
-                         
-                        
-                        
-                        
-                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/javascript">javascript</a>
-                        
-                        </li>
-                        
-                         
-                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
-                         
-                        
-                         
-                        
-                            
-                            
-                        
-                            <a class="link link--darker link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/kotlin">kotlin</a>
-                        
-                        </li>
-                        
-                         
-                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
-                         
-                        
-                            
-                            
-                        
-                            <a class="link link--darker link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/programming">programming</a>
-                        
-                        </li>
-                        
-                         
-                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
-                         
-                        
-                         
-                        
-                        
-                        
-                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/web">web</a>
-                        
-                        </li>
-                        
-                         
-                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
-                         
-                        
-                         
-                        
-                        
-                        
-                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/android">android</a>
-                        
-                        </li>
-                        
-                         
-                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
-                         
-                        
-                         
-                        
-                        
-                        
-                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/study/db">db</a>
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/standard">standard</a>
                         
                         </li>
                         
                     
-
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/stack">stack</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/queue">queue</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/heap">heap</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/sort">sort</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/bf">bf</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                            
+                            
+                        
+                            <a class="link link--darker link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/greedy">greedy</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/dynamic">dynamic</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/dfs">dfs</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/bfs">bfs</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/binary">binary</a>
+                        
+                        </li>
+                        
+                    
+                        <li class="collectionHeader-navItem js-collectionNavItem u-inlineBlock u-fontSize13 u-textUppercase u-letterSpacing1px u-textColorNormal u-xs-paddingRight12 u-xs-marginRight0">
+                         
+                        
+                        
+                        
+                            <a class="link link--darken u-accentColor--textDarken link--noUnderline u-baseColor--link js-navItemLink"   href="/test/graph">graph</a>
+                        
+                        </li>
+                        
+                    
                 
             </div>
             <!--
@@ -275,7 +311,7 @@
     </div>
     <ul>
         <li class="small smoothscroll">
-            STUDY
+            TEST
         </li>
     </ul>
 
@@ -290,22 +326,22 @@
             <div class="mainheading">
 
                 <!-- Post Title -->
-                <div><h1 class="posttitle">순열과 조합</h1></div>
-                <h4 class="postdescription">순열과 조합을 만들어보자</h4>
+                <div><h1 class="posttitle">정렬 : 가장 큰 수</h1></div>
+                <h4 class="postdescription">연습 문제</h4>
 
                 <div class="post-top-meta">
                     <span class="meta-footer-thumb">
                         
-                        <img class="author-thumb" src="/assets/images/main_picture/study.jpg" alt="">
+                        <img class="author-thumb" src="/assets/images/main_picture/test.jpg" alt="">
                         
                     </span>
                     <span class="author-meta">
                         <div>
-                        <a target="_blank" class="link-dark" href="">study</a>
+                        <a target="_blank" class="link-dark" href="">test</a>
                         </div>
 
                         <div>
-                        <span class="author-description">10 Sep 2020</span>
+                        <span class="author-description">16 Sep 2020</span>
                         <span class="post-main u-textColorNormal"><a href="" title="Read Story"><svg class="svgIcon-use" width="15" height="15" viewbox="0 0 15 15"><path d="M7.438 2.324c.034-.099.09-.099.123 0l1.2 3.53a.29.29 0 0 0 .26.19h3.884c.11 0 .127.049.038.111L9.8 8.327a.271.271 0 0 0-.099.291l1.2 3.53c.034.1-.011.131-.098.069l-3.142-2.18a.303.303 0 0 0-.32 0l-3.145 2.182c-.087.06-.132.03-.099-.068l1.2-3.53a.271.271 0 0 0-.098-.292L2.056 6.146c-.087-.06-.071-.112.038-.112h3.884a.29.29 0 0 0 .26-.19l1.2-3.52z" fill-rule="evenodd"></path></svg></a></span>
                         </div>
                     </span>
@@ -327,46 +363,32 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <h3 id="순열과-조합">순열과 조합</h3>
+                <div class="card h-100 my-u-padding"><div class="insertcover"><a target="_blank" class="text-dark" href="https://programmers.co.kr/learn/courses/30/lessons/42746"><div class=""><img class="inserturl" src="/assets/images/study/programmers.png" alt="programmers.co.kr" /></div><div class="insert-img-body"><h4 class="insert-img-title">정렬 : 가장 큰 수</h4><p class="insert-img-description">programmers.co.kr</p></div></a></div></div>
 
-<p>순열과 조합은 여러 군데에서 쓰인다.
-쓰이는 방법도 다양한데</p>
-<ul>
-  <li>각각의 배열의 값으로써</li>
-  <li>조합된 원소의 값들로써</li>
-</ul>
+<p>문제의 컨셉을 잘 이해하고 해결 방향을 잡아야 문제 풀이가 쉬워진다.
+처음 문제 해결 방향을 자리수가 달라질 때, 큰 값을 구하려고 생각을 한다면 문제가 복잡해 진다.
+이럴땐 단순히 내림차순으로 정렬을 하는데, 해당 정렬의 기준을 어떻게 하면 문제에 맞게 될 것인지를 생각하도록 해야한다.</p>
 
-<p>하지만 설계하는 것이 즉석에서 곧바로 할 수 있는 일이 아니기 때문에, 미리 이해하는 차원에서 만들어 놓고자 한다.</p>
+<p>문제 해결을 위한 사고력이 가장 중요했던 문제.</p>
 
-<h3 id="결과값-구하기">결과값 구하기</h3>
+<p>그런데 문제 풀이 자체는 쉬웠지만 런타임 오류를 해결하지 못해서 시간이 많이 걸렸다.</p>
 
-<p>nPr =&gt; n개의 경우를 r 번 사용할 경우
-nCr -&gt; nPr에서 중복 원소를 제외한 개수</p>
+<p>오류는 Comparator의 동작원리를 숙지하지 못해서 일어났다.</p>
 
-<ul>
-  <li>nPr</li>
-</ul>
+<p>Comparator 인터페이스에 존재하는 compare를 kotlin은 아래와 같이 설명한다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="nf">permutaion</span><span class="o">(</span><span class="nl">n:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">r:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Int</span> <span class="o">{</span>
-    <span class="kt">var</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
-    
-    <span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="mi">0</span> <span class="n">until</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">value</span> <span class="o">*=</span> <span class="n">n</span><span class="o">-</span><span class="n">i</span>
-    <span class="o">}</span>
-    <span class="k">return</span> <span class="n">top</span><span class="o">/</span><span class="n">bottom</span>
-<span class="o">}</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>abstract fun compare(a: T, b: T): Int
 </pre></td></tr></tbody></table></code></pre></div></div>
+<p>Compares its two arguments for order. Returns zero if the arguments are equal, a negative number if the first argument is less than the second, or a positive number if the first argument is greater than the second.</p>
+
+<p>같으면 0을 return 한다.</p>
+
+<p>단순히 0 또는 -1이면 sort가 되지 않으므로 같아도 -1로 인식하도록 했더니, 런타임 오류가 발생하였다.
+이를 방지하기 위해 0을 입력을 해주던가, 사실 그냥 compareTo를 사용하면 한줄에 해결이 가능하다.</p>
 
 <ul>
-  <li>nCr</li>
+  <li>런타임 오류 풀이</li>
 </ul>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -379,24 +401,77 @@ nCr -&gt; nPr에서 중복 원소를 제외한 개수</p>
 8
 9
 10
-</pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="nf">combination</span><span class="o">(</span><span class="nl">n:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">r:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Int</span> <span class="o">{</span>
-    <span class="kt">var</span> <span class="n">top</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="kt">var</span> <span class="n">bottom</span> <span class="o">=</span> <span class="mi">1</span>
-
-    <span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="mi">0</span> <span class="n">until</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">top</span> <span class="o">*=</span> <span class="n">n</span><span class="o">-</span><span class="n">i</span>
-        <span class="n">bottom</span> <span class="o">*=</span> <span class="n">r</span><span class="o">-</span><span class="n">i</span>
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">numbers:</span> <span class="nc">IntArray</span><span class="o">):</span> <span class="nc">String</span> <span class="o">{</span>
+        <span class="kt">var</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span>
+        <span class="n">numbers</span><span class="o">.</span><span class="na">sortedWith</span><span class="o">(</span><span class="nc">Comparator</span> <span class="o">{</span> <span class="nl">a:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">b:</span> <span class="nc">Int</span> <span class="o">-&gt;</span>
+            <span class="n">when</span> <span class="o">{</span>
+                <span class="s">"$b$a"</span> <span class="o">&gt;</span> <span class="s">"$a$b"</span> <span class="o">-&gt;</span> <span class="mi">1</span>
+                <span class="k">else</span> <span class="o">-&gt;</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="o">}</span>
+        <span class="o">}).</span><span class="na">forEach</span><span class="o">{</span> <span class="n">answer</span> <span class="o">+=</span> <span class="n">it</span> <span class="o">}</span>
+        <span class="k">return</span> <span class="nf">if</span><span class="o">(</span><span class="n">answer</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'0'</span><span class="o">)</span> <span class="s">"0"</span> <span class="k">else</span> <span class="n">answer</span>
     <span class="o">}</span>
-    <span class="k">return</span> <span class="n">top</span><span class="o">/</span><span class="n">bottom</span>
 <span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h3 id="조합된-원소-구하기">조합된 원소 구하기</h3>
-
 <ul>
-  <li>nPr</li>
+  <li>문제 풀이</li>
 </ul>
 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">numbers:</span> <span class="nc">IntArray</span><span class="o">):</span> <span class="nc">String</span> <span class="o">{</span>
+        <span class="kt">var</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span>
+        <span class="n">numbers</span><span class="o">.</span><span class="na">sortedWith</span><span class="o">(</span><span class="nc">Comparator</span> <span class="o">{</span> <span class="nl">a:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">b:</span> <span class="nc">Int</span> <span class="o">-&gt;</span>
+            <span class="n">when</span> <span class="o">{</span>
+                <span class="s">"$b$a"</span> <span class="o">&gt;</span> <span class="s">"$a$b"</span> <span class="o">-&gt;</span> <span class="mi">1</span>
+                <span class="s">"$b$a"</span> <span class="o">==</span> <span class="s">"$a$b"</span> <span class="o">-&gt;</span> <span class="mi">0</span>
+                <span class="k">else</span> <span class="o">-&gt;</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="o">}</span>
+        <span class="o">}).</span><span class="na">forEach</span><span class="o">{</span> <span class="n">answer</span> <span class="o">+=</span> <span class="n">it</span> <span class="o">}</span>
+        <span class="k">return</span> <span class="nf">if</span><span class="o">(</span><span class="n">answer</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'0'</span><span class="o">)</span> <span class="s">"0"</span> <span class="k">else</span> <span class="n">answer</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>compareTo 이용ㄴ</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">numbers:</span> <span class="nc">IntArray</span><span class="o">):</span> <span class="nc">String</span> <span class="o">{</span>
+        <span class="kt">var</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span>
+        <span class="n">numbers</span><span class="o">.</span><span class="na">sortedWith</span><span class="o">(</span><span class="nc">Comparator</span> <span class="o">{</span> <span class="nl">a:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">b:</span> <span class="nc">Int</span> <span class="o">-&gt;</span>
+            <span class="s">"$b$a"</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="s">"$a$b"</span><span class="o">)</span>
+        <span class="o">}).</span><span class="na">forEach</span><span class="o">{</span> <span class="n">answer</span> <span class="o">+=</span> <span class="n">it</span> <span class="o">}</span>
+        <span class="k">return</span> <span class="nf">if</span><span class="o">(</span><span class="n">answer</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'0'</span><span class="o">)</span> <span class="s">"0"</span> <span class="k">else</span> <span class="n">answer</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
             </div>
 
@@ -406,7 +481,7 @@ nCr -&gt; nPr에서 중복 원소를 제외한 개수</p>
             <!-- Post Date -->
             <p>
             <small>
-                <span class="post-date"><time class="post-date" datetime="2020-09-10"></time></span>           
+                <span class="post-date"><time class="post-date" datetime="2020-09-16"></time></span>           
             </small>
             </p>
             
@@ -416,11 +491,7 @@ nCr -&gt; nPr에서 중복 원소를 제외한 개수</p>
                     
                     
                     <li>
-                        <a class="smoothscroll" href="/tags#kotlin">kotlin</a>
-                    </li>
-                    
-                    <li>
-                        <a class="smoothscroll" href="/tags#programming">programming</a>
+                        <a class="smoothscroll" href="/tags#greedy">greedy</a>
                     </li>
                     
                 </ul>
