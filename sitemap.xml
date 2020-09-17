@@ -603,13 +603,13 @@
 <loc>/study/web/</loc>
 </url>
 <url>
+<loc>/test/bf/</loc>
+</url>
+<url>
 <loc>/test/bfs/</loc>
 </url>
 <url>
 <loc>/test/binary/</loc>
-</url>
-<url>
-<loc>/test/bp/</loc>
 </url>
 <url>
 <loc>/test/dfs/</loc>
