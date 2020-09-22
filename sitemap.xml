@@ -201,7 +201,11 @@
 <lastmod>2020-07-11T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>/feat_project_jekyll_blog/</loc>
+<loc>/feat_malgeon_blog/</loc>
+<lastmod>2020-07-27T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>/project_jekyll_blog/</loc>
 <lastmod>2020-07-28T00:00:00+00:00</lastmod>
 </url>
 <url>
@@ -487,10 +491,6 @@
 <url>
 <loc>/study_Kotlin_sort_1/</loc>
 <lastmod>2020-09-16T00:00:00+00:00</lastmod>
-</url>
-<url>
-<loc>/malgeon_blog/</loc>
-<lastmod>2020-09-18T00:00:00+00:00</lastmod>
 </url>
 <url>
 <loc>/about</loc>
