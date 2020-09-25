@@ -7,23 +7,23 @@
 <link rel="icon" href="/assets/images/logo.jpg">
 
 
-<title>순열 | Malg:eon</title>
+<title>멱집합 | Malg:eon</title>
 
 
 <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>순열 | Malg:eon</title>
+<title>멱집합 | Malg:eon</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="순열" />
+<meta property="og:title" content="멱집합" />
 <meta name="author" content="study" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="순열을 만들어보자" />
-<meta property="og:description" content="순열을 만들어보자" />
+<meta name="description" content="멱집합을 구해보자" />
+<meta property="og:description" content="멱집합을 구해보자" />
 <meta property="og:site_name" content="Malg:eon" />
 <meta property="og:image" content="/assets/images/study/kotlin.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-09-24T00:00:00+00:00" />
+<meta property="article:published_time" content="2020-09-25T00:00:00+00:00" />
 <script type="application/ld+json">
-{"headline":"순열","dateModified":"2020-09-24T00:00:00+00:00","datePublished":"2020-09-24T00:00:00+00:00","author":{"@type":"Person","name":"study"},"image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_Programming_permutation/"},"description":"순열을 만들어보자","@type":"BlogPosting","url":"/study_Programming_permutation/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
+{"headline":"멱집합","dateModified":"2020-09-25T00:00:00+00:00","datePublished":"2020-09-25T00:00:00+00:00","author":{"@type":"Person","name":"study"},"image":"/assets/images/study/kotlin.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_Programming_powerset/"},"description":"멱집합을 구해보자","@type":"BlogPosting","url":"/study_Programming_powerset/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"study"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -290,8 +290,8 @@
             <div class="mainheading">
 
                 <!-- Post Title -->
-                <div><h1 class="posttitle">순열</h1></div>
-                <h4 class="postdescription">순열을 만들어보자</h4>
+                <div><h1 class="posttitle">멱집합</h1></div>
+                <h4 class="postdescription">멱집합을 구해보자</h4>
 
                 <div class="post-top-meta">
                     <span class="meta-footer-thumb">
@@ -305,7 +305,7 @@
                         </div>
 
                         <div>
-                        <span class="author-description">24 Sep 2020</span>
+                        <span class="author-description">25 Sep 2020</span>
                         <span class="post-main u-textColorNormal"><a href="" title="Read Story"><svg class="svgIcon-use" width="15" height="15" viewbox="0 0 15 15"><path d="M7.438 2.324c.034-.099.09-.099.123 0l1.2 3.53a.29.29 0 0 0 .26.19h3.884c.11 0 .127.049.038.111L9.8 8.327a.271.271 0 0 0-.099.291l1.2 3.53c.034.1-.011.131-.098.069l-3.142-2.18a.303.303 0 0 0-.32 0l-3.145 2.182c-.087.06-.132.03-.099-.068l1.2-3.53a.271.271 0 0 0-.098-.292L2.056 6.146c-.087-.06-.071-.112.038-.112h3.884a.29.29 0 0 0 .26-.19l1.2-3.52z" fill-rule="evenodd"></path></svg></a></span>
                         </div>
                     </span>
@@ -327,46 +327,25 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <h3 id="순열과-조합">순열과 조합</h3>
+                <h3 id="멱집합">멱집합</h3>
 
-<p>순열과 조합은 여러 군데에서 쓰인다.
-쓰이는 방법도 다양한데</p>
-<ul>
-  <li>각각의 배열의 값으로써</li>
-  <li>조합된 원소의 값들로써</li>
-</ul>
+<p>탐색 문제에서 멱집합을 이용해야 하는 경우가 종종 있다.
+이해하고 사용하자.</p>
 
-<p>하지만 설계하는 것이 즉석에서 곧바로 할 수 있는 일이 아니기 때문에, 미리 이해하는 차원에서 만들어 놓고자 한다.</p>
+<h3 id="부분집합">부분집합</h3>
 
-<h3 id="결과값-구하기">결과값 구하기</h3>
+<p>부분집합을 구성하는 방법은 2가지가 있다.</p>
 
-<p>nPr -&gt; n개의 경우를 r 번 사용할 경우</p>
+<ol>
+  <li>
+    <p>재귀 :
+ 우선 원소를 사용여부(O/X)로 구분된다.</p>
 
-<ul>
-  <li>nPr</li>
-</ul>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="nf">permutaion</span><span class="o">(</span><span class="nl">n:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">r:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Int</span> <span class="o">{</span>
-    <span class="kt">var</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
-    
-    <span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="mi">0</span> <span class="n">until</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">value</span> <span class="o">*=</span> <span class="n">n</span><span class="o">-</span><span class="n">i</span>
-    <span class="o">}</span>
-    <span class="k">return</span> <span class="n">top</span><span class="o">/</span><span class="n">bottom</span>
-<span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h3 id="npr-원소-구하기">nPr 원소 구하기</h3>
-
-<p>여러 방법을 제시하고자 한다.</p>
+    <p>이는 이진트리로 구현할수 있는데.
+ 단계를 구성하고 각 이진트리에 들어갈때마다 flag에 O,X를 기록한다.
+ 마지막 단계에 들어가게 되면 해당 flag를 바탕으로 해당하는 set을 Array에서 찾고 powerSet에 push한다.</p>
+  </li>
+</ol>
 
 <ul>
   <li>입력 String 출력 Array<String></String></li>
@@ -407,43 +386,39 @@
 33
 34
 35
-36
-37
 </pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="nf">main</span><span class="o">()</span> <span class="o">{</span>
     <span class="kt">var</span> <span class="n">arrString</span> <span class="o">=</span> <span class="s">"ABCD"</span>
-    <span class="n">println</span><span class="o">(</span><span class="n">getPermutation</span><span class="o">(</span><span class="n">arrString</span><span class="o">,</span> <span class="mi">3</span><span class="o">).</span><span class="na">contentToString</span><span class="o">())</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">getPowerSet</span><span class="o">(</span><span class="n">arrString</span><span class="o">).</span><span class="na">contentToString</span><span class="o">())</span>
 <span class="o">}</span>
 
-<span class="n">fun</span> <span class="nf">getPermutation</span><span class="o">(</span><span class="nl">arrString:</span> <span class="nc">String</span><span class="o">,</span> <span class="nl">num:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="kt">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="nc">IntArray</span><span class="o">(</span><span class="n">arrString</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span> <span class="n">it</span> <span class="o">}</span>
-    <span class="kt">var</span> <span class="n">visited</span> <span class="o">=</span> <span class="nc">Array</span><span class="o">(</span><span class="n">arr</span><span class="o">.</span><span class="na">size</span><span class="o">)</span> <span class="o">{</span> <span class="kc">false</span> <span class="o">}</span>
-    <span class="kt">var</span> <span class="n">picked</span> <span class="o">=</span> <span class="nc">IntArray</span><span class="o">(</span><span class="n">arr</span><span class="o">.</span><span class="na">size</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span><span class="mi">0</span><span class="o">}</span>
+<span class="n">fun</span> <span class="nf">getPowerSet</span><span class="o">(</span><span class="nl">arrString:</span> <span class="nc">String</span><span class="o">):</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="n">val</span> <span class="n">arr</span> <span class="o">=</span> <span class="nc">Array</span><span class="o">(</span><span class="n">arrString</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span> <span class="n">it</span> <span class="o">}</span>
+    <span class="kt">var</span> <span class="n">visited</span> <span class="o">=</span> <span class="nc">Array</span><span class="o">(</span><span class="n">arrString</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span> <span class="kc">false</span> <span class="o">}</span>
     <span class="kt">var</span> <span class="n">set</span> <span class="o">=</span> <span class="n">arrayListOf</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;()</span>
 
-    <span class="n">fun</span> <span class="nf">addArr</span><span class="o">(</span><span class="nl">picked:</span> <span class="nc">IntArray</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">addArr</span><span class="o">(</span><span class="nl">baseArr:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;,</span> <span class="nl">visited:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;,</span> <span class="nl">size:</span> <span class="nc">Int</span><span class="o">)</span> <span class="o">{</span>
         <span class="kt">var</span> <span class="n">makeComb</span> <span class="o">=</span> <span class="s">""</span>
-        <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="n">picked</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">makeComb</span> <span class="o">+=</span> <span class="n">arrString</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="mi">0</span> <span class="n">until</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">makeComb</span> <span class="o">+=</span> <span class="n">arrString</span><span class="o">[</span><span class="n">baseArr</span><span class="o">[</span><span class="n">i</span><span class="o">]]</span>
+            <span class="o">}</span>
         <span class="o">}</span>
         <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">makeComb</span><span class="o">)</span>
     <span class="o">}</span>
 
-    <span class="n">fun</span> <span class="nf">find</span><span class="o">(</span><span class="nl">baseArr:</span> <span class="nc">IntArray</span><span class="o">,</span> <span class="nl">picked:</span> <span class="nc">IntArray</span><span class="o">,</span> <span class="nl">visited:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;,</span> <span class="nl">depth:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">size:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">num:</span> <span class="nc">Int</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">depth</span> <span class="o">==</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">addArr</span><span class="o">(</span><span class="n">picked</span><span class="o">)</span>
+    <span class="n">fun</span> <span class="nf">find</span><span class="o">(</span><span class="nl">baseArr:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;,</span> <span class="nl">visited:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;,</span> <span class="nl">size:</span><span class="nc">Int</span><span class="o">,</span> <span class="nl">idx:</span> <span class="nc">Int</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">idx</span> <span class="o">==</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">addArr</span><span class="o">(</span><span class="n">baseArr</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">size</span><span class="o">)</span>
             <span class="k">return</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="mi">0</span> <span class="n">until</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">if</span><span class="o">(!</span><span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
-                    <span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span>
-                    <span class="n">picked</span><span class="o">[</span><span class="n">depth</span><span class="o">]</span> <span class="o">=</span> <span class="n">baseArr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
-                    <span class="nf">find</span><span class="o">(</span><span class="n">baseArr</span><span class="o">,</span> <span class="n">picked</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">size</span><span class="o">,</span> <span class="n">num</span><span class="o">)</span>
-                    <span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
         <span class="o">}</span>
+
+        <span class="n">visited</span><span class="o">[</span><span class="n">idx</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span>
+        <span class="nf">find</span><span class="o">(</span><span class="n">baseArr</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">size</span><span class="o">,</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span>
+
+        <span class="n">visited</span><span class="o">[</span><span class="n">idx</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span>
+        <span class="nf">find</span><span class="o">(</span><span class="n">baseArr</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">size</span><span class="o">,</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span>
     <span class="o">}</span>
-    <span class="n">find</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span> <span class="n">picked</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">arr</span><span class="o">.</span><span class="na">size</span><span class="o">,</span> <span class="n">num</span><span class="o">)</span>
+    <span class="n">find</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">arrString</span><span class="o">.</span><span class="na">length</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span>
     <span class="k">return</span> <span class="n">set</span><span class="o">.</span><span class="na">toTypedArray</span><span class="o">()</span>
 <span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
@@ -453,16 +428,10 @@
 3
 4
 5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre>[
-    ABC, ABD, ACB, ACD, 
-    ADB, ADC, BAC, BAD, 
-    BCA, BCD, BDA, BDC, 
-    CAB, CAD, CBA, CBD, 
-    CDA, CDB, DAB, DAC, 
-    DBA, DBC, DCA, DCB
+</pre></td><td class="rouge-code"><pre>[ 
+    ABCD, ABC, ABD, AB, 
+    ACD, AC, AD, A, BCD, 
+    BC, BD, B, CD, C, D, 
 ]
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -504,42 +473,38 @@
 32
 33
 34
-35
-36
 </pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="nf">main</span><span class="o">()</span> <span class="o">{</span>
     <span class="kt">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">)</span>
-    <span class="n">println</span><span class="o">(</span><span class="n">getPermutation</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span> <span class="mi">3</span><span class="o">).</span><span class="na">contentToString</span><span class="o">())</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">getPowerSet</span><span class="o">(</span><span class="n">arr</span><span class="o">).</span><span class="na">contentToString</span><span class="o">())</span>
 <span class="o">}</span>
 
-<span class="n">fun</span> <span class="nf">getPermutation</span><span class="o">(</span><span class="nl">arr:</span> <span class="nc">IntArray</span><span class="o">,</span> <span class="nl">num:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
+<span class="n">fun</span> <span class="nf">getPowerSet</span><span class="o">(</span><span class="nl">arr:</span> <span class="nc">IntArray</span><span class="o">):</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="kt">var</span> <span class="n">visited</span> <span class="o">=</span> <span class="nc">Array</span><span class="o">(</span><span class="n">arr</span><span class="o">.</span><span class="na">size</span><span class="o">)</span> <span class="o">{</span> <span class="kc">false</span> <span class="o">}</span>
-    <span class="kt">var</span> <span class="n">picked</span> <span class="o">=</span> <span class="nc">IntArray</span><span class="o">(</span><span class="n">arr</span><span class="o">.</span><span class="na">size</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span><span class="mi">0</span><span class="o">}</span>
     <span class="kt">var</span> <span class="n">set</span> <span class="o">=</span> <span class="n">arrayListOf</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;()</span>
 
-    <span class="n">fun</span> <span class="nf">addArr</span><span class="o">(</span><span class="nl">picked:</span> <span class="nc">IntArray</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">addArr</span><span class="o">(</span><span class="nl">baseArr:</span> <span class="nc">IntArray</span><span class="o">,</span> <span class="nl">visited:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;,</span> <span class="nl">size:</span> <span class="nc">Int</span><span class="o">)</span> <span class="o">{</span>
         <span class="kt">var</span> <span class="n">makeComb</span> <span class="o">=</span> <span class="s">""</span>
-        <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="n">picked</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">makeComb</span> <span class="o">+=</span> <span class="n">i</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="mi">0</span> <span class="n">until</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">makeComb</span> <span class="o">+=</span> <span class="n">baseArr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
+            <span class="o">}</span>
         <span class="o">}</span>
         <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">makeComb</span><span class="o">)</span>
     <span class="o">}</span>
 
-    <span class="n">fun</span> <span class="nf">find</span><span class="o">(</span><span class="nl">baseArr:</span> <span class="nc">IntArray</span><span class="o">,</span> <span class="nl">picked:</span> <span class="nc">IntArray</span><span class="o">,</span> <span class="nl">visited:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;,</span> <span class="nl">depth:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">size:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">num:</span> <span class="nc">Int</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">depth</span> <span class="o">==</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">addArr</span><span class="o">(</span><span class="n">picked</span><span class="o">)</span>
+    <span class="n">fun</span> <span class="nf">find</span><span class="o">(</span><span class="nl">baseArr:</span> <span class="nc">IntArray</span><span class="o">,</span> <span class="nl">visited:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;,</span> <span class="nl">size:</span><span class="nc">Int</span><span class="o">,</span> <span class="nl">idx:</span> <span class="nc">Int</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">idx</span> <span class="o">==</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">addArr</span><span class="o">(</span><span class="n">baseArr</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">size</span><span class="o">)</span>
             <span class="k">return</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="mi">0</span> <span class="n">until</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">if</span><span class="o">(!</span><span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
-                    <span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span>
-                    <span class="n">picked</span><span class="o">[</span><span class="n">depth</span><span class="o">]</span> <span class="o">=</span> <span class="n">baseArr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
-                    <span class="nf">find</span><span class="o">(</span><span class="n">baseArr</span><span class="o">,</span> <span class="n">picked</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">size</span><span class="o">,</span> <span class="n">num</span><span class="o">)</span>
-                    <span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
         <span class="o">}</span>
+
+        <span class="n">visited</span><span class="o">[</span><span class="n">idx</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span>
+        <span class="nf">find</span><span class="o">(</span><span class="n">baseArr</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">size</span><span class="o">,</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span>
+
+        <span class="n">visited</span><span class="o">[</span><span class="n">idx</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span>
+        <span class="nf">find</span><span class="o">(</span><span class="n">baseArr</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">size</span><span class="o">,</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span>
     <span class="o">}</span>
-    <span class="n">find</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span> <span class="n">picked</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">arr</span><span class="o">.</span><span class="na">size</span><span class="o">,</span> <span class="n">num</span><span class="o">)</span>
+    <span class="n">find</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">arr</span><span class="o">.</span><span class="na">size</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span>
     <span class="k">return</span> <span class="n">set</span><span class="o">.</span><span class="na">toTypedArray</span><span class="o">()</span>
 <span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
@@ -549,16 +514,10 @@
 3
 4
 5
-6
-7
-8
 </pre></td><td class="rouge-code"><pre>[
-    123, 124, 132, 134, 
-    142, 143, 213, 214,
-    231, 234, 241, 243, 
-    312, 314, 321, 324, 
-    341, 342, 412, 413, 
-    421, 423, 431, 432
+    1234, 123, 124, 12, 
+    134, 13, 14, 1, 234, 
+    23, 24, 2, 34, 3, 4, 
 ]
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -600,42 +559,38 @@
 32
 33
 34
-35
-36
 </pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="nf">main</span><span class="o">()</span> <span class="o">{</span>
     <span class="kt">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">intArrayOf</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">)</span>
-    <span class="n">println</span><span class="o">(</span><span class="n">getPermutation</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span> <span class="mi">3</span><span class="o">).</span><span class="na">contentDeepToString</span><span class="o">())</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">getPowerSet</span><span class="o">(</span><span class="n">arr</span><span class="o">).</span><span class="na">contentDeepToString</span><span class="o">())</span>
 <span class="o">}</span>
 
-<span class="n">fun</span> <span class="nf">getPermutation</span><span class="o">(</span><span class="nl">arr:</span> <span class="nc">IntArray</span><span class="o">,</span> <span class="nl">num:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">IntArray</span><span class="o">&gt;</span> <span class="o">{</span>
+<span class="n">fun</span> <span class="nf">getPowerSet</span><span class="o">(</span><span class="nl">arr:</span> <span class="nc">IntArray</span><span class="o">):</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">IntArray</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="kt">var</span> <span class="n">visited</span> <span class="o">=</span> <span class="nc">Array</span><span class="o">(</span><span class="n">arr</span><span class="o">.</span><span class="na">size</span><span class="o">)</span> <span class="o">{</span> <span class="kc">false</span> <span class="o">}</span>
-    <span class="kt">var</span> <span class="n">picked</span> <span class="o">=</span> <span class="nc">IntArray</span><span class="o">(</span><span class="n">arr</span><span class="o">.</span><span class="na">size</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span><span class="mi">0</span><span class="o">}</span>
     <span class="kt">var</span> <span class="n">set</span> <span class="o">=</span> <span class="n">arrayListOf</span><span class="o">&lt;</span><span class="nc">IntArray</span><span class="o">&gt;()</span>
 
-    <span class="n">fun</span> <span class="nf">addArr</span><span class="o">(</span><span class="nl">picked:</span> <span class="nc">IntArray</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">addArr</span><span class="o">(</span><span class="nl">baseArr:</span> <span class="nc">IntArray</span><span class="o">,</span> <span class="nl">visited:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;,</span> <span class="nl">size:</span> <span class="nc">Int</span><span class="o">)</span> <span class="o">{</span>
         <span class="kt">var</span> <span class="n">makeComb</span> <span class="o">=</span> <span class="n">arrayListOf</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;()</span>
-        <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="n">picked</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">makeComb</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">)</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="mi">0</span> <span class="n">until</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">makeComb</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">baseArr</span><span class="o">[</span><span class="n">i</span><span class="o">])</span>
+            <span class="o">}</span>
         <span class="o">}</span>
         <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">makeComb</span><span class="o">.</span><span class="na">toIntArray</span><span class="o">())</span>
     <span class="o">}</span>
 
-    <span class="n">fun</span> <span class="nf">find</span><span class="o">(</span><span class="nl">baseArr:</span> <span class="nc">IntArray</span><span class="o">,</span> <span class="nl">picked:</span> <span class="nc">IntArray</span><span class="o">,</span> <span class="nl">visited:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;,</span> <span class="nl">depth:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">size:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">num:</span> <span class="nc">Int</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">depth</span> <span class="o">==</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">addArr</span><span class="o">(</span><span class="n">picked</span><span class="o">)</span>
+    <span class="n">fun</span> <span class="nf">find</span><span class="o">(</span><span class="nl">baseArr:</span> <span class="nc">IntArray</span><span class="o">,</span> <span class="nl">visited:</span> <span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;,</span> <span class="nl">size:</span><span class="nc">Int</span><span class="o">,</span> <span class="nl">idx:</span> <span class="nc">Int</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">idx</span> <span class="o">==</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">addArr</span><span class="o">(</span><span class="n">baseArr</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">size</span><span class="o">)</span>
             <span class="k">return</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="mi">0</span> <span class="n">until</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">if</span><span class="o">(!</span><span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
-                    <span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span>
-                    <span class="n">picked</span><span class="o">[</span><span class="n">depth</span><span class="o">]</span> <span class="o">=</span> <span class="n">baseArr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
-                    <span class="nf">find</span><span class="o">(</span><span class="n">baseArr</span><span class="o">,</span> <span class="n">picked</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">size</span><span class="o">,</span> <span class="n">num</span><span class="o">)</span>
-                    <span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
         <span class="o">}</span>
+
+        <span class="n">visited</span><span class="o">[</span><span class="n">idx</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span>
+        <span class="nf">find</span><span class="o">(</span><span class="n">baseArr</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">size</span><span class="o">,</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span>
+
+        <span class="n">visited</span><span class="o">[</span><span class="n">idx</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span>
+        <span class="nf">find</span><span class="o">(</span><span class="n">baseArr</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">size</span><span class="o">,</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span>
     <span class="o">}</span>
-    <span class="n">find</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span> <span class="n">picked</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">arr</span><span class="o">.</span><span class="na">size</span><span class="o">,</span> <span class="n">num</span><span class="o">)</span>
+    <span class="n">find</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span> <span class="n">visited</span><span class="o">,</span> <span class="n">arr</span><span class="o">.</span><span class="na">size</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span>
     <span class="k">return</span> <span class="n">set</span><span class="o">.</span><span class="na">toTypedArray</span><span class="o">()</span>
 <span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
@@ -645,16 +600,10 @@
 3
 4
 5
-6
-7
-8
 </pre></td><td class="rouge-code"><pre>[
-    [1, 2, 3], [1, 2, 4], [1, 3, 2], [1, 3, 4], 
-    [1, 4, 2], [1, 4, 3], [2, 1, 3], [2, 1, 4], 
-    [2, 3, 1], [2, 3, 4], [2, 4, 1], [2, 4, 3], 
-    [3, 1, 2], [3, 1, 4], [3, 2, 1], [3, 2, 4], 
-    [3, 4, 1], [3, 4, 2], [4, 1, 2], [4, 1, 3], 
-    [4, 2, 1], [4, 2, 3], [4, 3, 1], [4, 3, 2]
+    [1, 2, 3, 4], [1, 2, 3], [1, 2, 4], [1, 2], 
+    [1, 3, 4], [1, 3], [1, 4], [1], [2, 3, 4], 
+    [2, 3], [2, 4], [2], [3, 4], [3], [4], []
 ]
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -666,7 +615,7 @@
             <!-- Post Date -->
             <p>
             <small>
-                <span class="post-date"><time class="post-date" datetime="2020-09-24"></time></span>           
+                <span class="post-date"><time class="post-date" datetime="2020-09-25"></time></span>           
             </small>
             </p>
             
