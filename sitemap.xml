@@ -513,6 +513,10 @@
 <lastmod>2020-09-25T00:00:00+00:00</lastmod>
 </url>
 <url>
+<loc>/study_Kotlin_hash_2/</loc>
+<lastmod>2020-09-26T00:00:00+00:00</lastmod>
+</url>
+<url>
 <loc>/about</loc>
 </url>
 <url>
@@ -712,5 +716,8 @@
 </url>
 <url>
 <loc>/test/page8/</loc>
+</url>
+<url>
+<loc>/test/page9/</loc>
 </url>
 </urlset>

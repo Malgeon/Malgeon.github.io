@@ -433,13 +433,11 @@
 20
 21
 22
-23
 </pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">k</span><span class="p">,</span> <span class="nx">room_number</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[];</span>
     <span class="kd">let</span> <span class="nx">used</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">k</span><span class="o">+</span><span class="mi">1</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
 
     <span class="kd">function</span> <span class="nx">searchRoom</span><span class="p">(</span><span class="nx">idx</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">debugger</span><span class="p">;</span>
         <span class="k">if</span><span class="p">(</span><span class="nx">idx</span> <span class="o">===</span> <span class="nx">used</span><span class="p">.</span><span class="nx">length</span><span class="p">){</span>
             <span class="k">return</span><span class="p">;</span>
         <span class="p">}</span>
