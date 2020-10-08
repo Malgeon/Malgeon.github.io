@@ -527,6 +527,52 @@ intsSortedSet = []
   <li>HashSet, TreeSet보다 느리지만 데이터 구조상 다음 데이터를 가리키는 포인터 연결을 통해 메모리 저장 공간을 조금 더 효율적으로 사용한다.</li>
 </ul>
 
+<h3 id="set-specific-operations">Set Specific Operations</h3>
+<p>Collection Set에서 제공하는 Operation</p>
+
+<ul>
+  <li>union : 합집합</li>
+  <li>intersection : 교집합</li>
+  <li>substract : 차집합</li>
+</ul>
+
+<p>함수로 사용이 가능하며, infix form으로도 사용이 가능하다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="n">numbers</span> <span class="o">=</span> <span class="n">setOf</span><span class="o">(</span><span class="s">"one"</span><span class="o">,</span> <span class="s">"two"</span><span class="o">,</span> <span class="s">"three"</span><span class="o">)</span>
+
+<span class="n">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">union</span><span class="o">(</span><span class="n">setOf</span><span class="o">(</span><span class="s">"four"</span><span class="o">,</span> <span class="s">"five"</span><span class="o">)))</span>
+<span class="n">println</span><span class="o">(</span><span class="n">numbers</span> <span class="n">union</span> <span class="nf">setOf</span><span class="o">(</span><span class="s">"four"</span><span class="o">,</span> <span class="s">"five"</span><span class="o">))</span>
+
+<span class="n">println</span><span class="o">(</span><span class="n">setOf</span><span class="o">(</span><span class="s">"four"</span><span class="o">,</span> <span class="s">"five"</span><span class="o">)</span> <span class="n">union</span> <span class="n">numbers</span><span class="o">)</span>
+
+<span class="n">println</span><span class="o">(</span><span class="n">numbers</span> <span class="n">intersect</span> <span class="nf">setOf</span><span class="o">(</span><span class="s">"two"</span><span class="o">,</span> <span class="s">"one"</span><span class="o">))</span>
+<span class="n">println</span><span class="o">(</span><span class="n">numbers</span> <span class="n">subtract</span> <span class="nf">setOf</span><span class="o">(</span><span class="s">"three"</span><span class="o">,</span> <span class="s">"four"</span><span class="o">))</span>
+<span class="n">println</span><span class="o">(</span><span class="n">numbers</span> <span class="n">subtract</span> <span class="nf">setOf</span><span class="o">(</span><span class="s">"four"</span><span class="o">,</span> <span class="s">"three"</span><span class="o">))</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>[one, two, three, four, five]
+[one, two, three, four, five]
+[four, five, one, two, three]
+[one, two]
+[one, two]
+[one, two]
+</pre></td></tr></tbody></table></code></pre></div></div>
+
             </div>
 
             <!-- Rating -->

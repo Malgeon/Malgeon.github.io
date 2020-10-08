@@ -356,14 +356,15 @@
 <p>가변형 mutableListOf() 함수</p>
 <ul>
   <li>요소의 추가, 삭제 또는 교체를 위해 mutablelistOf()를 통해 생성</li>
-  <li>MutableList 형으로 반환
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>public fun &lt;T&gt; mutableListOf(varage elements: T): MutableList&lt;T&gt;
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
+  <li>MutableList 형으로 반환</li>
 </ul>
 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>public fun &lt;T&gt; mutableListOf(varage elements: T): MutableList&lt;T&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <p>add()와 removeAt() 메서드를 통해 추가/삭제가 가능하다</p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -375,11 +376,13 @@
 9
 10
 11
+12
 </pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="nf">main</span><span class="o">()</span> <span class="o">{</span>
-    <span class="c1">// 가변형 List의 생성 및 추가, 삭제, 변ㄱㅇ</span>
+    <span class="c1">// 가변형 List의 생성 및 추가, 삭제, 변경</span>
     <span class="n">val</span> <span class="nl">mutableList:</span> <span class="nc">MutableList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">mutableListOf</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;(</span><span class="s">"Kildong"</span><span class="o">,</span> <span class="s">"Dooly"</span><span class="o">,</span> <span class="s">"Chelsu"</span><span class="o">)</span>
     <span class="n">mutableList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Ben"</span><span class="o">)</span> <span class="c1">// 추가</span>
     <span class="n">mutableList</span><span class="o">.</span><span class="na">removeAt</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="c1">// 인덱스 1 삭제</span>
+    <span class="n">mutableList</span><span class="o">.</span><span class="na">removeAt</span><span class="o">(</span><span class="n">mutableList</span><span class="o">.</span><span class="na">size</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="c1">// 인덱스 마지막 값 삭제</span>
     <span class="n">mutableList</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="s">"Sean"</span> <span class="c1">// 인덱스 0을 변경, set(index: Int, element E)과 같은 역할</span>
     <span class="n">println</span><span class="o">(</span><span class="n">mutableList</span><span class="o">)</span>
 
@@ -394,6 +397,7 @@
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>toMutableList()</p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -418,19 +422,72 @@
   <li>Array 클래스에 의해 생성되는 배열 객체는 내부 구조상 고정된 크기를 가진다.</li>
   <li>코틀린의 List<T>와 MutableList<T>는 인터페이스로 설계되어 있고 이것을 하위에서 특정한 자료구조로 구현
 </T></T>    <ul>
-      <li>LinkedList<T>, ArrayList<T>
-</T></T>        <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="nl">list1:</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nc">LinkedList</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;()</span>
-<span class="n">val</span> <span class="nl">list2:</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;()</span>
-</pre></td></tr></tbody></table></code></pre></div>        </div>
-      </li>
+      <li>LinkedList<T>, ArrayList<T></T></T></li>
       <li>고정된 크기의 메모리가 아니기 때문에 자료구조에 따라 늘리거나 줄이는 것이 가능</li>
     </ul>
   </li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="nl">list1:</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nc">LinkedList</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;()</span>
+<span class="n">val</span> <span class="nl">list2:</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;()</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
   <li>Array<T>는 제네릭 관점에서 상/하위 자료형 관계가 성립하지 않는 무변성이다.</T></li>
   <li>List<T>는 공변성이기 때문에 하위인 List<Int>가 List<Number>에</Number></Int></T></li>
 </ul>
+
+<h3 id="list-specific-operations">List Specific Operations</h3>
+<p>Collection List에서 제공하는 Operation</p>
+
+<ul>
+  <li>Retrieving elements by index : index가 list의 크기를 넘어가는 경우를 대처하는데 도움을 준다.
+    <ul>
+      <li>getOrElse()</li>
+      <li>getOrNull()</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="n">numbers</span> <span class="o">=</span> <span class="n">listOf</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">)</span> <span class="n">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">))</span>
+<span class="n">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">[</span><span class="mi">0</span><span class="o">])</span> 
+<span class="c1">//numbers.get(5) // exception</span>
+<span class="n">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">getOrNull</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span> 
+<span class="n">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">getOrElse</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="o">{</span><span class="n">it</span><span class="o">}))</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>1
+1
+null
+5
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>Retrieving list parts : List의 부분을 가지고 와준다.
+    <ul>
+      <li>subList</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">val</span> <span class="n">numbers</span> <span class="o">=</span> <span class="o">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">13</span><span class="o">).</span><span class="na">toList</span><span class="o">()</span> 
+<span class="n">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">subList</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">6</span><span class="o">))</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>[3, 4, 5]
+</pre></td></tr></tbody></table></code></pre></div></div>
 
             </div>
 
