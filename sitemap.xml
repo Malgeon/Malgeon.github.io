@@ -537,8 +537,16 @@
 <lastmod>2020-10-09T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>/study_Kotlin_practice_3/</loc>
+<loc>/study_Kotlin_practice_3-copy/</loc>
 <lastmod>2020-10-09T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>/study_Kotlin_design_5/</loc>
+<lastmod>2020-10-17T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>/study_Kotlin_practice_4/</loc>
+<lastmod>2020-10-17T00:00:00+00:00</lastmod>
 </url>
 <url>
 <loc>/about</loc>
@@ -718,6 +726,9 @@
 <loc>/test/standard/page7/</loc>
 </url>
 <url>
+<loc>/test/standard/page8/</loc>
+</url>
+<url>
 <loc>/test/</loc>
 </url>
 <url>
@@ -743,5 +754,8 @@
 </url>
 <url>
 <loc>/test/page9/</loc>
+</url>
+<url>
+<loc>/test/page10/</loc>
 </url>
 </urlset>
