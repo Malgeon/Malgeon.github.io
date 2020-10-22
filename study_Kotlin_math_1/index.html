@@ -480,6 +480,16 @@ a와 b의 크기에 따른 순서는 상관이 없다. 유클리드 호제법을
 <span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<h3 id="소수-찾기">소수 찾기</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="n">fun</span> <span class="nf">isPrimeNumber</span><span class="o">(</span><span class="nl">num:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Boolean</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="o">(</span><span class="mi">2</span><span class="o">..</span><span class="na">num</span> <span class="o">/</span> <span class="mi">2</span><span class="o">).</span><span class="na">filter</span> <span class="o">{</span> <span class="n">num</span> <span class="o">%</span> <span class="n">it</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">}.</span><span class="na">count</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
             </div>
 
             <!-- Rating -->
