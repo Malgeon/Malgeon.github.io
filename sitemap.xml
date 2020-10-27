@@ -565,6 +565,10 @@
 <lastmod>2020-10-21T00:00:00+00:00</lastmod>
 </url>
 <url>
+<loc>/study_Kotlin_practice_9/</loc>
+<lastmod>2020-10-27T00:00:00+00:00</lastmod>
+</url>
+<url>
 <loc>/about</loc>
 </url>
 <url>
@@ -745,6 +749,9 @@
 <loc>/test/standard/page8/</loc>
 </url>
 <url>
+<loc>/test/standard/page9/</loc>
+</url>
+<url>
 <loc>/test/</loc>
 </url>
 <url>
@@ -773,5 +780,8 @@
 </url>
 <url>
 <loc>/test/page10/</loc>
+</url>
+<url>
+<loc>/test/page11/</loc>
 </url>
 </urlset>
