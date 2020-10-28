@@ -7,23 +7,23 @@
 <link rel="icon" href="/assets/images/logo.jpg">
 
 
-<title>연습문제 : 피보나치 수 | Malg:eon</title>
+<title>연습문제 : n개의 최소공배수 | Malg:eon</title>
 
 
 <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>연습문제 : 피보나치 수 | Malg:eon</title>
+<title>연습문제 : N개의 최소공배수 | Malg:eon</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="연습문제 : 피보나치 수" />
+<meta property="og:title" content="연습문제 : N개의 최소공배수" />
 <meta name="author" content="test" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="연습문제" />
-<meta property="og:description" content="연습문제" />
+<meta name="description" content="수식 문제" />
+<meta property="og:description" content="수식 문제" />
 <meta property="og:site_name" content="Malg:eon" />
 <meta property="og:image" content="/assets/images/test/programmers.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-10-09T00:00:00+00:00" />
+<meta property="article:published_time" content="2020-10-17T00:00:00+00:00" />
 <script type="application/ld+json">
-{"headline":"연습문제 : 피보나치 수","dateModified":"2020-10-09T00:00:00+00:00","datePublished":"2020-10-09T00:00:00+00:00","author":{"@type":"Person","name":"test"},"image":"/assets/images/test/programmers.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_Kotlin_practice_3-copy/"},"description":"연습문제","@type":"BlogPosting","url":"/study_Kotlin_practice_3-copy/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"test"},"@context":"https://schema.org"}</script>
+{"headline":"연습문제 : N개의 최소공배수","dateModified":"2020-10-17T00:00:00+00:00","datePublished":"2020-10-17T00:00:00+00:00","author":{"@type":"Person","name":"test"},"image":"/assets/images/test/programmers.png","mainEntityOfPage":{"@type":"WebPage","@id":"/study_Kotlin_practice_6/"},"description":"수식 문제","@type":"BlogPosting","url":"/study_Kotlin_practice_6/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"test"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -326,8 +326,8 @@
             <div class="mainheading">
 
                 <!-- Post Title -->
-                <div><h1 class="posttitle">연습문제 : 피보나치 수</h1></div>
-                <h4 class="postdescription">연습문제</h4>
+                <div><h1 class="posttitle">연습문제 : N개의 최소공배수</h1></div>
+                <h4 class="postdescription">수식 문제</h4>
 
                 <div class="post-top-meta">
                     <span class="meta-footer-thumb">
@@ -341,7 +341,7 @@
                         </div>
 
                         <div>
-                        <span class="author-description">09 Oct 2020</span>
+                        <span class="author-description">17 Oct 2020</span>
                         <span class="post-main u-textColorNormal"><a href="" title="Read Story"><svg class="svgIcon-use" width="15" height="15" viewbox="0 0 15 15"><path d="M7.438 2.324c.034-.099.09-.099.123 0l1.2 3.53a.29.29 0 0 0 .26.19h3.884c.11 0 .127.049.038.111L9.8 8.327a.271.271 0 0 0-.099.291l1.2 3.53c.034.1-.011.131-.098.069l-3.142-2.18a.303.303 0 0 0-.32 0l-3.145 2.182c-.087.06-.132.03-.099-.068l1.2-3.53a.271.271 0 0 0-.098-.292L2.056 6.146c-.087-.06-.071-.112.038-.112h3.884a.29.29 0 0 0 .26-.19l1.2-3.52z" fill-rule="evenodd"></path></svg></a></span>
                         </div>
                     </span>
@@ -363,11 +363,12 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <div class="card h-100 my-u-padding"><div class="insertcover"><a target="_blank" class="text-dark" href="https://programmers.co.kr/learn/courses/30/lessons/12945"><div class=""><img class="inserturl" src="/assets/images/study/programmers.png" alt="programmers.co.kr" /></div><div class="insert-img-body"><h4 class="insert-img-title">연습문제 : 피보나치 수</h4><p class="insert-img-description">programmers.co.kr</p></div></a></div></div>
+                <div class="card h-100 my-u-padding"><div class="insertcover"><a target="_blank" class="text-dark" href="https://programmers.co.kr/learn/courses/30/lessons/12953"><div class=""><img class="inserturl" src="/assets/images/study/programmers.png" alt="programmers.co.kr" /></div><div class="insert-img-body"><h4 class="insert-img-title">연습문제 : N개의 최소공배수</h4><p class="insert-img-description">programmers.co.kr</p></div></a></div></div>
 
-<p>숫자가 Int 범위보다 클 경우에 대한 이슈를 잘 생각해 놔야 한다.</p>
+<p>처음에는 전체를 곱한 뒤, 최대공약수로 n-1번 나눠주는 것을 문제 해결 방향으로 잡았다.
+그러나 이것은 테스트 케이스에서는 통과 하지만 정확히 맞지 않는 방법이기 때문에 실행 단계에서 전체 다 틀리게 된다. (테스트 케이스에만 국한해서 생각하지 말자.)</p>
 
-<p>끝 값에 filter를 하는 것이 아닌 중간 값에 filter를 해야 한다.</p>
+<p>순서대로 최소공배수를 구해가는 것이 정확한 문제 해결방법이다.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -375,27 +376,11 @@
 4
 5
 6
-7
-8
 </pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">n:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Int</span> <span class="o">{</span>
-        <span class="kt">var</span> <span class="n">ans</span> <span class="o">=</span> <span class="nc">Array</span><span class="o">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span> <span class="mi">0</span> <span class="o">}</span>
-        <span class="n">ans</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="mi">2</span><span class="o">..</span><span class="na">n</span><span class="o">)</span> <span class="n">ans</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="n">ans</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">ans</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="o">])%</span><span class="mi">1234567</span>
-        <span class="k">return</span> <span class="n">ans</span><span class="o">[</span><span class="n">n</span><span class="o">]</span>
+    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">arr:</span> <span class="nc">IntArray</span><span class="o">)</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="na">reduce</span> <span class="o">{</span> <span class="n">acc</span><span class="o">,</span> <span class="n">i</span> <span class="o">-&gt;</span>
+        <span class="n">acc</span> <span class="o">*</span> <span class="n">i</span> <span class="o">/</span> <span class="n">gcd</span><span class="o">(</span><span class="n">acc</span><span class="o">,</span> <span class="n">i</span><span class="o">)</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>재귀 풀이</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="n">fun</span> <span class="nf">solution</span><span class="o">(</span><span class="nl">n:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Int</span> <span class="o">=</span> <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="o">)</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">fib</span><span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span>  
-    <span class="n">tailrec</span> <span class="n">fun</span> <span class="nf">fib</span><span class="o">(</span><span class="nl">n:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">a:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">b:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Int</span> <span class="o">=</span> <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="n">a</span> <span class="k">else</span> <span class="nf">fib</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">b</span> <span class="o">%</span> <span class="mi">1234567</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">)</span> <span class="o">%</span> <span class="mi">1234567</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">fun</span> <span class="nf">gcd</span><span class="o">(</span><span class="nl">a:</span> <span class="nc">Int</span><span class="o">,</span> <span class="nl">b:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">Int</span> <span class="o">=</span> <span class="k">if</span> <span class="o">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="n">a</span> <span class="k">else</span> <span class="nf">gcd</span><span class="o">(</span><span class="n">b</span><span class="o">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="o">)</span>
 <span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -407,7 +392,7 @@
             <!-- Post Date -->
             <p>
             <small>
-                <span class="post-date"><time class="post-date" datetime="2020-10-09"></time></span>           
+                <span class="post-date"><time class="post-date" datetime="2020-10-17"></time></span>           
             </small>
             </p>
             
