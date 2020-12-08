@@ -19,11 +19,11 @@
 <meta name="description" content="간단한 API를 이용하여 영화 앱을 만들어보자." />
 <meta property="og:description" content="간단한 API를 이용하여 영화 앱을 만들어보자." />
 <meta property="og:site_name" content="Malg:eon" />
-<meta property="og:image" content="/assets/images/project/malgeonblog1.JPG" />
+<meta property="og:image" content="/assets/images/project/android/android.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-11-23T00:00:00+00:00" />
 <script type="application/ld+json">
-{"headline":"Movie Clone Application","dateModified":"2020-11-23T00:00:00+00:00","datePublished":"2020-11-23T00:00:00+00:00","author":{"@type":"Person","name":"project"},"image":"/assets/images/project/malgeonblog1.JPG","mainEntityOfPage":{"@type":"WebPage","@id":"/android_app_service_clone/"},"description":"간단한 API를 이용하여 영화 앱을 만들어보자.","@type":"BlogPosting","url":"/android_app_service_clone/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"project"},"@context":"https://schema.org"}</script>
+{"headline":"Movie Clone Application","dateModified":"2020-11-23T00:00:00+00:00","datePublished":"2020-11-23T00:00:00+00:00","author":{"@type":"Person","name":"project"},"image":"/assets/images/project/android/android.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"/android_app_service_clone/"},"description":"간단한 API를 이용하여 영화 앱을 만들어보자.","@type":"BlogPosting","url":"/android_app_service_clone/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"project"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -227,7 +227,7 @@
                                         <li class="project-maindescription u-paddingLeft31">
                                             <span class="subject"> Spec  : </span> <br>
                                             <span style="color: rgba(0, 0, 0, 0.6);
-                                            font-weight: 500;">  MVVVM, kotlin, Room, LiveData, coroutine</span>
+                                            font-weight: 500;">  kotlin, MVVVM, koin, jxJava, retrofit, Room, coroutine</span>
                                         </li>
                                     
                                         
@@ -252,7 +252,7 @@
                                     <h2 class="u-marginBottom15"><span class="u-paddingBottom10">Source</span></h2>
                                 </div>
                                 <div class="listrecent">
-                                    <a class="project-maindescription u-paddingLeft31" href="">#</a>
+                                    <a class="project-maindescription u-paddingLeft31" href="https://github.com/Malgeon/MovieAppPractice">https://github.com/Malgeon/MovieAppPractice</a>
                                 </div>
                             </section>
                         </div>
@@ -262,7 +262,7 @@
                                     
                                 <div class="col-12">
                                     
-                                    <img class="project-img" src="/assets/images/project/malgeonblog1.JPG" alt="programmers.co.kr"/>
+                                    <img class="project-img" src="/assets/images/project/android/android.jpg" alt="programmers.co.kr"/>
                                 </div>
                                 
                             </div>
@@ -319,7 +319,23 @@
 
 <h3 id="앱-아키텍처">앱 아키텍처</h3>
 
+<p>아래와 같이 안드로이드 개발자 페이지에서 추천하는 아키텍쳐로 구성하였다.</p>
+
 <p><img src="/assets/images/project/android/final-architecture.png" alt="final-architecture" /></p>
+
+<h3 id="mvvm">MVVM</h3>
+
+<p>디자인 아키텍쳐는 MVVM로 만들고자 했다.</p>
+
+<h3 id="di---koin">DI - Koin</h3>
+
+<p>다음 프로젝트에서는 Dagger-Hilt를 사용할 예정이다.</p>
+
+<h3 id="network---rxjava-retrofit">NetWork - rxJava, retrofit</h3>
+
+<p>현재까지 이해하기로, API를 통해 Data를 받고자 할 때 비동기로 처리하기 위한 방법으로 rxJava를 사용하고 있으며 위 프로젝트에서는 API 데이터가 많지 않아 단순히 Single로 발행하고 있다. (Observable로 구성하여 rxBus를 만들수 있어서 확장성 측면에서 Observable로 구성하는 것이 연습하는 목적에선 더 좋을것 같긴한데, 우선 하나 프로젝트를 끝내고 싶은 마음에 시간 관계상 다음 프로젝트에서 할 예정이다.)</p>
+
+<p>API통신 방법은 volley보단 retrofit이 표준인 것 같다.</p>
 
 
             </div>
