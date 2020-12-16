@@ -5,8 +5,8 @@
     <description>공간</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 08 Dec 2020 09:23:47 +0000</pubDate>
-    <lastBuildDate>Tue, 08 Dec 2020 09:23:47 +0000</lastBuildDate>
+    <pubDate>Wed, 16 Dec 2020 03:01:08 +0000</pubDate>
+    <lastBuildDate>Wed, 16 Dec 2020 03:01:08 +0000</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -131,9 +131,7 @@ foregroundService 로도 동작할 수 있다.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/project/android/final-architecture.png&quot; alt=&quot;final-architecture&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;mvvm&quot;&gt;MVVM&lt;/h3&gt;
-
-&lt;p&gt;디자인 아키텍쳐는 MVVM로 만들고자 했다.&lt;/p&gt;
+&lt;h3 id=&quot;디자인-아키텍쳐--mvvm&quot;&gt;디자인 아키텍쳐 : MVVM&lt;/h3&gt;
 
 &lt;h3 id=&quot;di---koin&quot;&gt;DI - Koin&lt;/h3&gt;
 
@@ -141,9 +139,27 @@ foregroundService 로도 동작할 수 있다.&lt;/p&gt;
 
 &lt;h3 id=&quot;network---rxjava-retrofit&quot;&gt;NetWork - rxJava, retrofit&lt;/h3&gt;
 
-&lt;p&gt;현재까지 이해하기로, API를 통해 Data를 받고자 할 때 비동기로 처리하기 위한 방법으로 rxJava를 사용하고 있으며 위 프로젝트에서는 API 데이터가 많지 않아 단순히 Single로 발행하고 있다. (Observable로 구성하여 rxBus를 만들수 있어서 확장성 측면에서 Observable로 구성하는 것이 연습하는 목적에선 더 좋을것 같긴한데, 우선 하나 프로젝트를 끝내고 싶은 마음에 시간 관계상 다음 프로젝트에서 할 예정이다.)&lt;/p&gt;
+&lt;p&gt;현재까지 이해하기로, API를 통해 Data를 받고자 할 때 비동기로 처리하기 위한 방법으로 rxJava를 사용하고 있으며 위 프로젝트에서는 API 데이터가 많지 않아 단순히 Single로 발행하고 있다.&lt;/p&gt;
+
+&lt;p&gt;조금 찾아보니 Observable로 구성하여 rxBus를 만들수 있어서 확장성 측면에서 Observable로 구성하는 것이 연습하는 목적에선 더 좋을것 같긴한데(물론 이것도 현재 잘못 이해하고 있는 것일수도..), 우선 하나 프로젝트를 끝내고 싶은 마음에 시간 관계상 다음 프로젝트에서 rxJava를 본격적으로 공부를 할 예정이다.&lt;/p&gt;
 
 &lt;p&gt;API통신 방법은 volley보단 retrofit이 표준인 것 같다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/project/android/android.jpg&quot; alt=&quot;android!&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;현재-작업중&quot;&gt;현재 작업중&lt;/h1&gt;
+
+&lt;h3 id=&quot;ui&quot;&gt;UI&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Statusbar와 Toolbar가 스크롤에 따라 투명도가 같이 변하는 함수 작업(이미지를 화면 전체로 채우기 위함)
+(현재까지 방법을 찾기로는 react native나 flutter는 편하게 하는것 같은데.. kotlin은 어려워 보인다. 아직 못찾은 것일수도)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;리스트 뷰를 동적으로 추가해주는 함수 작업&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 </description>
         <pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate>
