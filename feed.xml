@@ -5,8 +5,8 @@
     <description>공간</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 31 Dec 2020 10:12:55 +0000</pubDate>
-    <lastBuildDate>Thu, 31 Dec 2020 10:12:55 +0000</lastBuildDate>
+    <pubDate>Thu, 31 Dec 2020 13:01:18 +0000</pubDate>
+    <lastBuildDate>Thu, 31 Dec 2020 13:01:18 +0000</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -15,10 +15,11 @@
 
 &lt;p&gt; &lt;a href=&quot;https://developer.android.com/training/dependency-injection?hl=ko&quot;&gt;Android Devloper에서 설명하는 DI&lt;/a&gt;에서 설명이 잘 되어 있지만, 해당 예시에 Dagger를 적용해서 보여주진 않는다.&lt;/p&gt;
 
-&lt;p&gt; 그래서 여기서는 커피를 내리는 동작을 하는 예시 프로그램을 수동 종속 삽입(Without DI), 간단한 Injection을 작성하여 자동 종속 삽입(With DI), 그리고 Dagger를 이용하여 종속 삽입(With Dagger) 경우를 살펴보면서 DI의 필요성을, 그리고 편이성을 이해해 보고자 한다.&lt;/p&gt;
+&lt;p&gt; 그래서 여기서는 커피를 내리는 동작을 하는 예시 프로그램을 수동 종속 삽입(Without DI), 간단한 Injection을 작성하여 자동 종속 삽입(With DI), 그리고 Dagger를 이용하여 종속 삽입(With Dagger) 경우를 살펴보면서 DI의 필요성을, 그리고 편의성을 이해해 보고자 한다.&lt;/p&gt;
 
-&lt;h4 id=&quot;기본-동작&quot;&gt;기본 동작&lt;/h4&gt;
+&lt;h4 id=&quot;setting&quot;&gt;Setting&lt;/h4&gt;
 
+&lt;h5 id=&quot;coffeemaker-class&quot;&gt;CoffeeMaker class&lt;/h5&gt;
 &lt;p&gt;우선 Coffee를 내리도록 Maker를 셋팅하고, 동작을 구현해 보자.&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
@@ -55,6 +56,7 @@
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;h5 id=&quot;heater-pump-interface&quot;&gt;Heater, Pump interface&lt;/h5&gt;
 &lt;p&gt;해당 Maker에는 Heater와 Pump가 필요하다. 이때 이 둘은 어떤 종류가 오더라도 상관이 없다.&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
@@ -81,6 +83,7 @@
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;h5 id=&quot;a_heater-a_pump-class&quot;&gt;A_Heater, A_Pump class&lt;/h5&gt;
 &lt;p&gt;그리고 A 상품을 사용하려고 한다.&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
@@ -153,11 +156,13 @@
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;이제 동작을 시켜보자.&lt;/p&gt;
+&lt;h4 id=&quot;동작&quot;&gt;동작&lt;/h4&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;우선 직접 종속 항목을 삽입해 보자. : Without DI&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;이제 동작을 시켜보자&lt;/p&gt;
+
+&lt;h5 id=&quot;without-di&quot;&gt;Without DI&lt;/h5&gt;
+
+&lt;p&gt;우선 직접 종속 항목을 삽입해 보자.&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -175,11 +180,13 @@
 
 &lt;p&gt;Main Phase에서 우리는 Heter를 A Heater로 Pump를 A Pump셋팅을 해줘야하고, 커피를 셋팅해 주는 다음 커피를 내려주는 것을 알 수 있다.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;간단한 Injection을 만들어 자동 종속 항목 삽입을 해보자. : With DI&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h5 id=&quot;with-di&quot;&gt;With DI&lt;/h5&gt;
 
-&lt;p&gt;Injection를 만들자.&lt;/p&gt;
+&lt;p&gt;간단한 Injection을 만들어 자동 종속 항목 삽입을 해보자.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Injection Class&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -245,9 +252,9 @@
 
 &lt;p&gt;Main Phase에서 우리는 Heter와 Pump가 A인지, B인지 알 필요가 없다. 그것은 Injection에서 알아서 해준다.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;그렇다면 Dagger를 사용해보자.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h5 id=&quot;with-dagger&quot;&gt;With Dagger&lt;/h5&gt;
+
+&lt;p&gt;그렇다면 Dagger를 사용해보자.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://developer.android.com/training/dependency-injection/dagger-basics?hl=ko&quot;&gt;Android Devloper에서 설명하는 Dagger&lt;/a&gt;에서 Dagger에 필요한 annotation을 이해하도록 하자.&lt;/p&gt;
 
