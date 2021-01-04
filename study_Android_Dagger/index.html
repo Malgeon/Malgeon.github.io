@@ -557,10 +557,545 @@
 </pre></td><td class="rouge-code"><pre>CafeInfo is equal : true
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>여기서 추가로 CafeComponent에서 coffeeMaker는 고유한 인스턴스가 아니어도 되지만, Heater는 CoffeeMaker에서(!) 고유한 인터페이스로 만들 수도 있다.</p>
+<h4 id="subcomponent">SubComponent</h4>
 
-<h3 id="공부-중--아-진짜-러닝커브-높다">공부 중 … 아 진짜 러닝커브 높다..</h3>
-<p>이제 SubComponent와 CustomScope 그리고 Binds 정도가 남은건가…?</p>
+<p>여기서 추가로 CafeComponent에서 coffeeMaker는 고유한 인스턴스가 아니어도 되지만, Heater는 CoffeeMaker에서(!) 고유한 인터페이스로 만들고 싶다.
+그동안 공부한 Dagger를 살펴보면 CafeComponent라는 기준점으로 Singleton으로 관리할 수 있었다. 따라서 추가 기준점을 만들어야 한다. 
+그러기 위한 방법이 SubComponent이다.</p>
+
+<p>적용해 보자.</p>
+
+<h5 id="수정">수정</h5>
+
+<p>Component에서 subcompuonent를 구현하고, subcomponent는 Component와 연결된 module에서 설정한다.(encapsulate)
+이는 하나의 컴포넌트에서 서브컴포넌트를 다루도록 하게 해준다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="nd">@Singleton</span>
+<span class="nd">@Component</span><span class="o">(</span><span class="n">modules</span> <span class="o">=</span> <span class="o">{</span>
+        <span class="nc">CafeModule</span><span class="o">.</span><span class="na">class</span>
+<span class="o">})</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">CafeComponent</span> <span class="o">{</span>
+    <span class="nc">CafeInfo</span> <span class="nf">cafeInfo</span><span class="o">();</span>
+    <span class="c1">// coffeeMaker는 subcomponent에 의해 다뤄지므로 대체한다.</span>
+    <span class="c1">//Builder는 subcomponent에서 설명하겠다.</span>
+    <span class="nc">CoffeeComponent</span><span class="o">.</span><span class="na">Builder</span> <span class="nf">coffeeComponent</span><span class="o">();</span> 
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="nd">@Module</span><span class="o">(</span><span class="n">subcomponents</span> <span class="o">=</span> <span class="nc">CoffeeComponent</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CafeModule</span> <span class="o">{</span>
+    <span class="nd">@Singleton</span>
+    <span class="nd">@Provides</span>
+    <span class="nc">CafeInfo</span> <span class="nf">cafeInfo</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">CafeInfo</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h5 id="추가">추가</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nd">@Scope</span>
+<span class="nd">@Retention</span><span class="o">(</span><span class="nc">RetentionPolicy</span><span class="o">.</span><span class="na">RUNTIME</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nd">@interface</span> <span class="nc">CoffeeScope</span> <span class="o">{}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CoffeeBean</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">name</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"CoffeeBean"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>아래는 subcomponent.
+builder는 dagger의 component의 인터페이스를 구현하는 빌드 작업에 해당하는 인터페이스이다. @Component에서 별다른 작업이 없었던 것은 생략해도 위와 같은 동작을 자동으로 해주기 때문이다. 그러나 subcomponent에서는 생략할수가 없다.</p>
+
+<p>또한 builder를 작성하면 build 하기 전에 모듈을 파라미터로 넣을수가 있는 장점이 존재한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="nd">@CoffeeScope</span>
+<span class="nd">@Subcomponent</span><span class="o">(</span><span class="n">modules</span> <span class="o">=</span> <span class="o">{</span>
+        <span class="nc">CoffeeModule</span><span class="o">.</span><span class="na">class</span>
+<span class="o">})</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">CoffeeComponent</span> <span class="o">{</span>
+    <span class="nc">CoffeeMaker</span> <span class="nf">coffeeMaker</span><span class="o">();</span>
+    <span class="nc">CoffeeBean</span> <span class="nf">coffeeBean</span><span class="o">();</span>
+
+    <span class="nd">@Subcomponent</span><span class="o">.</span><span class="na">Builder</span>
+    <span class="kd">interface</span> <span class="nc">Builder</span><span class="o">{</span>
+        <span class="nc">CoffeeComponent</span> <span class="nf">build</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="rouge-code"><pre><span class="nd">@Module</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CoffeeModule</span> <span class="o">{</span>
+
+    <span class="nd">@CoffeeScope</span>
+    <span class="nd">@Provides</span>
+    <span class="nc">CoffeeMaker</span> <span class="nf">provideCoffeeMaker</span><span class="o">(</span><span class="nc">Heater</span> <span class="n">heater</span><span class="o">){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">CoffeeMaker</span><span class="o">(</span><span class="n">heater</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@CoffeeScope</span>
+    <span class="nd">@Provides</span>
+    <span class="nc">Heater</span> <span class="nf">provideHeater</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Heater</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Provides</span>
+    <span class="nc">CoffeeBean</span> <span class="nf">provideCoffeeBean</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">CoffeeBean</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h5 id="main-1">Main</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="nc">CafeComponent</span> <span class="n">cafeComponent</span> <span class="o">=</span> <span class="nc">DaggerCafeComponent</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+
+    <span class="nc">CoffeeComponent</span> <span class="n">coffeeComponent1</span> <span class="o">=</span> <span class="n">cafeComponent</span><span class="o">.</span><span class="na">coffeeComponent</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+    <span class="nc">CoffeeComponent</span> <span class="n">coffeeComponent2</span> <span class="o">=</span> <span class="n">cafeComponent</span><span class="o">.</span><span class="na">coffeeComponent</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+    <span class="nc">CoffeeMaker</span> <span class="n">coffeeMaker1</span> <span class="o">=</span> <span class="n">coffeeComponent1</span><span class="o">.</span><span class="na">coffeeMaker</span><span class="o">();</span>
+    <span class="nc">CoffeeMaker</span> <span class="n">coffeeMaker2</span> <span class="o">=</span> <span class="n">coffeeComponent1</span><span class="o">.</span><span class="na">coffeeMaker</span><span class="o">();</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"CoffeeScope / same component coffeeMaker is equal : "</span> <span class="o">+</span> <span class="n">coffeeMaker1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">coffeeMaker2</span><span class="o">));</span>
+    <span class="nc">CoffeeMaker</span> <span class="n">coffeeMaker3</span> <span class="o">=</span> <span class="n">coffeeComponent2</span><span class="o">.</span><span class="na">coffeeMaker</span><span class="o">();</span> <span class="c1">//MakerScopeMethod</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"CoffeeScope / different component coffeeMaker is equal : "</span> <span class="o">+</span> <span class="n">coffeeMaker1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">coffeeMaker3</span><span class="o">));</span>
+
+    <span class="c1">//Non-scope</span>
+    <span class="nc">CoffeeBean</span> <span class="n">coffeeBean1</span> <span class="o">=</span> <span class="n">coffeeComponent1</span><span class="o">.</span><span class="na">coffeeBean</span><span class="o">();</span>
+    <span class="nc">CoffeeBean</span> <span class="n">coffeeBean2</span> <span class="o">=</span> <span class="n">coffeeComponent1</span><span class="o">.</span><span class="na">coffeeBean</span><span class="o">();</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Non-scoped coffeebean is equal : "</span> <span class="o">+</span> <span class="n">coffeeBean1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">coffeeBean2</span><span class="o">));</span>
+
+    <span class="c1">//Encapsulate</span>
+        <span class="nc">CoffeeComponent</span> <span class="n">coffeeComponent</span> <span class="o">=</span> <span class="nc">DaggerCafeComponent</span><span class="o">.</span><span class="na">create</span><span class="o">().</span><span class="na">coffeeComponent</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+        <span class="n">coffeeComponent</span><span class="o">.</span><span class="na">coffeeMaker</span><span class="o">().</span><span class="na">brew</span><span class="o">(</span><span class="n">coffeeComponent</span><span class="o">.</span><span class="na">coffeeBean</span><span class="o">());</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>CoffeeScope / same component coffeeMaker is equal : true
+CoffeeScope / different component coffeeMaker is equal : false
+Non-scoped coffeebean is equal : false
+CoffeeBeen(dagger2example.CoffeeBean@4aa298b7) [_]P coffee! [_]P 
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="componentbuilder">component.builder</h4>
+
+<p>앞서 subcomponent에서는 builder가 필수라고 했었다. component에서는 생략을 해도 되나, 필요시 만들 수 있다.</p>
+
+<p>builder를 만들 경우 동작하기 위해 create()가 아닌 build()를 사용하며, build하기 전에 파라미터를 사용할 수 있다.</p>
+
+<p>여기선 모듈에 멤버변수를 만들고 이를 사용하기 위해 builder를 사용해 보겠다.</p>
+
+<p>모듈의 멤버변수를 사용하기 위해선 member-injection method을 사용할 수 없다. 당연하게도 컴포넌트 안에서 모듈을 가지고 있는 provision method에 반해 member-injection method는 모듈을 가지고 있지 않기 때문이다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="nd">@Module</span><span class="o">(</span><span class="n">subcomponents</span> <span class="o">=</span> <span class="nc">CoffeeComponent</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CafeModule</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">CafeModule</span><span class="o">(){</span> <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">CafeModule</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Singleton</span>
+    <span class="nd">@Provides</span>
+    <span class="nc">CafeInfo</span> <span class="nf">cafeInfo</span><span class="o">(){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">name</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">name</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="k">return</span> <span class="k">new</span> <span class="nc">CafeInfo</span><span class="o">();</span>
+        <span class="k">else</span> <span class="k">return</span> <span class="k">new</span> <span class="nf">CafeInfo</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="nd">@Singleton</span>
+<span class="nd">@Component</span><span class="o">(</span><span class="n">modules</span> <span class="o">=</span> <span class="o">{</span>
+        <span class="nc">CafeModule</span><span class="o">.</span><span class="na">class</span>
+<span class="o">})</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">CafeComponent</span> <span class="o">{</span>
+
+    <span class="nc">CafeInfo</span> <span class="nf">cafeInfo</span><span class="o">();</span>
+    <span class="nc">CoffeeComponent</span><span class="o">.</span><span class="na">Builder</span> <span class="nf">coffeeComponent</span><span class="o">();</span>
+
+    <span class="nd">@Component</span><span class="o">.</span><span class="na">Builder</span>
+    <span class="kd">interface</span> <span class="nc">Builder</span><span class="o">{</span>
+        <span class="nc">Builder</span> <span class="nf">cafeModule</span><span class="o">(</span><span class="nc">CafeModule</span> <span class="n">cafeModule</span><span class="o">);</span>
+        <span class="nc">CafeComponent</span> <span class="nf">build</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kt">void</span> <span class="nf">inject</span><span class="o">(</span><span class="nc">CafeInfo</span> <span class="n">cafeInfo</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="nc">CafeInfo</span> <span class="n">cafeInfo</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CafeInfo</span><span class="o">();</span>
+
+    <span class="nc">CafeComponent</span> <span class="n">cafeComponent</span> <span class="o">=</span> <span class="nc">DaggerCafeComponent</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">cafeModule</span><span class="o">(</span><span class="k">new</span> <span class="nc">CafeModule</span><span class="o">(</span><span class="s">"example cafe"</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+    <span class="n">cafeComponent</span><span class="o">.</span><span class="na">inject</span><span class="o">(</span><span class="n">cafeInfo</span><span class="o">);</span>
+    <span class="n">cafeInfo</span><span class="o">.</span><span class="na">welcome</span><span class="o">();</span>
+
+    <span class="nc">CafeComponent</span> <span class="n">cafeComponent2</span> <span class="o">=</span> <span class="nc">DaggerCafeComponent</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">cafeModule</span><span class="o">(</span><span class="k">new</span> <span class="nc">CafeModule</span><span class="o">(</span><span class="s">"example cafe"</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+    <span class="n">cafeComponent2</span><span class="o">.</span><span class="na">cafeInfo</span><span class="o">().</span><span class="na">welcome</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>null
+example cafe
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="multibinding---binds">MultiBinding - @Binds</h4>
+
+<p>Module에서 provide할때 같은 타입이지만 다른 객체를 반환하는 경우가 있다.
+(이 프로그램에서는 CoffeeBean에 에디오피아콩과, 과테말라콩 등등 을 넣어 볼 예정이다.)</p>
+
+<p>이럴때 @Binds를 사용한다. 물론 @Provides와 함께 @Named 으로 관리를 할 수 있다. 그러나 <a href="https://medium.com/mobile-app-development-publication/dagger-2-binds-vs-provides-cbf3c10511b5">Binds보다 비효율적이다.</a>라고 이해하면 된다.</p>
+
+<p>이런 장점에도 굳이 @Named가 있는 이유는 @Binds를 사용하려면 아래와 같은 제약조건이 따르기 때문이다.</p>
+
+<ul>
+  <li>오직 1개의 파라미터를 가지고 있어야 한다.</li>
+  <li>abstract 함수로 호출해야 한다.</li>
+  <li>해당 항목은 Injectable해야 한다.</li>
+  <li>해당 항목이 provide되어도 할수는 있다.</li>
+</ul>
+
+<p>그래서 Binds를 적용해 보고자 한다. <a href="https://black-jin0427.tistory.com/244">(@Named는 여기서 참고하자.)</a></p>
+
+<h5 id="우선-injectable항목">우선 Injectable항목!</h5>
+
+<p>bind를 하기위한 모듈이 필요하며 이것도 abstract 여야 한다. 또한 같은 타입이지만 다른 객체인 항목을 구분해주기 위해 Map을 이용해 주며, Key값을 설정해야 한다. 여기선 @StringKey을 이용해 String으로 구분해 주려고 한다. (@MapKey로 커스텀 설정이 가능하다.)</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="nd">@Module</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">CoffeeBeanModule</span> <span class="o">{</span>
+    <span class="nd">@Binds</span>
+    <span class="nd">@IntoMap</span>
+    <span class="nd">@StringKey</span><span class="o">(</span><span class="s">"guatemala"</span><span class="o">)</span>
+    <span class="kd">abstract</span> <span class="nc">CoffeeBean</span> <span class="nf">provideGuatemalaBean</span><span class="o">(</span><span class="nc">GuatemalaBean</span> <span class="n">guatemalaBean</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이 모듈은 주입을 하는 component 즉, CoffeeComponent와 연결된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="nd">@CoffeeScope</span>
+<span class="nd">@Subcomponent</span><span class="o">(</span><span class="n">modules</span> <span class="o">=</span> <span class="o">{</span>
+        <span class="nc">CoffeeModule</span><span class="o">.</span><span class="na">class</span>
+        <span class="o">,</span><span class="nc">CoffeeBeanModule</span><span class="o">.</span><span class="na">class</span>
+<span class="o">})</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">CoffeeComponent</span> <span class="o">{</span>
+    <span class="nc">CoffeeMaker</span> <span class="nf">coffeeMaker</span><span class="o">();</span>
+    <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span><span class="nc">CoffeeBean</span><span class="o">&gt;</span> <span class="nf">coffeeBeanMap</span><span class="o">();</span>
+
+    <span class="nd">@Subcomponent</span><span class="o">.</span><span class="na">Builder</span>
+    <span class="kd">interface</span> <span class="nc">Builder</span><span class="o">{</span>
+        <span class="c1">//Builder coffeeModule(CoffeeModule coffeeModule);</span>
+        <span class="nc">CoffeeComponent</span> <span class="nf">build</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이제 이용해 보자!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="nc">CoffeeComponent</span> <span class="n">coffeeComponent</span> <span class="o">=</span> <span class="nc">DaggerCafeComponent</span><span class="o">.</span><span class="na">create</span><span class="o">().</span><span class="na">coffeeComponent</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+    <span class="n">coffeeComponent</span><span class="o">.</span><span class="na">coffeeBeanMap</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"guatemala"</span><span class="o">).</span><span class="na">name</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>GuatemalaBean
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h5 id="provide된-항목">provide된 항목</h5>
+
+<p>provide된 항목이라고 간단하게 말했지만, 풀어보자면 다음과 같다.</p>
+
+<p>Component 인터페이스에 CoffeeBean을 @binds로 구성된 abstract 함수로 provide해준다.
+이는 다른 모듈에서 provide된 항목으로 주입 할수 있다.
+이 항목은 다시 mapkey를 이용한 항목에도 들어갈 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="nd">@CoffeeScope</span>
+<span class="nd">@Subcomponent</span><span class="o">(</span><span class="n">modules</span> <span class="o">=</span> <span class="o">{</span>
+        <span class="nc">CoffeeModule</span><span class="o">.</span><span class="na">class</span>
+        <span class="o">,</span><span class="nc">CoffeeBeanModule</span><span class="o">.</span><span class="na">class</span>
+<span class="o">})</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">CoffeeComponent</span> <span class="o">{</span>
+    <span class="nc">CoffeeMaker</span> <span class="nf">coffeeMaker</span><span class="o">();</span>
+    <span class="nc">CoffeeBean</span> <span class="nf">coffeeBean</span><span class="o">();</span>
+
+    <span class="nd">@Subcomponent</span><span class="o">.</span><span class="na">Builder</span>
+    <span class="kd">interface</span> <span class="nc">Builder</span><span class="o">{</span>
+        <span class="c1">//Builder coffeeModule(CoffeeModule coffeeModule);</span>
+        <span class="nc">CoffeeComponent</span> <span class="nf">build</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="nd">@Module</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">CoffeeBeanModule</span> <span class="o">{</span>
+    <span class="nd">@Binds</span>
+    <span class="kd">abstract</span> <span class="nc">CoffeeBean</span> <span class="nf">provideCoffeeBean</span><span class="o">(</span><span class="nc">EthiopiaBean</span> <span class="n">ethiopiaBean</span><span class="o">);</span>
+
+    <span class="nd">@Binds</span>
+    <span class="nd">@IntoMap</span>
+    <span class="nd">@StringKey</span><span class="o">(</span><span class="s">"ethiopia"</span><span class="o">)</span>
+    <span class="kd">abstract</span> <span class="nc">CoffeeBean</span> <span class="nf">provideEthiopiaBean</span><span class="o">(</span><span class="nc">EthiopiaBean</span> <span class="n">ethiopiaBean</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="rouge-code"><pre><span class="nd">@Module</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CoffeeModule</span> <span class="o">{</span>
+
+    <span class="nd">@CoffeeScope</span>
+    <span class="nd">@Provides</span>
+    <span class="nc">CoffeeMaker</span> <span class="nf">provideCoffeeMaker</span><span class="o">(</span><span class="nc">Heater</span> <span class="n">heater</span><span class="o">){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">CoffeeMaker</span><span class="o">(</span><span class="n">heater</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@CoffeeScope</span>
+    <span class="nd">@Provides</span>
+    <span class="nc">Heater</span> <span class="nf">provideHeater</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Heater</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Provides</span>
+    <span class="nc">EthiopiaBean</span> <span class="nf">provideEthiopiaBean</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">EthiopiaBean</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="nc">CoffeeComponent</span> <span class="n">coffeeComponent</span> <span class="o">=</span> <span class="nc">DaggerCafeComponent</span><span class="o">.</span><span class="na">create</span><span class="o">().</span><span class="na">coffeeComponent</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+    <span class="n">coffeeComponent</span><span class="o">.</span><span class="na">coffeeBean</span><span class="o">().</span><span class="na">name</span><span class="o">();</span>
+    <span class="n">coffeeComponent</span><span class="o">.</span><span class="na">coffeeBeanMap</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"ethiopia"</span><span class="o">).</span><span class="na">name</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>EthiopiaBean
+EthiopiaBean
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>방법이 있다 정도로 이해해 두면 좋을 것 같다.</p>
+
+<h3 id="결론">결론</h3>
+
+<p>이 정도면 dagger를 이해하고 다루기엔 부족함이 없을 것이다.</p>
 
 <p><a href="https://cmcmcmcm.blog/2017/08/02/didependency-injection-%ec%99%80-dagger2-2/">위 글은 이 포스트에서 참고하였습니다.</a></p>
 
