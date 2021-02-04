@@ -5,8 +5,8 @@
     <description>공간</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 09 Jan 2021 12:46:52 +0000</pubDate>
-    <lastBuildDate>Sat, 09 Jan 2021 12:46:52 +0000</lastBuildDate>
+    <pubDate>Thu, 04 Feb 2021 00:23:56 +0000</pubDate>
+    <lastBuildDate>Thu, 04 Feb 2021 00:23:56 +0000</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -2598,28 +2598,44 @@ foregroundService 로도 동작할 수 있다.&lt;/p&gt;
 &lt;h1 id=&quot;현재-작업중&quot;&gt;현재 작업중&lt;/h1&gt;
 
 &lt;h3 id=&quot;mvvm-디자인-패턴에-맞게-다시-구축&quot;&gt;MVVM 디자인 패턴에 맞게 다시 구축&lt;/h3&gt;
-
 &lt;p&gt;MVVM이 아니었다…!!!&lt;/p&gt;
 
-&lt;h3 id=&quot;ui&quot;&gt;UI&lt;/h3&gt;
+&lt;p&gt;MVVM의 ViewModel 기능에 맞도록 databinding과 viewbinding을 적용하자.&lt;/p&gt;
 
+&lt;h3 id=&quot;livedata-활용도&quot;&gt;LiveData 활용도&lt;/h3&gt;
+&lt;p&gt;(MVVM의 dataBinding과 연결되어) 단순히 API의 response값만 받는 형태가 아닌, 프래그먼트 primary Key 처리 등
+활용도를 높이자.&lt;/p&gt;
+
+&lt;p&gt;MediatorLiveData의 메커니즘을 이해하여 사용하자.&lt;/p&gt;
+
+&lt;h3 id=&quot;livecycle에-대한-이해&quot;&gt;Livecycle에 대한 이해&lt;/h3&gt;
+&lt;p&gt;특정 시점에서 fragment lifecycle이 destroy되지 않는 현상에 대한 대안으로 viewLifecycleOwner를 사용하며, background에서 observing을 필요로 하는 작업에 대하여 observeForever을 사용하는 등 여러 작업을 통해 lifecycle을 이해하며 사용하도록 하자.&lt;/p&gt;
+
+&lt;h3 id=&quot;ui&quot;&gt;UI&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Statusbar와 Toolbar가 스크롤에 따라 투명도가 같이 변하는 함수 작업(이미지를 화면 전체로 채우기 위함)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;추가-작업-예정-목록&quot;&gt;추가 작업 예정 목록&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;ui-1&quot;&gt;UI&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;리스트 뷰를 동적으로 추가해주는 함수 작업&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;리팩토링&quot;&gt;리팩토링&lt;/h1&gt;
+&lt;h1 id=&quot;리팩토링-관련-자료&quot;&gt;리팩토링 관련 자료&lt;/h1&gt;
 
 &lt;h3 id=&quot;linearlayout---constraintlayout&quot;&gt;LinearLayout -&amp;gt; ConstraintLayout&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://academy.realm.io/kr/posts/constraintlayout-it-can-do-what-now/&quot;&gt;ConstraintLatout&lt;/a&gt;에 대한 글.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://academy.realm.io/kr/posts/constraintlayout-it-can-do-what-now/&quot;&gt;ConstraintLatout&lt;/a&gt;에 관한 글.&lt;/p&gt;
+
+&lt;h3 id=&quot;listadapter&quot;&gt;ListAdapter&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://zion830.tistory.com/86&quot;&gt;ListAdapter&lt;/a&gt;에 관한 글.&lt;/p&gt;
+
+&lt;h3 id=&quot;lifecycle&quot;&gt;Lifecycle&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://pluu.github.io/blog/android/2020/01/25/android-fragment-lifecycle/&quot;&gt;Lifecycle&lt;/a&gt;에 관한 글.
+&lt;a href=&quot;https://uchun.dev/caution-when-using-a-fragment-viewLifecycleOwner/&quot;&gt;ViewLifecycleOwner&lt;/a&gt;에 관한 글.&lt;/p&gt;
+
+&lt;h3 id=&quot;livedata&quot;&gt;LiveData&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://hckim999.tistory.com/26&quot;&gt;LiveData&lt;/a&gt;에 관한 글.&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate>
