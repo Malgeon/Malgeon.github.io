@@ -5,15 +5,162 @@
     <description>공간</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 19 Feb 2021 03:56:42 +0000</pubDate>
-    <lastBuildDate>Fri, 19 Feb 2021 03:56:42 +0000</lastBuildDate>
+    <pubDate>Sun, 21 Feb 2021 12:46:29 +0000</pubDate>
+    <lastBuildDate>Sun, 21 Feb 2021 12:46:29 +0000</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>Kotlin - Lambda</title>
+        <description>&lt;h3 id=&quot;개요&quot;&gt;개요&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;let, with, apply, run&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;코틀린을 접하면 공부해야 하는 확장함수이다. 
+신입 개발자 면접에서도 각각의 함수를 구분 하는지 알아보는 질문으로 나올만큼 기본적이면서도 중요하다고 할수 있다.&lt;/p&gt;
+
+&lt;p&gt;공부하는 방법으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;어떤 개념에 대해 달달 외우는 것은 도움이 되지 않는다.&lt;/code&gt; 라고 생각하지만, 회사에 취직을 하고 싶으니 어쩌겠나 달달 외울 수밖에.&lt;/p&gt;
+
+&lt;p&gt;막상 인터뷰 당시 떨려서 잘 대답하지도 못했지만(..) (그래서 달달 외우는건 싫다.)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;center&gt;이제는 달달 외우는 것에서 벗어나보자.&lt;/center&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그렇지만 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;let, with, apply, run&lt;/code&gt;들에 대해 알고자 하는 포스팅은 아니며, 해당 확장함수를 구성하고 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;람다&lt;/code&gt;에 대해 알아보고자 한다.&lt;/p&gt;
+
+&lt;p&gt;그러면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;let, with, apply, run&lt;/code&gt;를 이해하고 적용하는데 더욱 수월할 것이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;preview&quot;&gt;Preview&lt;/h3&gt;
+
+&lt;p&gt;사실 람다식에 대해 궁금하게 된 계기는 옵저버 패턴을 다뤘던 이전 포스팅에서 liveData를 최대한 비슷하게 구현해보고자 했던 시도 중 발생한 이슈에서 출발한다. (확장 함수를 구성하고 있는 람다를 이해해서 확장함수를 이해하고 싶어서 출발한 것은 아니다!?)&lt;/p&gt;
+
+&lt;p&gt;해당 이슈는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;interface의 기능을 유지하면서 람다식을 적용하기 위한 방법&lt;/code&gt;에 대한 것인데, 이전 포스팅에서는 적용하지 않고 익명 객체로 처리를 했지만 더욱 깔끔한 코딩을 위해 람다식을 적용하고자 한다면 아래와 같은 2가지 해결방안이 존재한다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;해당 interface를 java로 만든다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyObserver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;news&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Kotlin의 버전이 1.4 이상인 버전에 한해서 interface 앞에 fun 키워드를 붙여준다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyObserver&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;news&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 포스팅은 여기서 부터 출발 한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;functional-interface---lambda-expression&quot;&gt;Functional Interface - Lambda Expression&lt;/h3&gt;
+
+</description>
+        <pubDate>Sun, 21 Feb 2021 00:00:00 +0000</pubDate>
+        <link>/study_kotlin_Lambda/</link>
+        <guid isPermaLink="true">/study_kotlin_Lambda/</guid>
+        
+        <category>android</category>
+        
+        
+        <category>study</category>
+        
+      </item>
     
       <item>
         <title>Design Pattern - Observer Pattern 2</title>
         <description>&lt;h3 id=&quot;개요&quot;&gt;개요&lt;/h3&gt;
 
 &lt;p&gt;이번엔 MediatorLiveData를 사용하여 Api response를 목적에 맞게 처리하는 모습을 설계해보자.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NetworkBoundResource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ResultType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RequestType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@MainThread&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;appExecutors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppExecutors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MediatorLiveData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Resource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ResultType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&amp;gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;nf&quot;&gt;init&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Resource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;loading&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nd&quot;&gt;@Suppress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;LeakingThis&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;dbSource&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loadFromDb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Room에서 data를 가지고 오는 함수(return값: LiveData)&lt;/span&gt;
+        &lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;        궁금한점 1. Room에서 Data를 LiveData로 가지고 올 시 Room 에서 쿼리를 해야 하는 동작을 하므로 &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;        loadFromDb()의 함수의 실행 뒤에 result.addSource(dbSource)를 하더라도 &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;        타이밍 상 dbSource는 liveData 자체의 초기값 -&amp;gt; 쿼리 data를 옵져빙이 가능하다는 것인가요?&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;        */&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dbSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;removeSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dbSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shouldFetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nf&quot;&gt;fetchFromNetwork&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dbSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dbSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newData&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nf&quot;&gt;setValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Resource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+                &lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;                궁금한점 2. 여기서 init이 끝나게 되는데, 그렇다면 이 addSource 한번 dbSource를 통해 newData를 받고 나면 &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;                init이 끝나고 익명객체를 통해 동작되었기 때문에 해당 객체가 소멸됨과 동시에 result는 자동으로 해제가 되는 것인가요?&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;                */&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;        궁금한점 . dbSource를 계속 가지고 와서 옵저빙 하는 이유가 가장 최근값을 빠르게 디스패치 하도록 함인데, 그래야 하는 이유를 모르겠습니다.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;        가설&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;        dbSource인 liveData는 Dao의 쿼리 함수인데, 이는 Room의 Db를 옵저빙 하는 것이다. 따라서 앱의 다른 동작에서 db를 변경할 시 연동이 되어 값이 또 날라오는데&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;        가장 최근값을 디스패치한다는 이유는 그 이유이다.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;        이게 사실이라면, Room의 함수를 liveData로 관리해 놓으면 Db자체가 바뀔때마다 해당 함수들이 연동되어 동작한다는 것을 염두하고 설계를 해야한다.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;        물론 이 기능은 매우 좋은 기능이다. 라고 생각되는데 맞나요..?&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;    */&lt;/span&gt;
+
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Fri, 19 Feb 2021 00:00:00 +0000</pubDate>
         <link>/study_android_Observer_Pattern_2/</link>
@@ -488,11 +635,7 @@ Publisher를 구현한 NewsMachine 클래스는 정보를 제공하는 Publisher
 7
 8
 9
-10
-11
 &lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NewsMachine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;news&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Unit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyObserver&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// val writeProperty = MyObserver { title, news -&amp;gt; update.invoke(title, news) }  &lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 위의 방법이 왜 컴파일에러인지는 공부 중이다.&lt;/span&gt;
     &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;wrappedObserver&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;MyObserver&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;news&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
             &lt;span class=&quot;n&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;invoke&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;news&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -552,9 +695,9 @@ Publisher를 구현한 NewsMachine 클래스는 정보를 제공하는 Publisher
 &lt;p&gt;이렇게 안드로이드에서 Observer Pattern인 LiveData를 보았다.
 이를 통해 LiveData안에서 구독자를 관리하고 있으며, 이 구독자는 익명객체를 동해서 집어 넣더라도 미리 설정한 기능을 수행할수 있다는 것을 알게된다.&lt;/p&gt;
 
-&lt;p&gt;안드로이드에선 적용 중인 Observer Pattern은 단순히 view를 업데이트 시키는데에 국한되어 있지 않는데, API를 통해 받은 model을 처리하는 과정에도 적용이 된다.&lt;/p&gt;
+&lt;p&gt;안드로이드에 적용 중인 Observer Pattern은 단순히 view를 업데이트 시키는데에 국한되어 있지 않는데, API를 통해 받은 model을 처리하는 과정에도 적용이 된다.&lt;/p&gt;
 
-&lt;p&gt;이때 Response API를 처리할때 View에서 loading progress을 적용 여부, response 상태 판단, result값의 빈 값여부 등등 매끄러운 view를 위한 처리가 설계되어 있는데 이 과정에서 Observer Pattern이 유용하게 사용된다.&lt;/p&gt;
+&lt;p&gt;Response API를 처리할때 View에서 loading progress을 적용 여부, response 상태 판단, result값의 빈 값여부 등등 매끄러운 view를 위한 처리가 설계되어 있는데 이 과정에서 Observer Pattern이 유용하게 사용된다.&lt;/p&gt;
 
 &lt;p&gt;다음 포스팅을 통해 자세히 살펴보자.&lt;/p&gt;
 </description>
@@ -3075,54 +3218,6 @@ foregroundService 로도 동작할 수 있다.&lt;/p&gt;
         <pubDate>Thu, 26 Nov 2020 00:00:00 +0000</pubDate>
         <link>/study_Android_background_manage_-API/</link>
         <guid isPermaLink="true">/study_Android_background_manage_-API/</guid>
-        
-        <category>android</category>
-        
-        
-        <category>study</category>
-        
-      </item>
-    
-      <item>
-        <title>Android Service</title>
-        <description>&lt;p&gt;** 201126 기준 공부 지식을 가지고 작성하는 노트
-** 생존코딩 될 때까지 안드로이드 강의 참고&lt;/p&gt;
-
-&lt;h3 id=&quot;안드로이드에서-서비스가-필요한-경우&quot;&gt;안드로이드에서 서비스가 필요한 경우&lt;/h3&gt;
-
-&lt;p&gt;비동기 작업을 위해 스레드를 동작한 뒤 스레드 내의 동작하고 있는 값을 다루고자 하지만 해당 앱을 종료한 이후 재시작하게 될 경우에는 해당 액티비티에서 스레드 정보는 지워졌기 때문에 접근 할 수가 없다. 이때, 서비스는 접근이 가능하다.&lt;/p&gt;
-
-&lt;p&gt;위와 같은 목적을 가진 앱을 구현하기 위해선 서비스가 필요하다.
-앱 설치 진행시작 후 해당 화면 나가더라도 앱 설치가 계속해서 진행하는 것이나, 음악 앱에서 앱을 나가더라도 음악이 여전히 재생되는 것을 예로 들수 있다.&lt;/p&gt;
-
-&lt;h3 id=&quot;service&quot;&gt;Service&lt;/h3&gt;
-&lt;p&gt;동작을 하는 백그라운드 스레드를 구현 해야 하며, 스레드를 서비스 destory하게 될 때 null 값이 되므로 서비스를 통해 스레드 동작을 진행하게 되면 한번만 가능하게 된다. 또한 해당 서비스를 destroy하지 않으면 여전히 스레드는 남아있게 된다.&lt;/p&gt;
-
-&lt;h3 id=&quot;intentservice---jobintentservice&quot;&gt;IntentService -&amp;gt; JobIntentService&lt;/h3&gt;
-&lt;p&gt;백그라운드 스레드가 필요없이 스레드와 동일한 동작을 할수 있으며, 해당 동작은 순차적으로 진행이 된다. 그리고 별다른 구문 없이 destory가 된다.&lt;/p&gt;
-
-&lt;p&gt;IntentService는 API 30 에서 deprecated 되었다. 대신 JobIntentService를 사용해야 한다.&lt;/p&gt;
-
-&lt;p&gt;비슷한 동작을 하나 제한시간이 존재하며(10분), 권한부여가 필수이다.&lt;/p&gt;
-
-&lt;h3 id=&quot;foregroundservice&quot;&gt;ForegroundService&lt;/h3&gt;
-&lt;p&gt;서비스를 동작을 시켜놓았지만, 다른 앱과의 메모리 충돌과 같은 여러 이슈로 안드로이드에서 해당 서비스를 Kill 할수 있다. 이때 ForGroundService를 사용하면 절대로 종료가 되지 않는다.&lt;/p&gt;
-
-&lt;p&gt;위와 같은 강력한 동작 때문에, 이 서비스를 사용하려면 제약이 존재한다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;ForegroundService가 동작하고 있음을 알려야 한다.(알림 아이디를 0이 아닌 값으로 설정)&lt;/li&gt;
-  &lt;li&gt;StartForeground 메서드를 서비스 내부에서 별도로 실행한다. foreground로 승격을 시켜야 한다. 즉 Service에서 ForegroundSerivce를 Start를 해야 한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;bindservice&quot;&gt;BindService&lt;/h3&gt;
-&lt;p&gt;다른 컴포넌트가 서비스 컴포넌트와 연결 고리를 만든다.&lt;/p&gt;
-
-&lt;p&gt;예를들어 음악앱과 같은 경우 서비스 단에서 음악을 실행하면 실행과 동시에 앱의 액티비티에서도 실행하고 있는 화면으로 변경되는 동작이 가능하도록 해준다.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 26 Nov 2020 00:00:00 +0000</pubDate>
-        <link>/study_Android_Service/</link>
-        <guid isPermaLink="true">/study_Android_Service/</guid>
         
         <category>android</category>
         
