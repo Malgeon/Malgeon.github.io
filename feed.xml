@@ -5,9 +5,34 @@
     <description>공간</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 22 Feb 2021 12:11:41 +0000</pubDate>
-    <lastBuildDate>Mon, 22 Feb 2021 12:11:41 +0000</lastBuildDate>
+    <pubDate>Fri, 26 Mar 2021 08:18:58 +0000</pubDate>
+    <lastBuildDate>Fri, 26 Mar 2021 08:18:58 +0000</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>Useful Photo Album</title>
+        <description>&lt;h1 id=&quot;기술-spec&quot;&gt;기술 SPEC&lt;/h1&gt;
+
+&lt;h3 id=&quot;dagger-hilt&quot;&gt;Dagger-Hilt&lt;/h3&gt;
+&lt;p&gt;DI는 Dagger-Hilt를 이용하였습니다.
+Dagger-Hilt는 Dagger2에서 Koin과 비교해 높은 러닝 커브를 충분히 보완하였음을 확인하였습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;acc---viewmodel-databinding&quot;&gt;ACC - ViewModel, DataBinding&lt;/h3&gt;
+
+&lt;h3 id=&quot;flow---coroutine&quot;&gt;Flow - Coroutine&lt;/h3&gt;
+
+&lt;h3 id=&quot;paging&quot;&gt;Paging&lt;/h3&gt;
+</description>
+        <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+        <link>/android_app_useful_photo_album/</link>
+        <guid isPermaLink="true">/android_app_useful_photo_album/</guid>
+        
+        <category>android</category>
+        
+        
+        <category>project</category>
+        
+      </item>
     
       <item>
         <title>Functional Interface - Lambda</title>
@@ -128,29 +153,6 @@ unctional Interface는 (Object 클래스의 메소드를 제외하고) 단 하�
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;그렇게 되면 코드가 더욱 깔끔해진다.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h3 id=&quot;개요-1&quot;&gt;개요&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;let, with, apply, run&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;코틀린을 접하면 공부해야 하는 확장함수이다. 
-신입 개발자 면접에서도 각각의 함수를 구분 하는지 알아보는 질문으로 나올만큼 기본적이면서도 중요하다고 할수 있다.&lt;/p&gt;
-
-&lt;p&gt;공부하는 방법으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;어떤 개념에 대해 달달 외우는 것은 도움이 되지 않는다.&lt;/code&gt; 라고 생각하지만, 회사에 취직을 하고 싶으니 어쩌겠나 달달 외울 수밖에.&lt;/p&gt;
-
-&lt;p&gt;막상 인터뷰 당시 떨려서 잘 대답하지도 못했지만(..) (그래서 달달 외우는건 싫다.)&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;center&gt;이제는 달달 외우는 것에서 벗어나보자.&lt;/center&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;그렇지만 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;let, with, apply, run&lt;/code&gt;들에 대해 알고자 하는 포스팅은 아니며, 해당 확장함수를 구성하고 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;람다&lt;/code&gt;에 대해 알아보고자 한다.&lt;/p&gt;
-
-&lt;p&gt;그러면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;let, with, apply, run&lt;/code&gt;를 이해하고 적용하는데 더욱 수월할 것이다.&lt;/p&gt;
-
-&lt;h2&gt;&lt;br /&gt;&lt;/h2&gt;
 
 </description>
         <pubDate>Sun, 21 Feb 2021 00:00:00 +0000</pubDate>
@@ -3249,68 +3251,6 @@ EthiopiaBean
         <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
         <link>/study_Android_gradle/</link>
         <guid isPermaLink="true">/study_Android_gradle/</guid>
-        
-        <category>android</category>
-        
-        
-        <category>study</category>
-        
-      </item>
-    
-      <item>
-        <title>Android 백그라운드 처리 방법</title>
-        <description>&lt;h3 id=&quot;service&quot;&gt;Service&lt;/h3&gt;
-&lt;p&gt;기본적으로 UI 스레드에서 동작하기 때문에 앱의 느려짐을 방지하기 위해 별도로 처리가 필요하다.
-다른 컴포넌트와 bind를 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;그래서 정말로 Service가 필요한 경우가(예를들어 음악 재생 앱이나 앱 스토어 같이 Service bind가 필요한 경우) 아니면 대체로 안쓰는 것이 좋다.&lt;/p&gt;
-
-&lt;h3 id=&quot;jobintentservice&quot;&gt;JobIntentService&lt;/h3&gt;
-&lt;p&gt;작업이 순차적으로 수행되며, 10분의 제한시간이 존재한다. 권한 부여가 필수&lt;/p&gt;
-
-&lt;h3 id=&quot;workmanager&quot;&gt;WorkManager&lt;/h3&gt;
-&lt;p&gt;대부분의 서비스로 할수 있는것을 대체 가능하며, 오래 걸리는 작업을 Worker로 구현한다.
-한 번만 수행과 반복 수행 등의 동작이 가능하며, 네트워크오 배터리 상태 등으로 트리거가 가능하다.
-foregroundService 로도 동작할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/study/android/backgroundmanage.JPG&quot; alt=&quot;background&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;immediate&quot;&gt;Immediate&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;코틀린 코루틴&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;자바 ExecutorService
-(Asynk가 안되므로)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;WorkManager
-약간의 Delay가 있어도 된다면 그냥 WorkManager를 사용하면 된다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;exact&quot;&gt;Exact&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;AlarmManager&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;WorkManager&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;deferred&quot;&gt;Deferred&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;WorkManager&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Thu, 26 Nov 2020 00:00:00 +0000</pubDate>
-        <link>/study_Android_background_manage_-API/</link>
-        <guid isPermaLink="true">/study_Android_background_manage_-API/</guid>
         
         <category>android</category>
         
