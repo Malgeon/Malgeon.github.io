@@ -503,7 +503,7 @@ var documents = [{
     "id": 100,
     "url": "/android_app_useful_photo_album/",
     "title": "Useful Photo Album",
-    "body": "2021/03/26 - 기술 SPECDagger-Hilt: DI는 Dagger-Hilt를 이용하였습니다. Dagger-Hilt는 Dagger2에서 Koin과 비교해 높은 러닝 커브를 충분히 보완하였음을 확인하였습니다. ACC - ViewModel, DataBinding: Flow - Coroutine: Paging: "
+    "body": "2021/03/26 - 개발 이슈 loading response 구현 배너 및 feature page 구현을 위한 작업(DB + RecyclerView) Design기술 SPECDagger-Hilt: DI는 Dagger-Hilt를 이용하였습니다. Dagger-Hilt는 Dagger2에서 Koin과 비교해 높은 러닝 커브를 충분히 보완하였음을 확인하였습니다. ACC - ViewModel, DataBinding: Flow - Coroutine: Paging: "
     }, {
     "id": 101,
     "url": "/study_kotlin_Lambda/",

@@ -5,13 +5,21 @@
     <description>공간</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 26 Mar 2021 08:18:58 +0000</pubDate>
-    <lastBuildDate>Fri, 26 Mar 2021 08:18:58 +0000</lastBuildDate>
+    <pubDate>Thu, 01 Apr 2021 07:12:19 +0000</pubDate>
+    <lastBuildDate>Thu, 01 Apr 2021 07:12:19 +0000</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
         <title>Useful Photo Album</title>
-        <description>&lt;h1 id=&quot;기술-spec&quot;&gt;기술 SPEC&lt;/h1&gt;
+        <description>&lt;h1 id=&quot;개발-이슈&quot;&gt;개발 이슈&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;loading response 구현&lt;/li&gt;
+  &lt;li&gt;배너 및 feature page 구현을 위한 작업(DB + RecyclerView)&lt;/li&gt;
+  &lt;li&gt;Design&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;기술-spec&quot;&gt;기술 SPEC&lt;/h1&gt;
 
 &lt;h3 id=&quot;dagger-hilt&quot;&gt;Dagger-Hilt&lt;/h3&gt;
 &lt;p&gt;DI는 Dagger-Hilt를 이용하였습니다.
